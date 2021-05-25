@@ -1,6 +1,8 @@
 package-as: LittleWigs
 wowi-archive-previous: no
 
+move-folders:
+    LittleWigs/Classic: LittleWigs_Classic
+
 ignore:
-  - .travis.yml
   - README.md
