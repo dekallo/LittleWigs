@@ -1,6 +1,6 @@
 
 BigWigs:AddColors("Shirrak the Dead Watcher", {
-	[-5041] = {"blue","yellow"},
+	["focus_fire"] = {"blue","yellow"},
 })
 
 BigWigs:AddColors("Exarch Maladaar", {

@@ -9,11 +9,11 @@ BigWigs:AddSounds("Blood Guard Porung", {
 })
 
 BigWigs:AddSounds("Warbringer O'mrogg", {
-	[-5894] = "warning",
+	["beatdown"] = "warning",
 })
 
 BigWigs:AddSounds("Warchief Kargath Bladefist", {
-	[-5899] = "warning",
+	["blade_dance"] = "warning",
 })
 
 BigWigs:AddSounds("The Shattered Halls Trash", {

@@ -10,11 +10,11 @@ BigWigs:AddColors("Blood Guard Porung", {
 })
 
 BigWigs:AddColors("Warbringer O'mrogg", {
-	[-5894] = {"blue","yellow"},
+	["beatdown"] = {"blue","yellow"},
 })
 
 BigWigs:AddColors("Warchief Kargath Bladefist", {
-	[-5899] = "yellow",
+	["blade_dance"] = "yellow",
 })
 
 BigWigs:AddColors("The Shattered Halls Trash", {

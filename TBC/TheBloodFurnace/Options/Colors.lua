@@ -8,5 +8,5 @@ BigWigs:AddColors("Broggok", {
 })
 
 BigWigs:AddColors("Keli'dan the Breaker", {
-	[-5388] = "red",
+	["burning_nova"] = "red",
 })

@@ -13,8 +13,9 @@ BigWigs:AddSounds("Gatewatcher Gyro-Kill", {
 })
 
 BigWigs:AddSounds("Nethermancer Sepethrea", {
-	[-5488] = {"alert","info"},
 	[35250] = "alarm",
+	[35312] = "alert",
 	[35314] = "warning",
 	[41951] = "long",
+	["inferno"] = {"alert","info"},
 })

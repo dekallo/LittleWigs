@@ -4,8 +4,8 @@ BigWigs:AddColors("Selin Fireheart", {
 })
 
 BigWigs:AddColors("Vexallus", {
-	[-5085] = "red",
 	[44335] = {"blue","orange"},
+	["pure_energy"] = "red",
 })
 
 BigWigs:AddColors("Priestess Delrissa", {
@@ -17,12 +17,12 @@ BigWigs:AddColors("Priestess Delrissa", {
 	[46193] = {"blue","yellow"},
 })
 
-BigWigs:AddColors("Kael'thas Sunstrider ", {
-	[-5180] = "yellow",
-	[-5167] = "red",
+BigWigs:AddColors("Kael'thas Sunstrider MT", {
 	[36819] = "red",
 	[44194] = "orange",
 	[44224] = "green",
+	["flame_strike"] = "red",
+	["shock_barrier"] = "yellow",
 })
 
 BigWigs:AddColors("Magisters' Terrace Trash", {

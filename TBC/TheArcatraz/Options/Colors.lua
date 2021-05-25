@@ -12,15 +12,15 @@ BigWigs:AddColors("Dalliah the Doomsayer", {
 })
 
 BigWigs:AddColors("Wrath-Scryer Soccothrates", {
-	[-5293] = {"blue","orange","red"},
 	[35759] = {"blue","yellow"},
+	["felfire"] = {"blue","orange","red"},
 })
 
 BigWigs:AddColors("Harbinger Skyriss", {
-	[-5335] = {"cyan","green"},
 	[36924] = {"blue","red"},
 	[37162] = {"blue","orange"},
 	[39415] = {"blue","yellow"},
+	["illusion"] = {"cyan","green"},
 })
 
 BigWigs:AddColors("The Arcatraz Trash", {

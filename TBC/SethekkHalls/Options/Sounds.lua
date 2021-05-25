@@ -1,8 +1,8 @@
 
 BigWigs:AddSounds("Anzu", {
-	[-5252] = "alert",
 	[40184] = "warning",
 	[40303] = "alarm",
+	["cyclone"] = "alert",
 })
 
 BigWigs:AddSounds("Talon King Ikiss", {

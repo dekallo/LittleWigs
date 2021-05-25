@@ -1,8 +1,8 @@
 
 BigWigs:AddColors("Commander Sarannis", {
-	[-5411] = {"cyan","yellow"},
 	[34794] = {"blue","red"},
 	[35096] = "orange",
+	["reinforcements"] = "yellow",
 })
 
 BigWigs:AddColors("High Botanist Freywinn", {
@@ -21,6 +21,6 @@ BigWigs:AddColors("Laj", {
 })
 
 BigWigs:AddColors("Warp Splinter", {
-	[-5478] = {"green","red"},
 	[34716] = {"blue","orange"},
+	["saplings"] = {"green","red"},
 })

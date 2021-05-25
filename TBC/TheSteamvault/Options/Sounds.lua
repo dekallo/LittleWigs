@@ -10,7 +10,7 @@ BigWigs:AddSounds("Mekgineer Steamrigger", {
 })
 
 BigWigs:AddSounds("Warlord Kalithresh", {
-	[-6003] = "warning",
 	[16172] = "alarm",
 	[36453] = "long",
+	["spell_reflection"] = "warning",
 })

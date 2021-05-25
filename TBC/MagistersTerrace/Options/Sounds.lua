@@ -3,7 +3,7 @@ BigWigs:AddSounds("Selin Fireheart", {
 	[44320] = "info",
 })
 
-BigWigs:AddSounds("Kael'thas Sunstrider ", {
+BigWigs:AddSounds("Kael'thas Sunstrider MT", {
 	[36819] = "long",
 	[44194] = "info",
 })

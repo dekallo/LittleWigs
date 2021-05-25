@@ -17,10 +17,11 @@ BigWigs:AddColors("Gatewatcher Gyro-Kill", {
 })
 
 BigWigs:AddColors("Nethermancer Sepethrea", {
-	[-5488] = {"blue","cyan"},
 	[35250] = {"blue","orange"},
+	[35312] = "blue",
 	[35314] = {"blue","red"},
 	[41951] = {"blue","yellow"},
+	["inferno"] = {"blue","cyan"},
 })
 
 BigWigs:AddColors("Pathaleon the Calculator", {
