@@ -20,9 +20,9 @@ local elementalsWarnings = 1
 
 local L = mod:GetLocale()
 if L then
-	L.elementals = -5235 -- Summon Elementals
-	L.elementals_desc = -5235
-	L.elementals_icon = -5235
+	L.elementals = "Summon Elementals"
+	L.elementals_desc = "When Darkweaver Syth reaches 90%, 55% and 15% remaining health, he summons 4 elementals to defend him."
+	L.elementals_icon = "Spell_Nature_ElementalPrecision_2"
 end
 
 -------------------------------------------------------------------------------

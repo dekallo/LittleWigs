@@ -14,7 +14,7 @@ mod:RegisterEnableMob(19218)
 
 local L = mod:GetLocale()
 if L then
-	L.name = "Gatewatcher Gyro-Kill"
+	L.bossName = "Gatewatcher Gyro-Kill"
 end
 
 --------------------------------------------------------------------------------
@@ -26,10 +26,6 @@ function mod:GetOptions()
 		39193, -- Shadow Power
 		35311, -- Stream of Machine Fluid
 	}
-end
-
-function mod:OnRegister()
-	self.displayName = L.name -- no journal entry
 end
 
 function mod:OnBossEnable()

@@ -19,11 +19,11 @@ local addsAlive = 0
 
 local L = mod:GetLocale()
 if L then
-	L.mender = -5412
+	L.mender = "Bloodwarder Mender"
 
-	L.saplings = -5478 -- Summon Saplings
-	L.saplings_desc = -5478
-	L.saplings_icon = -5478
+	L.saplings = "Summon Saplings"
+	L.saplings_desc = "Warp Splinter raises 6 Saplings to life to aid him in battle. After 25 sec, the Saplings will sacrifice themselves, healing Warp Splinter for an amount equal to their remaining health."
+	L.saplings_icon = "SPELL_NATURE_HEALINGWAY"
 end
 
 --------------------------------------------------------------------------------

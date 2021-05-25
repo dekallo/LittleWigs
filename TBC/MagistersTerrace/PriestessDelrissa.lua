@@ -23,9 +23,9 @@ mod:RegisterEnableMob(24553, -- Apoko
 
 local L = mod:GetLocale()
 if L then
-	L.apoko = -5104
-	L.yazzai = -5101
-	L.ellrys = -5099
+	L.apoko = "Apoko"
+	L.yazzai = "Yazzai"
+	L.ellrys = "Ellrys Duskhallow"
 end
 
 --------------------------------------------------------------------------------

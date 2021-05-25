@@ -17,13 +17,13 @@ if L then
 	-- Don't look so smug! I know what you're thinking, but Tempest Keep was merely a setback. Did you honestly believe I would trust the future to some blind, half-night elf mongrel?
 	L.warmup_trigger = "Don't look so smug!"
 
-	L.flame_strike = -5167
-	L.flame_strike_desc = -5167
-	L.flame_strike_icon = -5167
+	L.flame_strike = "Flame Strike"
+	L.flame_strike_desc = "Kael'thas Sunstrider calls down a pillar of flame, burning all players within 6 yards of the targeted area for Fire damage every second for 8 sec."
+	L.flame_strike_icon = "Spell_Fire_SelfDestruct"
 
-	L.shock_barrier = -5180
-	L.shock_barrier_desc = -5180
-	L.shock_barrier_icon = -5180
+	L.shock_barrier = "Shock Barrier"
+	L.shock_barrier_desc = "Kael'thas Sunstrider surrounds himself in a barrier, absorbing 10000 damage and making him immune to interrupt effects."
+	L.shock_barrier_icon = "Spell_Nature_LightningShield"
 end
 
 --------------------------------------------------------------------------------

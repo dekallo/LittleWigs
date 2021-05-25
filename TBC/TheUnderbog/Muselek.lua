@@ -15,7 +15,7 @@ local L = mod:GetLocale()
 if L then
 	L.warmup_trigger = "Don't look so smug!"
 
-	L.claw = -6031
+	L.claw = "Claw"
 end
 
 -------------------------------------------------------------------------------

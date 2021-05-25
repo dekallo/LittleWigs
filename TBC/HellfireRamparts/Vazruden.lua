@@ -17,7 +17,7 @@ mod:RegisterEnableMob(17537, 17536) -- Vazruden, Nazan <Vazruden's Mount>
 
 local L = mod:GetLocale()
 if L then
-	L.nazan = -5072
+	L.nazan = "Nazan"
 end
 
 -------------------------------------------------------------------------------

@@ -12,9 +12,9 @@ mod:RegisterEnableMob(18373)
 
 local L = mod:GetLocale()
 if L then
-	L.avatar = -5045 -- Avatar of the Martyred
-	L.avatar_desc = -5045
-	L.avatar_icon = -5045
+	L.avatar = "Avatar of the Martyred"
+	L.avatar_desc = "When Exarch Maladaar reaches 25% remaining health, he summons an Avatar of the Martyred."
+	L.avatar_icon = "Spell_Shadow_RaiseDead"
 end
 
 -------------------------------------------------------------------------------

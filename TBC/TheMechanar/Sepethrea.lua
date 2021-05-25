@@ -20,9 +20,9 @@ local mobsFound = 0
 
 local L = mod:GetLocale()
 if L then
-	L.inferno = -5488 -- Inferno
-	L.inferno_desc = -5167
-	L.inferno_icon = -5167
+	L.inferno = "Inferno"
+	L.inferno_desc = "Kael'thas Sunstrider calls down a pillar of flame, burning all players within 6 yards of the targeted area for Fire damage every second for 8 sec."
+	L.inferno_icon = "Spell_Fire_SelfDestruct"
 end
 
 --------------------------------------------------------------------------------

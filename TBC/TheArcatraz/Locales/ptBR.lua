@@ -1,16 +1,15 @@
 local L = BigWigs:NewBossLocale("Harbinger Skyriss", "ptBR")
 if not L then return end
 if L then
-	-- I knew the prince would be angry, but I... I have not been myself. I had to let them out! The great one speaks to me, you see. Wait--outsiders. Kael'thas did not send you! Good... I'll just tell the prince you released the prisoners!
 	L.first_cell_trigger = "Eu não fui eu mesmo"
-	-- Behold, yet another terrifying creature of incomprehensible power!
 	L.second_and_third_cells_trigger = "de poder incompreensível"
-	-- Anarchy! Bedlam! Oh, you are so wise! Yes, I see it now, of course!
 	L.fourth_cell_trigger = "Anarquia! Tumulto!"
-	-- It is a small matter to control the mind of the weak... for I bear allegiance to powers untouched by time, unmoved by fate. No force on this world or beyond harbors the strength to bend our knee... not even the mighty Legion!
 	L.warmup_trigger = "a poderosa Legião"
 
 	L.prison_cell = "Cela da Prisão"
+
+	L.illusion = "A Ilusão do Precursor"
+	L.illusion_desc = "Quando o Precursor Skiriss chega a 66% e 33% de vida, ele cria uma cópia ilusória de si mesmo. Essa cópia usa Dilaceração Mental para atacar os jogadores."
 end
 
 L = BigWigs:NewBossLocale("The Arcatraz Trash", "ptBR")
@@ -20,4 +19,10 @@ if L then
 	L.soul_eater = "Devorador de Almas Eredar"
 	L.temptress = "Tentadora Rancorosa"
 	L.abyssal = "Abissal Gigantesco"
+end
+
+L = BigWigs:NewBossLocale("Wrath-Scryer Soccothrates", "ptBR")
+if L then
+	L.felfire = "Fogovil"
+	L.felfire_desc = "O Iráugure Socótrates derruba todos os jogadores num raio de 10. Depois de derrubar todos os jogadores, o Iráugure Socótrates investe contra um jogador, deixando uma muralha de Fogovil em seu rastro. O Fogovil causa dano de Fogo a cada segundo a todos os jogadores em contato com ele."
 end

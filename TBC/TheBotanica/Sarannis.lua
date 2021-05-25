@@ -13,11 +13,11 @@ mod:RegisterEnableMob(17976)
 
 local L = mod:GetLocale()
 if L then
-	L.mender = -5412
+	L.mender = "Bloodwarder Mender"
 
-	L.reinforcements = -5411 -- Summon Reinforcements
-	L.reinforcements_desc = -5411
-	L.reinforcements_icon = -5411
+	L.reinforcements = "Summon Reinforcements"
+	L.reinforcements_desc = "Commander Sarannis summons 3 Bloodwarder Reservists and a Bloodwarder Mender every minute."
+	L.reinforcements_icon = "Ability_Warrior_BattleShout"
 end
 
 --------------------------------------------------------------------------------

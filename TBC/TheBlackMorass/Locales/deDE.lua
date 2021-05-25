@@ -6,3 +6,8 @@ if L then
 
 	L.medivh = "Medivh"
 end
+
+L = BigWigs:NewBossLocale("Aeonus", "deDE")
+if L then
+	--L.reset_trigger = "No! Damn this feeble, mortal coil!"
+end

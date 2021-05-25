@@ -14,9 +14,9 @@ mod:RegisterEnableMob(17798)
 
 local L = mod:GetLocale()
 if L then
-	L.spell_reflection = -6003 -- Spell Reflection
-	L.spell_reflection_desc = -6003
-	L.spell_reflection_icon = -6003
+	L.spell_reflection = "Spell Reflection"
+	L.spell_reflection_desc = "Warlord Kalithresh encases himself in magic, reflecting spells back at their caster 100% of the time for 8 sec."
+	L.spell_reflection_icon = "Ability_Warrior_ShieldReflection"
 end
 
 -------------------------------------------------------------------------------

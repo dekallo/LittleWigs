@@ -12,9 +12,9 @@ mod:RegisterEnableMob(18371)
 
 local L = mod:GetLocale()
 if L then
-	L.focus_fire = -5041
-	L.focus_fire_desc = -5041
-	L.focus_fire_icon = -5041
+	L.focus_fire = "Focus Fire"
+	L.focus_fire_desc = "Shirrak the Dead Watcher targets a player's location, firing a barrage of missiles that inflict Fire damage to all players within 12 yards."
+	L.focus_fire_icon = "Ability_Hunter_SniperShot"
 end
 
 -------------------------------------------------------------------------------

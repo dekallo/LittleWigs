@@ -15,9 +15,9 @@ mod:RegisterEnableMob(16809)
 
 local L = mod:GetLocale()
 if L then
-	L.beatdown = -5894 -- Beatdown
-	L.beatdown_desc = -5894
-	L.beatdown_icon = -5894
+	L.beatdown = "Beatdown"
+	L.beatdown_desc = "Warbringer O'mrogg chooses a random player and beats them down, clearing all threat and giving a large amount of threat to his Beatdown target."
+	L.beatdown_icon = "Ability_Warrior_FocusedRage"
 end
 
 --------------------------------------------------------------------------------

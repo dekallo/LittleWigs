@@ -15,9 +15,9 @@ mod:RegisterEnableMob(16808)
 
 local L = mod:GetLocale()
 if L then
-	L.blade_dance = -5899 -- Blade Dance
-	L.blade_dance_desc = -5899
-	L.blade_dance_icon = -5899
+	L.blade_dance = "Blade Dance"
+	L.blade_dance_desc = "Warchief Kargath Bladefist enters a blade dance, charging to several random players, inflicting Physical damage to them and all nearby players."
+	L.blade_dance_icon = "Ability_Warrior_Bladestorm"
 end
 
 --------------------------------------------------------------------------------

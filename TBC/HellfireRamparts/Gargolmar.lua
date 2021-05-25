@@ -13,7 +13,7 @@ mod:RegisterEnableMob(17306)
 
 local L = mod:GetLocale()
 if L then
-	L.hellfire_watcher = -5053
+	L.hellfire_watcher = "Hellfire Watcher"
 end
 
 -------------------------------------------------------------------------------

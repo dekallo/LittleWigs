@@ -1,16 +1,15 @@
 local L = BigWigs:NewBossLocale("Harbinger Skyriss", "esES") or BigWigs:NewBossLocale("Harbinger Skyriss", "esMX")
 if not L then return end
 if L then
-	-- I knew the prince would be angry, but I... I have not been myself. I had to let them out! The great one speaks to me, you see. Wait--outsiders. Kael'thas did not send you! Good... I'll just tell the prince you released the prisoners!
 	--L.first_cell_trigger = "I have not been myself"
-	-- Behold, yet another terrifying creature of incomprehensible power!
 	--L.second_and_third_cells_trigger = "of incomprehensible power"
-	-- Anarchy! Bedlam! Oh, you are so wise! Yes, I see it now, of course!
 	--L.fourth_cell_trigger = "Anarchy! Bedlam!"
-	-- It is a small matter to control the mind of the weak... for I bear allegiance to powers untouched by time, unmoved by fate. No force on this world or beyond harbors the strength to bend our knee... not even the mighty Legion!
 	--L.warmup_trigger = "the mighty Legion"
 
 	--L.prison_cell = "Prison Cell"
+
+	L.illusion = "Ilusión del presagista"
+	L.illusion_desc = "Cuando la salud del presagista Cieloriss llega al 66% y al 33%, crea una ilusión de sí mismo. La ilusión del presagista Cieloriss usa Desgarro mental para atacar a los jugadores."
 end
 
 L = BigWigs:NewBossLocale("The Arcatraz Trash", "esES") or BigWigs:NewBossLocale("The Arcatraz Trash", "esMX")
@@ -20,4 +19,10 @@ if L then
 	L.soul_eater = "Devoraalmas eredar"
 	L.temptress = "Tentadora maliciosa"
 	L.abyssal = "Abisal inmenso"
+end
+
+L = BigWigs:NewBossLocale("Wrath-Scryer Soccothrates", "esES") or BigWigs:NewBossLocale("Wrath-Scryer Soccothrates", "esMX")
+if L then
+	L.felfire = "Fuego vil"
+	L.felfire_desc = "El arúspice de cólera Soccothrates repele a todos los jugadores en un radio de 10 m. Tras repeler a todos los jugadores, el arúspice de cólera Soccothrates carga contra un jugador, lo que crea un muro de Fuego vil a su paso. Fuego vil inflige daño de Fuego cada segundo a todos los jugadores que estén en él."
 end

@@ -19,7 +19,7 @@ local addsAlive = 0
 
 local L = mod:GetLocale()
 if L then
-	L.white_seedling = -5453
+	L.white_seedling = "White Seedling"
 end
 
 --------------------------------------------------------------------------------

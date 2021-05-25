@@ -1,16 +1,15 @@
 local L = BigWigs:NewBossLocale("Harbinger Skyriss", "deDE")
 if not L then return end
 if L then
-	-- I knew the prince would be angry, but I... I have not been myself. I had to let them out! The great one speaks to me, you see. Wait--outsiders. Kael'thas did not send you! Good... I'll just tell the prince you released the prisoners!
 	L.first_cell_trigger = "ich war nicht ich selbst"
-	-- Behold, yet another terrifying creature of incomprehensible power!
 	L.second_and_third_cells_trigger = "von unfassbarer Macht"
-	-- Anarchy! Bedlam! Oh, you are so wise! Yes, I see it now, of course!
 	L.fourth_cell_trigger = "Anarchie! Chaos!"
-	-- It is a small matter to control the mind of the weak... for I bear allegiance to powers untouched by time, unmoved by fate. No force on this world or beyond harbors the strength to bend our knee... not even the mighty Legion!
 	L.warmup_trigger = "die mächtige Legion"
 
 	L.prison_cell = "Gefängniszelle"
+
+	L.illusion = "Die Illusion des Herolds"
+	L.illusion_desc = "Wenn Herold Horizontiss 66% und 33% seiner verbleibenden Gesundheit erreicht, erzeugt er eine Illusion seiner selbst. Die Illusion des Herolds Horizontiss setzt Gedankenwunde ein, um Spielercharaktere anzugreifen."
 end
 
 L = BigWigs:NewBossLocale("The Arcatraz Trash", "deDE")
@@ -20,4 +19,10 @@ if L then
 	L.soul_eater = "Seelenfresser der Eredar"
 	L.temptress = "Boshafte Verführerin"
 	L.abyssal = "Riesengroßer Abyss"
+end
+
+L = BigWigs:NewBossLocale("Wrath-Scryer Soccothrates", "deDE")
+if L then
+	L.felfire = "Teufelsfeuer"
+	L.felfire_desc = "Zornseher Soccothrates schleudert alle Spielercharaktere im Umkreis von 10 Metern weg. Nachdem er alle Spielercharaktere weggestoßen hat, stürmt Zornseher Soccothrates auf einen Spielercharakter zu und hinterlässt eine Spur von Teufelsfeuer auf seinem Weg. Teufelsfeuer fügt darin befindlichen Spielercharakteren pro Sekunde Feuerschaden zu."
 end

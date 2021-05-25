@@ -22,13 +22,13 @@ local castingScreech = false
 
 local L = mod:GetLocale()
 if L then
-	L.cyclone = -5252 -- Cyclone of Feathers
-	L.cyclone_desc = -5252
-	L.cyclone_icon = -5252
+	L.cyclone = "Cyclone of Feathers"
+	L.cyclone_desc = "Anzu cyclones a player, preventing all actions but making them invulnerable for 6 sec."
+	L.cyclone_icon = "Spell_Nature_Cyclone"
 
-	L.brood = -5253 -- Brood of Anzu
-	L.brood_desc = -5253
-	L.brood_icon = -5253
+	L.brood = "Brood of Anzu"
+	L.brood_desc = "When Anzu reaches 75% and 35% remaining health, he banishes himself for 1 minute, making him immune to all damage and unable to move. While banished, Anzu will continue to use abilities and will summon the Brood of Anzu to defend him. Defeating all Brood of Anzu will cause Anzu to cancel the banish effect early."
+	L.brood_icon = "INV_Feather_13"
 end
 
 -------------------------------------------------------------------------------

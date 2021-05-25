@@ -13,11 +13,11 @@ mod:RegisterEnableMob(17770)
 
 local L = mod:GetLocale()
 if L then
-	L.foul_spores = -6008 -- Foul Spores
-	L.foul_spores_desc = -6008
-	L.foul_spores_icon = -6008
+	L.foul_spores = "Foul Spores"
+	L.foul_spores_desc = "When Hungarfen reaches 20% health remaining he releases foul spores, leeching 400 health from all players within 15 yards every second for 11 sec."
+	L.foul_spores_icon = "Spell_Nature_StrangleVines"
 
-	L.mushroom = -6006 -- Underbog Mushroom
+	L.mushroom = "Underbog Mushroom"
 end
 
 -------------------------------------------------------------------------------

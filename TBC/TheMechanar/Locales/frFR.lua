@@ -6,10 +6,16 @@ end
 
 L = BigWigs:NewBossLocale("Gatewatcher Iron-Hand", "frFR")
 if L then
-	L.name = "Gardien de porte Main-en-Fer"
+	L.bossName = "Gardien de porte Main-en-Fer"
 end
 
 L = BigWigs:NewBossLocale("Gatewatcher Gyro-Kill", "frFR")
 if L then
-	L.name = "Gardien de porte Gyro-Meurtre"
+	L.bossName = "Gardien de porte Gyro-Meurtre"
+end
+
+L = BigWigs:NewBossLocale("Nethermancer Sepethrea", "frFR")
+if L then
+	L.inferno = "Inferno"
+	L.inferno_desc = "Kael’thas Haut-Soleil invoque un pilier de flammes brûlant tous les personnages-joueurs se trouvant à moins de 6 mètres de la zone ciblée et infligeant des dégâts de Feu toutes les secondes pendant 8 s."
 end

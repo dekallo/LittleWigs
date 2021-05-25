@@ -1,16 +1,15 @@
 local L = BigWigs:NewBossLocale("Harbinger Skyriss", "zhCN")
 if not L then return end
 if L then
-	-- 我知道王子殿下会非常生气，但是我……我不知道自己怎么回事，居然把它们都放出来了！主人在对我说话，你也看到了……等等，有人来了。你们不是凯尔萨斯派来的！好极了……我会告诉王子殿下，是你们放走了囚犯！
 	L.first_cell_trigger = "我不知道自己怎么回事"
-	-- 看吧！又一个拥有深不可测的力量的恐怖生物！
 	L.second_and_third_cells_trigger = "深不可测的力量的恐怖生物"
-	-- 混乱！疯狂！啊，您真是太睿智了！是的，我明白了，当然！
 	L.fourth_cell_trigger = "混乱！疯狂！"
-	-- 控制弱者的思想是非常容易的事情……因为我所效忠的力量不会为时间所侵蚀，亦不被命运所左右。这个世界上没有什么力量能让我们屈膝……即使是燃烧军团也不行！
 	L.warmup_trigger = "燃烧军团也不行"
 
 	L.prison_cell = "监狱牢笼"
+
+	L.illusion = "预言者的幻象"
+	L.illusion_desc = "当预言者斯克瑞斯的生命值降低至66%和33%时，他会制造一个自己的幻象。预言者斯克瑞斯的幻象用心灵撕裂攻击玩家。"
 end
 
 L = BigWigs:NewBossLocale("The Arcatraz Trash", "zhCN")
@@ -20,4 +19,10 @@ if L then
 	L.soul_eater = "艾瑞达食魂者"
 	L.temptress = "恶毒的女妖"
 	L.abyssal = "巨型深渊火魔"
+end
+
+L = BigWigs:NewBossLocale("Wrath-Scryer Soccothrates", "zhCN")
+if L then
+	L.felfire = "邪火"
+	L.felfire_desc = "天怒预言者苏克拉底将10码范围内的所有玩家击退。击退所有玩家后，天怒预言者苏克拉底向一名玩家冲锋，在路径上留下一堵邪火之墙。邪火每秒对身在其中的所有玩家造成火焰伤害。"
 end

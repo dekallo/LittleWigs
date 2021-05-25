@@ -14,9 +14,9 @@ mod:RegisterEnableMob(18732)
 
 local L = mod:GetLocale()
 if L then
-	L.draw_shadows = -5267 -- Draw Shadows
-	L.draw_shadows_desc = -5267
-	L.draw_shadows_icon = -5267
+	L.draw_shadows = "Draw Shadows"
+	L.draw_shadows_desc = "Grandmaster Vorpil teleports to his platform and summons all players to him. After summoning all players, Grandmaster Vorpil calls down a Rain of Fire, burning all players on the platform for Fire damage every second for 6 sec."
+	L.draw_shadows_icon = "Spell_Shadow_SummonVoidWalker"
 end
 
 -------------------------------------------------------------------------------
@@ -25,10 +25,10 @@ end
 
 function mod:GetOptions()
 	return {
-		"shadows", -- Draw Shadows
+		"draw_shadows", -- Draw Shadows
 		38791, -- Banish
 	},{
-		["shadows"] = "general",
+		["draw_shadows"] = "general",
 		[38791] = "heroic",
 	}
 end

@@ -31,9 +31,9 @@ if L then
 
 	L.prison_cell = "Prison Cell"
 
-	L.illusion = -5335 -- Harbringer's Illusion
-	L.illusion_desc = -5335
-	L.illusion_icon = -5335
+	L.illusion = "Harbinger's Illusion"
+	L.illusion_desc = "When Harbinger Skryiss reaches 66% and 33% remaining health, he creates an illusion of himself. The illusion of Harbinger Skyriss uses Mind Rend to assault players."
+	L.illusion_icon = "Spell_Arcane_PrismaticCloak"
 end
 
 --------------------------------------------------------------------------------

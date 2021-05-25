@@ -13,9 +13,9 @@ mod:RegisterEnableMob(17377)
 
 local L = mod:GetLocale()
 if L then
-	L.burning_nova = -5388 -- Burning Nova
-	L.burning_nova_desc = -5388
-	L.burning_nova_icon = -5388
+	L.burning_nova = "Burning Nova"
+	L.burning_nova_desc = "Keli'dan the Breaker banishes himself, making him invulnerable, and begins to cast a Fire Nova. Fire Nova inflicts Fire damage to all players within 20 yards of Keli'dan when he completes his cast."
+	L.burning_nova_icon = "Spell_Shadow_Cripple"
 end
 
 -------------------------------------------------------------------------------

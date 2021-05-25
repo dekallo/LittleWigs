@@ -17,9 +17,8 @@ local L = mod:GetLocale()
 if L then
 	L.energy_discharged = "%s discharged" -- %s = Pure Energy (npc ID = 24745)
 
-	L.pure_energy = -5085
-	L.pure_energy_desc = -5085
-	L.pure_energy_icon = -5085
+	L.pure_energy = "Pure Energy"
+	L.pure_energy_desc = "Vexallus summons a Pure Energy whenever his remaining health is reduced by 15%."
 end
 
 --------------------------------------------------------------------------------

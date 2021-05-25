@@ -15,9 +15,9 @@ mod:RegisterEnableMob(20886)
 
 local L = mod:GetLocale()
 if L then
-	L.felfire = -5293 -- Felfire
-	L.felfire_desc = -5293
-	L.felfire_icon = -5293 -- "spell_fire_felflamebreath"
+	L.felfire = "Felfire"
+	L.felfire_desc = "Wrath-Scryer Soccothrates knocks all players within 10 yards away. After knocking all players away, Wrath-Scryer Soccothrates charges a player, leaving a wall of Felfire in his wake. Felfire inflicts Fire damage every second to all players in it."
+	L.felfire_icon = "Spell_Fire_FelFlameBreath"
 end
 
 --------------------------------------------------------------------------------

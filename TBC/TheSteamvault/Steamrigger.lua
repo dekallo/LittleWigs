@@ -22,9 +22,8 @@ local L = mod:GetLocale()
 if L then
 	L.mech_trigger = "Tune 'em up good, boys!"
 
-	L.mechanics = -5999 -- Steamrigger Mechanics
-	L.mechanics_desc = -5999
-	L.mechanics_icon = -5999
+	L.mechanics = "Steamrigger Mechanics"
+	L.mechanics_desc = "When Mekgineer Steamrigger reaches 75%, 50% and 25% remaining health, he summons Steamrigger Mechanics to repair him."
 end
 
 -------------------------------------------------------------------------------
@@ -69,7 +68,7 @@ end
 
 function mod:CHAT_MSG_MONSTER_YELL(_, msg)
 	if msg == L.mech_trigger or msg:find(L.mech_trigger, nil, true) then
-		self:MessageOld("mechanics", "yellow", nil, CL.incoming:format(L.mechanics), L.mechanics_icon)
+		self:MessageOld("mechanics", "yellow", nil, CL.incoming:format(L.mechanics), false)
 	end
 end
 
@@ -78,7 +77,7 @@ function mod:UNIT_HEALTH(event, unit)
 	local hp = self:GetHealth(unit)
 	if hp < nextAddWarning then
 		nextAddWarning = nextAddWarning - 25
-		self:MessageOld("mechanics", "red", nil, CL.soon:format(L.mechanics), L.mechanics_icon)
+		self:MessageOld("mechanics", "red", nil, CL.soon:format(L.mechanics), false)
 
 		while nextAddWarning >= 25 and hp < nextAddWarning do
 			-- account for high-level characters hitting multiple thresholds
