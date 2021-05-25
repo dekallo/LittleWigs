@@ -2,6 +2,6 @@
 ..\FrameXML\UI.xsd">
 
 <!-- <Include file="Deadmines\modules.xml"/> -->
-<Include file="ShadowfangKeep\modules.xml"/>
+<!-- <Include file="ShadowfangKeep\modules.xml"/> -->
 
 </Ui>

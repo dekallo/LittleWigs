@@ -1,8 +1,8 @@
 package-as: LittleWigs
 wowi-archive-previous: no
 
-move-folders:
-    LittleWigs/Classic: LittleWigs_Classic
+# move-folders:
+#   LittleWigs/Classic: LittleWigs_Classic
 
 ignore:
-  - README.md
+  - Classic
