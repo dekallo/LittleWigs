@@ -6,7 +6,7 @@
 local mod, CL = BigWigs:NewBoss("Dalliah the Doomsayer", 552, 549)
 if not mod then return end
 mod:RegisterEnableMob(20885)
-mod.engageId = 1913
+-- mod.engageId = 1913
 -- mod.respawnTime = 0 -- resets, doesn't respawn
 
 --------------------------------------------------------------------------------
@@ -30,6 +30,8 @@ function mod:OnBossEnable()
 
 	self:Log("SPELL_CAST_START", "GiftOfTheDoomsayer", 36173, 39009) -- normal, heroic
 	self:Log("SPELL_AURA_APPLIED", "GiftOfTheDoomsayerApplied", 36173, 39009)
+
+	self:Death("Win", 20885)
 end
 
 --------------------------------------------------------------------------------
@@ -49,7 +51,7 @@ do
 	local prev = 0
 	function mod:WhirlwindDamage(args)
 		if self:Me(args.destGUID) then
-			local t = GetTime()
+			local t = args.time
 			if t - prev > (self:Melee() and 6 or 1.5) then
 				prev = t
 				self:MessageOld(36175, "blue", "alert", CL.you:format(args.spellName))

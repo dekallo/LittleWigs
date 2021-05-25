@@ -5,7 +5,7 @@
 local mod, CL = BigWigs:NewBoss("Hydromancer Thespia", 545, 573)
 if not mod then return end
 mod:RegisterEnableMob(17797)
-mod.engageId = 1942
+-- mod.engageId = 1942
 -- mod.respawnTime = 0 -- resets, doesn't respawn
 
 -------------------------------------------------------------------------------
@@ -29,6 +29,8 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_APPLIED", "EnvelopingWinds", 31718)
 	self:Log("SPELL_AURA_APPLIED", "LungBurst", 31481)
 	self:Log("SPELL_AURA_REMOVED", "AuraRemoved", 31481, 31718)
+
+	self:Death("Win", 17797)
 end
 
 -------------------------------------------------------------------------------
@@ -39,7 +41,7 @@ do
 	local prev = 0
 	function mod:LightningCloud(args)
 		if self:Me(args.destGUID) then
-			local t = GetTime()
+			local t = args.time
 			if t - prev > 1.5 then
 				prev = t
 				self:MessageOld(args.spellId, "blue", "alert", CL.you:format(args.spellName))

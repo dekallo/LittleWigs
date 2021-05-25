@@ -5,7 +5,7 @@
 local mod, CL = BigWigs:NewBoss("Laj", 553, 561)
 if not mod then return end
 mod:RegisterEnableMob(17980)
-mod.engageId = 1927
+-- mod.engageId = 1927
 -- mod.respawnTime = 0 -- resets, doesn't respawn
 
 --------------------------------------------------------------------------------
@@ -21,6 +21,8 @@ end
 function mod:OnBossEnable()
 	self:Log("SPELL_AURA_APPLIED", "AllergicReaction", 34697)
 	self:Log("SPELL_AURA_REMOVED", "AllergicReactionRemoved", 34697)
+
+	self:Death("Win", 17980)
 end
 
 --------------------------------------------------------------------------------

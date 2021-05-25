@@ -5,7 +5,7 @@
 local mod, CL = BigWigs:NewBoss("Talon King Ikiss", 556, 543)
 if not mod then return end
 mod:RegisterEnableMob(18473)
-mod.engageId = 1902
+-- mod.engageId = 1902
 -- mod.respawnTime = 0 -- resets, doesn't respawn
 
 -------------------------------------------------------------------------------
@@ -27,16 +27,20 @@ function mod:GetOptions()
 end
 
 function mod:OnBossEnable()
-	self:RegisterUnitEvent("UNIT_HEALTH", nil,  "boss1")
 	self:Log("SPELL_CAST_SUCCESS", "ArcaneExplosion", 38197, 40425) -- normal, heroic
 	self:Log("SPELL_AURA_APPLIED", "Polymorph", 38245, 43309) -- normal, heroic
 	self:Log("SPELL_AURA_REMOVED", "PolymorphRemoved", 38245, 43309)
 	self:Log("SPELL_CAST_SUCCESS", "SlowCast", 35032)
 	self:Log("SPELL_AURA_APPLIED", "Slow", 35032)
 	self:Log("SPELL_AURA_REMOVED", "SlowRemoved", 35032)
+
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", "CheckForEngage")
+	self:Death("Win", 18473)
 end
 
 function mod:OnEngage()
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
+	self:RegisterEvent("UNIT_HEALTH")
 	explosionWarnings = 1
 	if not self:Normal() then
 		self:CDBar(35032, 12.8) -- Slow
@@ -101,7 +105,8 @@ end
 do
 	local warnAt = { 85, 55, 30 }
 	function mod:UNIT_HEALTH(event, unit)
-		local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
+		if self:MobId(self:UnitGUID(unit)) ~= 18473 then return end
+		local hp = self:GetHealth(unit)
 		if hp < warnAt[explosionWarnings] then
 			explosionWarnings = explosionWarnings + 1
 			self:MessageOld(38197, "orange", nil, CL.soon:format(self:SpellName(38197))) -- Arcane Explosion
@@ -112,7 +117,7 @@ do
 			end
 
 			if explosionWarnings > #warnAt then
-				self:UnregisterUnitEvent(event, unit)
+				self:UnregisterEvent(event, unit)
 			end
 		end
 	end

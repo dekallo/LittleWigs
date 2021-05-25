@@ -13,7 +13,7 @@ mod:RegisterEnableMob(
 	18171, -- Infinite Defiler
 	18172 -- Infinite Saboteur
 )
-mod.engageId = 1906
+-- mod.engageId = 1906
 -- mod.respawnTime = 0 -- you have to talk to Taretha again if you wipe
 
 --------------------------------------------------------------------------------
@@ -44,6 +44,13 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_APPLIED", "MagicDisruptionAura", 33834)
 	self:Log("SPELL_AURA_REMOVED", "MagicDisruptionAuraRemoved", 33834)
 	self:Log("SPELL_AURA_APPLIED", "SandBreath", 31914)
+
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", "CheckForEngage")
+	self:Death("Win", 18096)
+end
+
+function mod:OnEngage()
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
 end
 
 -------------------------------------------------------------------------------

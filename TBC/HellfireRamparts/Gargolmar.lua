@@ -9,6 +9,14 @@ mod:RegisterEnableMob(17306)
 -- mod.respawnTime = 0 -- resets, doesn't respawn
 
 -------------------------------------------------------------------------------
+--  Localization
+
+local L = mod:GetLocale()
+if L then
+	L.hellfire_watcher = -5053
+end
+
+-------------------------------------------------------------------------------
 --  Initialization
 --
 
@@ -20,7 +28,7 @@ function mod:GetOptions()
 		14032, -- Shadow Word: Pain
 	}, {
 		[36814] = "general",
-		[12039] = -5053, -- Hellfire Watcher
+		[12039] = L.hellfire_watcher, -- Hellfire Watcher
 	}
 end
 
@@ -49,7 +57,7 @@ end
 do
 	local prev = 0
 	function mod:Heal(args)
-		local t = GetTime()
+		local t = args.time
 		if t - prev > 1 then
 			prev = t
 			self:MessageOld(args.spellId, "red", self:Interrupter() and "warning", CL.casting:format(args.spellName))
@@ -60,7 +68,7 @@ end
 do
 	local prev = 0
 	function mod:Renew(args)
-		local t = GetTime()
+		local t = args.time
 		if t - prev > 1 then
 			prev = t
 			self:MessageOld(args.spellId, "yellow", self:Interrupter() and "warning", CL.casting:format(args.spellName))
@@ -73,7 +81,7 @@ do
 	function mod:RenewApplied(args)
 		if not self:Dispeller("magic", true) then return end
 
-		local t = GetTime()
+		local t = args.time
 		local isANewPairOfCasts = t - prev > 1
 		if isANewPairOfCasts or (prevGUID ~= args.destGUID) then
 			prev = t

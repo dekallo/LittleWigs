@@ -6,7 +6,7 @@
 local mod, CL = BigWigs:NewBoss("Grand Warlock Nethekurse", 540, 566)
 if not mod then return end
 mod:RegisterEnableMob(16807)
-mod.engageId = 1936
+-- mod.engageId = 1936
 -- mod.respawnTime = 0 -- resets, doesn't respawn
 
 --------------------------------------------------------------------------------
@@ -28,7 +28,13 @@ function mod:OnBossEnable()
 	self:Log("SPELL_MISSED", "ConsumptionDamage", 35951)
 	self:Log("SPELL_AURA_APPLIED", "DarkSpin", 30502)
 
-	self:RegisterUnitEvent("UNIT_HEALTH", nil, "boss1")
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", "CheckForEngage")
+	self:Death("Win", 16807)
+end
+
+function mod:OnEngage()
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
+	self:RegisterEvent("UNIT_HEALTH")
 end
 
 --------------------------------------------------------------------------------
@@ -47,7 +53,7 @@ do
 	local prev = 0
 	function mod:ConsumptionDamage(args) -- Lesser Shadow Fissure spellcast
 		if self:Me(args.destGUID) then
-			local t = GetTime()
+			local t = args.time
 			if t-prev > 1.5 then
 				prev = t
 				self:MessageOld(30496, "blue", "alarm", CL.underyou:format(self:SpellName(30496)))
@@ -61,9 +67,10 @@ function mod:DarkSpin(args)
 end
 
 function mod:UNIT_HEALTH(event, unit)
-	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
+	if self:MobId(self:UnitGUID(unit)) ~= 16807 then return end
+	local hp = self:GetHealth(unit)
 	if hp < 30 then
-		self:UnregisterUnitEvent(event, unit)
+		self:UnregisterEvent(event)
 		self:MessageOld(30502, "green", nil, CL.soon:format(self:SpellName(30502)), false) -- Dark Spin
 	end
 end

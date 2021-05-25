@@ -54,14 +54,15 @@ end
 
 function mod:GOSSIP_SHOW()
 	if self:GetOption("custom_on_autotalk") then
-		if C_GossipInfo.GetNumAvailableQuests() > 0 or C_GossipInfo.GetNumActiveQuests() > 0 then return end -- let the player take / turn in the quest
+		if GetNumGossipAvailableQuests() > 0 or GetNumGossipActiveQuests() > 0 then return end -- let the player take / turn in the quest
 
 		-- If the player is in a group, do not free Thrall automatically,
 		-- because they may deny others a chance to turn in the quest.
 		local mobId = self:MobId(self:UnitGUID("npc"))
 		if mobId == 17876 and GetNumGroupMembers() > 0 then
-			local _, _, completed = C_Scenario.GetCriteriaInfo(2)
-			if not completed then return end
+			-- local _, _, completed = C_Scenario.GetCriteriaInfo(2)
+			-- if not completed then return end
+			return
 		end
 
 		if self:GetGossipOptions() then
@@ -74,7 +75,7 @@ function mod:BombPlanted(id, text)
 	local bomb = text:match("(%d+).+5")
 	if bomb then
 		bomb = tonumber(bomb)
-		self:MessageOld("incendiary_bombs", "cyan", "info", CL.count:format(self:SpellName(256798), bomb), L.incendiary_bombs_icon)
+		self:MessageOld("incendiary_bombs", "cyan", "info", CL.count:format(L.incendiary_bombs, bomb), L.incendiary_bombs_icon)
 
 		if bomb == 5 then
 			self:UnregisterWidgetEvent(id)

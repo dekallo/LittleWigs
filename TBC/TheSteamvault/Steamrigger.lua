@@ -5,7 +5,7 @@
 local mod, CL = BigWigs:NewBoss("Mekgineer Steamrigger", 545, 574)
 if not mod then return end
 mod:RegisterEnableMob(17796)
-mod.engageId = 1943
+-- mod.engageId = 1943
 -- mod.respawnTime = 0 -- resets, doesn't respawn
 
 -------------------------------------------------------------------------------
@@ -21,6 +21,10 @@ local nextAddWarning = 80
 local L = mod:GetLocale()
 if L then
 	L.mech_trigger = "Tune 'em up good, boys!"
+
+	L.mechanics = -5999 -- Steamrigger Mechanics
+	L.mechanics_desc = -5999
+	L.mechanics_icon = -5999
 end
 
 -------------------------------------------------------------------------------
@@ -30,7 +34,7 @@ end
 function mod:GetOptions()
 	return {
 		31485, -- Super Shrink Ray
-		-5999, -- Steamrigger Mechanics
+		"mechanics", -- Steamrigger Mechanics
 	}
 end
 
@@ -38,10 +42,14 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_APPLIED", "SuperShrinkRay", 31485)
 
 	self:RegisterEvent("CHAT_MSG_MONSTER_YELL") -- no locale-independent events
-	self:RegisterUnitEvent("UNIT_HEALTH", nil, "boss1")
+
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", "CheckForEngage")
+	self:Death("Win", 17796)
 end
 
 function mod:OnEngage()
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
+	self:RegisterEvent("UNIT_HEALTH")
 	nextAddWarning = 80 -- 75%, 50% and 25%
 end
 
@@ -61,25 +69,24 @@ end
 
 function mod:CHAT_MSG_MONSTER_YELL(_, msg)
 	if msg == L.mech_trigger or msg:find(L.mech_trigger, nil, true) then
-		self:MessageOld(-5999, "yellow", nil, CL.incoming:format(self:SpellName(-5999))) -- Steamrigger Mechanics
+		self:MessageOld("mechanics", "yellow", nil, CL.incoming:format(L.mechanics), L.mechanics_icon)
 	end
 end
 
-do
-	function mod:UNIT_HEALTH(event, unit)
-		local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
-		if hp < nextAddWarning then
+function mod:UNIT_HEALTH(event, unit)
+	if self:MobId(self:UnitGUID(unit)) ~= 17796 then return end
+	local hp = self:GetHealth(unit)
+	if hp < nextAddWarning then
+		nextAddWarning = nextAddWarning - 25
+		self:MessageOld("mechanics", "red", nil, CL.soon:format(L.mechanics), L.mechanics_icon)
+
+		while nextAddWarning >= 25 and hp < nextAddWarning do
+			-- account for high-level characters hitting multiple thresholds
 			nextAddWarning = nextAddWarning - 25
-			self:MessageOld(-5999, "red", nil, CL.soon:format(self:SpellName(-5999))) -- Steamrigger Mechanics
+		end
 
-			while nextAddWarning >= 25 and hp < nextAddWarning do
-				-- account for high-level characters hitting multiple thresholds
-				nextAddWarning = nextAddWarning - 25
-			end
-
-			if nextAddWarning < 25 then
-				self:UnregisterUnitEvent(event, unit)
-			end
+		if nextAddWarning < 25 then
+			self:UnregisterEvent(event)
 		end
 	end
 end

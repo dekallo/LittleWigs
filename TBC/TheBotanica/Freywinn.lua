@@ -5,7 +5,7 @@
 local mod, CL = BigWigs:NewBoss("High Botanist Freywinn", 553, 559)
 if not mod then return end
 mod:RegisterEnableMob(17975)
-mod.engageId = 1926
+-- mod.engageId = 1926
 -- mod.respawnTime = 0 -- resets, doesn't respawn
 
 --------------------------------------------------------------------------------
@@ -13,6 +13,14 @@ mod.engageId = 1926
 --
 
 local addsAlive = 0
+
+-------------------------------------------------------------------------------
+--  Localization
+
+local L = mod:GetLocale()
+if L then
+	L.white_seedling = -5453
+end
 
 --------------------------------------------------------------------------------
 -- Initialization
@@ -24,7 +32,7 @@ function mod:GetOptions()
 		34752, -- Freezing Touch
 	}, {
 		[34550] = "general",
-		[34752] = -5453, -- White Seedling
+		[34752] = L.white_seedling, -- White Seedling
 	}
 end
 
@@ -36,9 +44,13 @@ function mod:OnBossEnable()
 
 	self:Log("SPELL_AURA_APPLIED", "FreezingTouch", 34752)
 	self:Log("SPELL_AURA_REMOVED", "FreezingTouchRemoved", 34752)
+
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", "CheckForEngage")
+	self:Death("Win", 17975)
 end
 
 function mod:OnEngage()
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
 	addsAlive = 0
 end
 

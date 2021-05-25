@@ -45,8 +45,8 @@ function mod:OnBossEnable()
 end
 
 function mod:OnEngage()
-	negativeList, positiveList = {}, {}
 	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
+	negativeList, positiveList = {}, {}
 	if not self:Normal() then
 		self:Berserk(180)
 	end

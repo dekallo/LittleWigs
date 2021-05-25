@@ -13,6 +13,14 @@ mod:RegisterEnableMob(17537, 17536) -- Vazruden, Nazan <Vazruden's Mount>
 -- - fires it 9 seconds after being defeated.
 
 -------------------------------------------------------------------------------
+--  Localization
+
+local L = mod:GetLocale()
+if L then
+	L.nazan = -5072
+end
+
+-------------------------------------------------------------------------------
 --  Initialization
 --
 
@@ -24,8 +32,14 @@ end
 
 function mod:OnBossEnable()
 	self:RegisterEvent("CHAT_MSG_RAID_BOSS_EMOTE")
-	self:RegisterUnitEvent("UNIT_HEALTH", nil, "target", "focus")
+
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", "CheckForEngage")
 	self:Death("Win", 17537)
+end
+
+function mod:OnEngage()
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
+	self:RegisterEvent("UNIT_HEALTH")
 end
 
 --------------------------------------------------------------------------------
@@ -34,16 +48,16 @@ end
 
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(_, _, source) -- Stage 2
 	-- Vazruden is the target of this BOSS_EMOTE, but his EJ name is "Vazruden the Herald", so checking against self.displayName won't work.
-	if source == self:SpellName(-5072) then -- Nazan.
+	if source == L.nazan then -- Nazan
 		self:MessageOld("stages", "cyan", nil, CL.stage:format(2), false)
 	end
 end
 
 function mod:UNIT_HEALTH(event, unit)
 	if self:MobId(self:UnitGUID(unit)) == 17537 then -- Vazruden
-		local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
+		local hp = self:GetHealth(unit)
 		if hp < 45 then
-			self:UnregisterUnitEvent(event, "target", "focus")
+			self:Unregistervent(event)
 			self:MessageOld("stages", "cyan", nil, CL.soon:format(CL.stage:format(2)), false)
 		end
 	end

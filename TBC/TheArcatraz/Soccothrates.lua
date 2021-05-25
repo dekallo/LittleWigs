@@ -6,8 +6,19 @@
 local mod, CL = BigWigs:NewBoss("Wrath-Scryer Soccothrates", 552, 550)
 if not mod then return end
 mod:RegisterEnableMob(20886)
-mod.engageId = 1915
+-- mod.engageId = 1915
 -- mod.respawnTime = 0 -- resets, doesn't respawn
+
+--------------------------------------------------------------------------------
+-- Localization
+--
+
+local L = mod:GetLocale()
+if L then
+	L.felfire = -5293 -- Felfire
+	L.felfire_desc = -5293
+	L.felfire_icon = -5293 -- "spell_fire_felflamebreath"
+end
 
 --------------------------------------------------------------------------------
 -- Initialization
@@ -15,17 +26,19 @@ mod.engageId = 1915
 
 function mod:GetOptions()
 	return {
-		{-5293, "SAY"}, -- Felfire
+		{"felfire", "SAY"}, -- Felfire
 		35759, -- Felfire Shock
 	}
 end
 
 function mod:OnBossEnable()
-	self:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEEDED", nil, "boss1")
-	self:Log("SPELL_CAST_SUCCESS", "FelfireKnockback", 36512) -- Knockback before the charge that leaves a trail of fire
+	self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
 
+	self:Log("SPELL_CAST_SUCCESS", "FelfireKnockback", 36512) -- Knockback before the charge that leaves a trail of fire
 	self:Log("SPELL_AURA_APPLIED", "FelfireShock", 35759, 39006) -- normal, heroic
 	self:Log("SPELL_AURA_REMOVED", "FelfireShockRemoved", 35759, 39006)
+
+	self:Death("Win", 20886)
 end
 
 --------------------------------------------------------------------------------
@@ -33,21 +46,21 @@ end
 --
 
 function mod:FelfireKnockback()
-	self:MessageOld(-5293, "red", nil, CL.incoming:format(self:SpellName(-5293)))
-	self:CastBar(-5293, 4.9)
+	self:MessageOld("felfire", "red", nil, CL.incoming:format(L.felfire), L.felfire_icon)
+	self:CastBar("felfire", 4.9, L.felfire, L.felfire_icon)
 end
 
 do
 	local function printTarget(self, player, guid)
 		if self:Me(guid) then
-			self:Say(-5293, 100) -- 100 = Charge
+			self:Say("felfire", 100) -- 100 = Charge
 		end
-		self:TargetMessageOld(-5293, player, "orange", nil, 100, -5293)
+		self:TargetMessageOld("felfire", player, "orange", nil, 100, L.felfire_icon)
 	end
 
 	function mod:UNIT_SPELLCAST_SUCCEEDED(_, unit, _, spellId)
 		if spellId == 36038 then -- Charge Targeting
-			self:GetBossTarget(printTarget, 0.4, self:UnitGUID(unit))
+			self:GetUnitTarget(printTarget, 0.4, self:UnitGUID(unit))
 		end
 	end
 end

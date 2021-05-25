@@ -3,7 +3,7 @@
 -- Module declaration
 --
 
-local mod, CL = BigWigs:NewBoss("Kael'thas Sunstrider ", 585, 533) -- Space is intentional to prevent conflict with Kael'thas from Tempest Keep/The Eye
+local mod, CL = BigWigs:NewBoss("Kael'thas Sunstrider MT", 585, 533)
 if not mod then return end
 mod:RegisterEnableMob(24664)
 -- mod.engageId = 1894 - doesn't fire ENCOUNTER_END on a wipe
@@ -16,6 +16,14 @@ local L = mod:GetLocale()
 if L then
 	-- Don't look so smug! I know what you're thinking, but Tempest Keep was merely a setback. Did you honestly believe I would trust the future to some blind, half-night elf mongrel?
 	L.warmup_trigger = "Don't look so smug!"
+
+	L.flame_strike = -5167
+	L.flame_strike_desc = -5167
+	L.flame_strike_icon = -5167
+
+	L.shock_barrier = -5180
+	L.shock_barrier_desc = -5180
+	L.shock_barrier_icon = -5180
 end
 
 --------------------------------------------------------------------------------
@@ -27,18 +35,17 @@ function mod:GetOptions()
 		"warmup",
 		44224, -- Gravity Lapse
 		44194, -- Phoenix
-		-5167, -- Flame Strike
-		-5180, -- Shock Barrier
+		"flame_strike", -- Flame Strike
+		"shock_barrier", -- Shock Barrier
 		36819, -- Pyroblast
 	}, {
 		[44224] = "general",
-		[-5180] = "heroic",
+		["shock_barrier"] = "heroic",
 	}
 end
 
 function mod:OnBossEnable()
 	self:RegisterEvent("CHAT_MSG_MONSTER_YELL", "Warmup")
-	self:RegisterUnitEvent("UNIT_HEALTH", nil, "boss1")
 
 	self:Log("SPELL_CAST_START", "GravityLapse", 44224)
 	self:Log("SPELL_CAST_START", "Pyroblast", 36819)
@@ -46,14 +53,16 @@ function mod:OnBossEnable()
 	self:Log("SPELL_SUMMON", "FlameStrike", 44192, 46162)
 	self:Log("SPELL_AURA_APPLIED", "ShockBarrier", 46165)
 
-	self:RegisterEvent("INSTANCE_ENCOUNTER_ENGAGE_UNIT", "CheckBossStatus")
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", "CheckForEngage")
 	self:Death("Win", 24664)
 end
 
 function mod:OnEngage()
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
+	self:RegisterEvent("UNIT_HEALTH")
 	self:UnregisterEvent("CHAT_MSG_MONSTER_YELL") -- if you engage him before killing the trash pack in front of him, he skips roleplaying
 	if not self:Normal() then
-		self:CDBar(-5180, 60) -- Shock Barrier
+		self:CDBar("shock_barrier", 60, L.shock_barrier, L.shock_barrier_icon) -- Shock Barrier
 	end
 end
 
@@ -69,15 +78,16 @@ function mod:Warmup(event, msg)
 end
 
 function mod:UNIT_HEALTH(event, unit)
-	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
+	if self:MobId(self:UnitGUID(unit)) ~= 24664 then return end
+	local hp = self:GetHealth(unit)
 	if hp < 55 then
-		self:UnregisterUnitEvent(event, unit)
+		self:UnregisterEvent(event, unit)
 		self:MessageOld(44224, "green", nil, CL.soon:format(self:SpellName(44224)), false) -- Gravity Lapse
 	end
 end
 
 function mod:GravityLapse(args)
-	self:StopBar(-5180) -- Shock Barrier
+	self:StopBar(L.shock_barrier) -- Shock Barrier
 	self:Bar(args.spellId, 35)
 end
 
@@ -86,11 +96,11 @@ function mod:Phoenix(args)
 end
 
 function mod:FlameStrike()
-	self:MessageOld(-5167, "red")
+	self:MessageOld("flame_strike", "red", nil, L.flame_strike, L.flame_strike_icon)
 end
 
 function mod:ShockBarrier()
-	self:MessageOld(-5180, "yellow")
+	self:MessageOld("shock_barrier", "yellow", nil, L.shock_barrier, L.shock_barrier_icon)
 end
 
 function mod:Pyroblast(args)

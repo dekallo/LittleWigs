@@ -29,10 +29,14 @@ function mod:OnBossEnable()
 	self:Log("SPELL_MISSED", "TailSweep", 34267, 38737)
 
 	self:Log("SPELL_AURA_APPLIED", "Enrage", 15716)
-	self:RegisterUnitEvent("UNIT_HEALTH", nil, "boss1")
 
-	self:RegisterEvent("INSTANCE_ENCOUNTER_ENGAGE_UNIT", "CheckBossStatus")
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", "CheckForEngage")
 	self:Death("Win", 18105)
+end
+
+function mod:OnEngage()
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
+	self:RegisterEvent("UNIT_HEALTH")
 end
 
 -------------------------------------------------------------------------------
@@ -63,7 +67,7 @@ do
 	local prev = 0
 	function mod:TailSweep(args)
 		if self:Me(args.destGUID) then
-			local t = GetTime()
+			local t = args.time
 			if t - prev > 1.5 then
 				prev = t
 				self:MessageOld(38737, "blue", "alert", CL.you:format(args.spellName))
@@ -77,9 +81,10 @@ function mod:Enrage(args)
 end
 
 function mod:UNIT_HEALTH(event, unit)
-	local hp = UnitHealth(unit) / UnitHealth(unit) * 100
+	if self:MobId(self:UnitGUID(unit)) ~= 18105 then return end
+	local hp = self:GetHealth(unit)
 	if hp < 25 then
-		self:UnregisterUnitEvent(event, unit)
+		self:UnregisterEvent(event)
 		self:MessageOld(15716, "green", "info", CL.soon:format(self:SpellName(15716))) -- Enrage
 	end
 end

@@ -5,7 +5,7 @@
 local mod, CL = BigWigs:NewBoss("Anzu", 556, 542)
 if not mod then return end
 mod:RegisterEnableMob(23035)
-mod.engageId = 1904
+-- mod.engageId = 1904
 -- mod.respawnTime = 0 -- resets, doesn't respawn
 
 -------------------------------------------------------------------------------
@@ -14,6 +14,22 @@ mod.engageId = 1904
 
 local nextBroodWarning = 80
 local addsAlive = 0
+local castingScreech = false
+
+--------------------------------------------------------------------------------
+-- Localization
+--
+
+local L = mod:GetLocale()
+if L then
+	L.cyclone = -5252 -- Cyclone of Feathers
+	L.cyclone_desc = -5252
+	L.cyclone_icon = -5252
+
+	L.brood = -5253 -- Brood of Anzu
+	L.brood_desc = -5253
+	L.brood_icon = -5253
+end
 
 -------------------------------------------------------------------------------
 --  Initialization
@@ -23,24 +39,29 @@ function mod:GetOptions()
 	return {
 		{40184, "FLASH"}, -- Paralyzing Screech
 		40303, -- Spell Bomb
-		-5252, -- Cyclone of Feathers
-		-5253, -- Brood of Anzu
+		"cyclone", -- Cyclone of Feathers
+		"brood", -- Brood of Anzu
 	}
 end
 
 function mod:OnBossEnable()
+	self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
 	self:Log("SPELL_CAST_START", "ParalyzingScreech", 40184)
+	self:Log("SPELL_CAST_SUCCESS", "ParalyzingScreechStop", 40184)
 	self:Log("SPELL_AURA_APPLIED", "SpellBomb", 40303)
 	self:Log("SPELL_AURA_APPLIED", "CycloneOfFeathers", 40321)
-
-	self:RegisterUnitEvent("UNIT_HEALTH", nil,  "boss1")
-	self:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEEDED", nil, "boss1")
 	self:Death("AddDied", 23132)
+
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", "CheckForEngage")
+	self:Death("Win", 23035)
 end
 
 function mod:OnEngage()
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
+	self:RegisterEvent("UNIT_HEALTH")
 	nextBroodWarning = 80 -- 75% and 35%
 	addsAlive = 0
+	castingScreech = false
 end
 
 -------------------------------------------------------------------------------
@@ -51,6 +72,11 @@ function mod:ParalyzingScreech(args)
 	self:MessageOld(args.spellId, "red", "warning", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 5)
 	self:Flash(args.spellId)
+	castingScreech = true
+end
+
+function mod:ParalyzingScreechStop(args)
+	castingScreech = false
 end
 
 function mod:SpellBomb(args)
@@ -59,34 +85,35 @@ function mod:SpellBomb(args)
 end
 
 function mod:CycloneOfFeathers(args)
-	self:TargetMessageOld(-5252, args.destName, "yellow", "alert")
-	self:TargetBar(-5252, 6, args.destName)
+	self:TargetMessageOld("cyclone", args.destName, "yellow", "alert", L.cyclone, L.cyclone_icon)
+	self:TargetBar("cyclone", 6, args.destName, L.cyclone, L.cyclone_icon)
 end
 
 function mod:AddDied()
 	addsAlive = addsAlive - 1
-	self:MessageOld(-5253, "green", nil, CL.add_remaining:format(addsAlive))
-	if addsAlive == 0 and not UnitCastingInfo("boss1") then -- he doesn't unbanish himself if you kill the last add when he's casting Paralyzing Screech
+	self:MessageOld("brood", "green", nil, CL.add_remaining:format(addsAlive), L.brood_icon)
+	if addsAlive == 0 and not castingScreech then -- doesn't unbanish if you kill the last add while he's casting
 		self:StopBar(CL.onboss:format(self:SpellName(42354))) -- Banish Self
 	end
 end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 42354 then -- Banish Self
-		self:Bar(-5253, 45, CL.onboss:format(self:SpellName(spellId)), spellId)
-		self:MessageOld(-5253, "orange", nil, CL.incoming:format(self:SpellName(-5253))) -- Brood of Anzu
+		self:Bar("brood", 45, CL.onboss:format(self:SpellName(spellId)), spellId)
+		self:MessageOld("brood", "orange", nil, CL.incoming:format(L.brood), L.brood_icon) -- Brood of Anzu
 		addsAlive = addsAlive + 7
 	end
 end
 
 function mod:UNIT_HEALTH(event, unit)
-	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
+	if self:MobId(self:UnitGUID(unit)) ~= 23035 then return end
+	local hp = self:GetHealth(unit)
 	if hp < nextBroodWarning then
-		self:MessageOld(-5253, "orange", nil, CL.soon:format(self:SpellName(42354)), 42354) -- Banish Self
+		self:MessageOld("brood", "orange", nil, CL.soon:format(self:SpellName(42354)), 42354) -- Banish Self
 		nextBroodWarning = nextBroodWarning - 40
 
 		if nextBroodWarning < 15 then
-			self:UnregisterUnitEvent(event, unit)
+			self:UnregisterEvent(event)
 		end
 	end
 end

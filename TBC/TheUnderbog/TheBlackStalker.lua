@@ -28,6 +28,8 @@ function mod:OnBossEnable()
 
 	self:Log("SPELL_CAST_START", "ChainLightning", 31717)
 	self:Log("SPELL_CAST_SUCCESS", "ChainLightningSuccess", 31717)
+
+	self:Death("Win", 17882)
 end
 
 -------------------------------------------------------------------------------

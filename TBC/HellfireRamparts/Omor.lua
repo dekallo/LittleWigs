@@ -21,6 +21,7 @@ end
 function mod:OnBossEnable()
 	self:Log("SPELL_AURA_APPLIED", "TreacherousAura", 30695, 37566) -- Treacherous Aura, Bane of Treachery (heroic version)
 	self:Log("SPELL_AURA_REMOVED", "TreacherousAuraRemoved", 30695, 37566)
+
 	self:Death("Win", 17308)
 end
 

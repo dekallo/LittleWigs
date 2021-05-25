@@ -8,16 +8,27 @@ mod:RegisterEnableMob(18732)
 -- mod.engageId = 1911 -- no boss frames
 -- mod.respawnTime = 0 -- resets, doesn't respawn
 
+--------------------------------------------------------------------------------
+-- Localization
+--
+
+local L = mod:GetLocale()
+if L then
+	L.draw_shadows = -5267 -- Draw Shadows
+	L.draw_shadows_desc = -5267
+	L.draw_shadows_icon = -5267
+end
+
 -------------------------------------------------------------------------------
 --  Initialization
 --
 
 function mod:GetOptions()
 	return {
-		-5267, -- Draw Shadows
+		"shadows", -- Draw Shadows
 		38791, -- Banish
 	},{
-		[-5267] = "general",
+		["shadows"] = "general",
 		[38791] = "heroic",
 	}
 end
@@ -33,7 +44,7 @@ end
 
 function mod:OnEngage()
 	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
-	self:CDBar(-5267, 44) -- Draw Shadows
+	self:CDBar("draw_shadows", 44, L.draw_shadows, L.draw_shadows_icon) -- Draw Shadows
 end
 
 -------------------------------------------------------------------------------
@@ -41,8 +52,8 @@ end
 --
 
 function mod:DrawShadows()
-	self:MessageOld(-5267, "orange")
-	self:CDBar(-5267, 41)
+	self:MessageOld("draw_shadows", "orange", nil, L.draw_shadows, L.draw_shadows_icon)
+	self:CDBar("draw_shadows", 41, L.draw_shadows, L.draw_shadows_icon)
 end
 
 function mod:Banish(args)

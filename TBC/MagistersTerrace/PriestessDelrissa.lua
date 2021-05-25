@@ -15,8 +15,18 @@ mod:RegisterEnableMob(24553, -- Apoko
 	24560, -- Priestess Delrissa
 	24561 -- Yazzai
 )
-mod.engageId = 1895
+-- mod.engageId = 1895
 -- mod.respawnTime = 0 -- resets, doesn't respawn
+
+-------------------------------------------------------------------------------
+--  Localization
+
+local L = mod:GetLocale()
+if L then
+	L.apoko = -5104
+	L.yazzai = -5101
+	L.ellrys = -5099
+end
 
 --------------------------------------------------------------------------------
 -- Initialization
@@ -36,9 +46,9 @@ function mod:GetOptions()
 		{44141, "ICON"}, -- Seed of Corruption
 	}, {
 		[46192] = self.displayName, -- Priestess Delrissa
-		[27621] = -5104, -- Apoko
-		[44178] = -5101, -- Yazzai
-		[44141] = -5099, -- Ellrys Duskhallow
+		[27621] = L.apoko, -- Apoko
+		[44178] = L.yazzai, -- Yazzai
+		[44141] = L.ellrys, -- Ellrys Duskhallow
 	}
 end
 
@@ -60,6 +70,8 @@ function mod:OnBossEnable()
 
 	-- General _AURA_REMOVED events:
 	self:Log("SPELL_AURA_REMOVED", "Removed", 13323, 44174, 46192) -- Polymorh, normal/heroic Renew
+
+	self:Death("Win", 24560)
 end
 
 --------------------------------------------------------------------------------

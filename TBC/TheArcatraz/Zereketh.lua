@@ -6,7 +6,7 @@
 local mod, CL = BigWigs:NewBoss("Zereketh the Unbound", 552, 548)
 if not mod then return end
 mod:RegisterEnableMob(20870)
-mod.engageId = 1916
+-- mod.engageId = 1916
 -- mod.respawnTime = 0 -- resets, doesn't respawn
 
 --------------------------------------------------------------------------------
@@ -27,6 +27,8 @@ function mod:OnBossEnable()
 	self:Log("SPELL_MISSED", "VoidZone", 36121, 39004)
 	self:Log("SPELL_AURA_APPLIED", "SeedOfCorruption", 36123, 39367) -- normal, heroic
 	self:Log("SPELL_AURA_REMOVED", "SeedOfCorruptionRemoved", 36123, 39367)
+
+	self:Death("Win", 20870)
 end
 
 --------------------------------------------------------------------------------
@@ -41,10 +43,10 @@ do
 	local prev = 0
 	function mod:VoidZone(args)
 		if self:Me(args.destGUID) then
-			local t = GetTime()
+			local t = args.time
 			if t - prev > 1.5 then
 				prev = t
-				self:MessageOld(36119, "blue", "alert", CL.underyou:format(self:SpellName(36119))) -- args.spellName is "Consumption"
+				self:MessageOld(36119, "blue", "alert", CL.underyou:format(self:SpellName(36119))) -- 36119 = Void Zone
 			end
 		end
 	end

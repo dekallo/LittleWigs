@@ -8,16 +8,27 @@ mod:RegisterEnableMob(18371)
 -- mod.respawnTime = 0 -- resets, doesn't respawn
 
 -------------------------------------------------------------------------------
+--  Localization
+
+local L = mod:GetLocale()
+if L then
+	L.focus_fire = -5041
+	L.focus_fire_desc = -5041
+	L.focus_fire_icon = -5041
+end
+
+-------------------------------------------------------------------------------
 --  Initialization
 
 function mod:GetOptions()
 	return {
-		-5041, -- Focus Fire
+		"focus_fire", -- Focus Fire
 	}
 end
 
 function mod:OnBossEnable()
 	self:RegisterEvent("CHAT_MSG_RAID_BOSS_EMOTE")
+
 	self:Death("Win", 18371)
 end
 
@@ -26,6 +37,6 @@ end
 
 function mod:CHAT_MSG_RAID_BOSS_EMOTE(_, _, source, _, _, target) -- Focus Fire
 	if source == self.displayName then -- this is the only BOSS_EMOTE that appears during this encounter
-		self:TargetMessageOld(-5041, target, "yellow")
+		self:TargetMessageOld("focus_fire", target, "yellow", nil, L.focus_fire, L.focus_fire_icon)
 	end
 end

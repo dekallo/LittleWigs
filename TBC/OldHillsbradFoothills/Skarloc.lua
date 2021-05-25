@@ -5,11 +5,11 @@
 local mod, CL = BigWigs:NewBoss("Captain Skarloc", 560, 539)
 if not mod then return end
 mod:RegisterEnableMob(
-	17862, -- Captain Skarloc
-	17860, -- Durnholde Veteran
-	17833 -- Durnholde Warden
+	17862 -- Captain Skarloc
+	-- 17860, -- Durnholde Veteran
+	-- 17833 -- Durnholde Warden
 )
-mod.engageId = 1907
+-- mod.engageId = 1907
 -- mod.respawnTime = 0 -- you have to free Thrall again if you wipe
 
 --------------------------------------------------------------------------------
@@ -35,6 +35,17 @@ function mod:GetOptions()
 	}
 end
 
+-- function mod:VerifyEnable(_, mobId)
+-- 	if mobId == 17862 then
+-- 		return true
+-- 	end
+
+-- 	-- Durnholde Veteran and Durnholde Warden are trash mobs
+-- 	local _, _, completedFirst = C_Scenario.GetCriteriaInfo(1)
+-- 	local _, _, completedSecond = C_Scenario.GetCriteriaInfo(2)
+-- 	return completedFirst and not completedSecond
+-- end
+
 function mod:OnBossEnable()
 	self:RegisterEvent("CHAT_MSG_MONSTER_SAY")
 
@@ -44,15 +55,13 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_REMOVED", "HammerOfJusticeRemoved", 13005)
 	self:Log("SPELL_CAST_START", "HolyLight", 29427)
 	self:Log("SPELL_INTERRUPT", "Interrupt", "*")
+
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", "CheckForEngage")
+	self:Death("Win", 17862)
 end
 
-function mod:VerifyEnable(_, mobId)
-	if mobId == 17862 then return true end
-
-	-- Durnholde Veteran and Durnholde Warden are trash mobs
-	local _, _, completedFirst = C_Scenario.GetCriteriaInfo(1)
-	local _, _, completedSecond = C_Scenario.GetCriteriaInfo(2)
-	return completedFirst and not completedSecond
+function mod:OnEngage()
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
 end
 
 -------------------------------------------------------------------------------

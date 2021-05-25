@@ -19,6 +19,7 @@ end
 function mod:OnBossEnable()
 	self:Log("SPELL_AURA_APPLIED", "Domination", 30923)
 	self:Log("SPELL_AURA_REMOVED", "DominationRemoved", 30923)
+
 	self:Death("Win", 17381)
 end
 

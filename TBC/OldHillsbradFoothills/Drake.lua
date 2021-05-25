@@ -5,7 +5,7 @@
 local mod, CL = BigWigs:NewBoss("Lieutenant Drake", 560, 538)
 if not mod then return end
 mod:RegisterEnableMob(17848)
-mod.engageId = 1905
+-- mod.engageId = 1905
 -- mod.respawnTime = 0 -- does not despawn on a wipe
 
 --------------------------------------------------------------------------------
@@ -36,6 +36,13 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_REMOVED", "MortalStrikeRemoved", 31911)
 	self:Log("SPELL_DAMAGE", "Whirlwind", 31910)
 	self:Log("SPELL_MISSED", "Whirlwind", 31910)
+
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", "CheckForEngage")
+	self:Death("Win", 17848)
+end
+
+function mod:OnEngage()
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
 end
 
 -------------------------------------------------------------------------------
@@ -43,13 +50,9 @@ end
 
 function mod:CHAT_MSG_MONSTER_YELL(_, msg)
 	if msg:find(L.warmup_trigger, nil, true) then
-		self:Warmup(3.3)
+		self:UnregisterEvent("CHAT_MSG_MONSTER_YELL")
+		self:Bar("warmup", 3.3, CL.active, "inv_sword_01")
 	end
-end
-
-function mod:Warmup(duration)
-	self:UnregisterEvent("CHAT_MSG_MONSTER_YELL")
-	self:Bar("warmup", duration, CL.active, "inv_sword_01")
 end
 
 function mod:MortalStrike(args)

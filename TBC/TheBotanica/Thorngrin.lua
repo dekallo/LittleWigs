@@ -5,7 +5,7 @@
 local mod, CL = BigWigs:NewBoss("Thorngrin the Tender", 553, 560)
 if not mod then return end
 mod:RegisterEnableMob(17978)
-mod.engageId = 1928
+-- mod.engageId = 1928
 -- mod.respawnTime = 0 -- resets, doesn't respawn
 
 --------------------------------------------------------------------------------
@@ -28,6 +28,8 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_APPLIED", "Hellfire", 34659)
 	self:Log("SPELL_DAMAGE", "HellfireDamage", 34660)
 	self:Log("SPELL_MISSED", "HellfireDamage", 34660)
+
+	self:Death("Win", 17978)
 end
 
 --------------------------------------------------------------------------------
@@ -58,7 +60,7 @@ do
 	local prev = 0
 	function mod:HellfireDamage(args)
 		if self:Me(args.destGUID) then
-			local t = GetTime()
+			local t = args.time
 			if t - prev > (self:Melee() and 6 or 1.5) then
 				prev = t
 				self:MessageOld(34659, "blue", "alert", CL.you:format(args.spellName))

@@ -15,6 +15,16 @@ mod:RegisterEnableMob(19221)
 local mobCollector = {}
 local mobsFound = 0
 
+-------------------------------------------------------------------------------
+--  Localization
+
+local L = mod:GetLocale()
+if L then
+	L.inferno = -5488 -- Inferno
+	L.inferno_desc = -5167
+	L.inferno_icon = -5167
+end
+
 --------------------------------------------------------------------------------
 -- Initialization
 --
@@ -24,7 +34,7 @@ function mod:GetOptions()
 		35250, -- Dragon's Breath
 		35314, -- Arcane Blast
 		{41951, "SAY"}, -- Fixate
-		-5488, -- Inferno
+		"inferno", -- Inferno
 		35312, -- Raging Flames (the trail of fire the adds leave behind them)
 	}, {
 		[35250] = "general",
@@ -34,8 +44,8 @@ end
 
 function mod:OnBossEnable()
 	-- no boss frames, so doing this manually
-	self:RegisterEvent("ENCOUNTER_START")
-	self:RegisterEvent("ENCOUNTER_END")
+	-- self:RegisterEvent("ENCOUNTER_START")
+	-- self:RegisterEvent("ENCOUNTER_END")
 
 	self:Log("SPELL_AURA_APPLIED", "DragonsBreath", 35250)
 
@@ -52,16 +62,20 @@ function mod:OnBossEnable()
 	self:Log("SWING_MISSED", "RagingFlamesSwing", "*")
 	self:Log("PARTY_KILL", "RagingFlamesDeath", "*") -- UNIT_DIED (which is what self:Death() is using) doesn't provide a sourceGUID, and both adds fire that event (triggering unregisterGUIDFindingEvents) if you wipe with them alive
 	self:Log("SPELL_AURA_REMOVED", "InfernoEnded", 35268, 39346) -- normal, heroic
+
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", "CheckForEngage")
+	self:Death("Win", 19221)
 end
 
 function mod:OnEngage()
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
 	mobsFound = 0
 	mobCollector = {}
 end
 
 function mod:OnBossDisable()
 	mobsFound = 0
-	mobCollector {}
+	mobCollector = {}
 end
 
 --------------------------------------------------------------------------------
@@ -100,10 +114,14 @@ do
 	local prev = 0
 	function mod:PeriodicDamage(args)
 		if self:Me(args.destGUID) then
-			local t = GetTime()
+			local t = args.time
 			if t - prev > 1.5 then
 				prev = t
-				self:MessageOld(args.spellId == 35283 and -5488 or args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
+				if args.spellId == 35283 then
+					self:MessageOld("inferno", "blue", "alert", CL.underyou:format(args.spellName), L.inferno_icon)
+				else
+					self:MessageOld(35312, "blue", "alert", CL.underyou:format(args.spellName))
+				end
 			end
 		end
 	end
@@ -181,11 +199,11 @@ do
 
 	function mod:Inferno(args)
 		infernoCasts = infernoCasts + 1
-		local t = GetTime()
+		local t = args.time
 		if t - prev > 1 then
 			prev = t
-			self:MessageOld(-5488, "cyan", "info", CL.casting:format(args.spellName))
+			self:MessageOld("inferno", "cyan", "info", CL.casting:format(args.spellName), L.inferno_icon)
 		end
-		self:CastBar(-5488, 8)
+		self:CastBar("inferno", 8, L.inferno, L.inferno)
 	end
 end

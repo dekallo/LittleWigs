@@ -5,8 +5,19 @@
 local mod, CL = BigWigs:NewBoss("Warlord Kalithresh", 545, 575)
 if not mod then return end
 mod:RegisterEnableMob(17798)
-mod.engageId = 1944
+-- mod.engageId = 1944
 -- mod.respawnTime = 0 -- resets, doesn't respawn
+
+--------------------------------------------------------------------------------
+-- Localization
+--
+
+local L = mod:GetLocale()
+if L then
+	L.spell_reflection = -6003 -- Spell Reflection
+	L.spell_reflection_desc = -6003
+	L.spell_reflection_icon = -6003
+end
 
 -------------------------------------------------------------------------------
 --  Initialization
@@ -15,7 +26,7 @@ mod.engageId = 1944
 function mod:GetOptions()
 	return {
 		16172, -- Head Crack
-		-6003, -- Spell Reflection
+		"spell_reflection", -- Spell Reflection
 		36453, -- Warlord's Rage
 	}
 end
@@ -28,9 +39,13 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_APPLIED_DOSE", "WarlordsRage", 36453)
 	self:Log("SPELL_AURA_APPLIED", "WarlordsRageCast", 37076)
 	self:Log("SPELL_AURA_REMOVED", "WarlordsRageCastInterrupted", 37076) -- interrupted by killing a naga distiller
+
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", "CheckForEngage")
+	self:Death("Win", 17798)
 end
 
 function mod:OnEngage()
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
 	self:CDBar(36453, 15) -- Warlord's Rage
 end
 
@@ -48,8 +63,8 @@ function mod:HeadCrackRemoved(args)
 end
 
 function mod:SpellReflection()
-	self:MessageOld(-6003, "red", "warning")
-	self:Bar(-6003, 8)
+	self:MessageOld("spell_reflection", "red", "warning", L.spell_reflection, L.spell_reflection_icon)
+	self:Bar("spell_reflection", 8, L.spell_reflection, L.spell_reflection_icon)
 end
 
 function mod:WarlordsRage(args)

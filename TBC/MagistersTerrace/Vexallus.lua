@@ -6,7 +6,7 @@
 local mod, CL = BigWigs:NewBoss("Vexallus", 585, 531)
 if not mod then return end
 mod:RegisterEnableMob(24744)
-mod.engageId = 1898
+-- mod.engageId = 1898
 -- mod.respawnTime = 0 -- resets, doesn't respawn
 
 --------------------------------------------------------------------------------
@@ -16,6 +16,10 @@ mod.engageId = 1898
 local L = mod:GetLocale()
 if L then
 	L.energy_discharged = "%s discharged" -- %s = Pure Energy (npc ID = 24745)
+
+	L.pure_energy = -5085
+	L.pure_energy_desc = -5085
+	L.pure_energy_icon = -5085
 end
 
 --------------------------------------------------------------------------------
@@ -24,17 +28,19 @@ end
 
 function mod:GetOptions()
 	return {
-		-5085, -- Pure Energy
+		"pure_energy", -- Pure Energy
 		44335, -- Energy Feedback
 	}
 end
 
 function mod:OnBossEnable()
+	self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
+
 	self:Log("SPELL_AURA_APPLIED", "EnergyFeedback", 44335)
 	self:Log("SPELL_AURA_APPLIED_DOSE", "EnergyFeedback", 44335)
 	self:Log("SPELL_AURA_REMOVED", "EnergyFeedbackRemoved", 44335)
 
-	self:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEEDED", nil, "boss1")
+	self:Win("Death", 24744)
 end
 
 --------------------------------------------------------------------------------
@@ -52,6 +58,6 @@ end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 44322 or spellId == 46154 then -- Summon Pure Energy (normal / heroic)
-		self:MessageOld(-5085, "red", nil, L.energy_discharged:format(self:SpellName(-5085)), false)
+		self:MessageOld("pure_energy", "red", nil, L.energy_discharged:format(L.pure_energy), false)
 	end
 end

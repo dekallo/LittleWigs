@@ -12,8 +12,8 @@ mod:RegisterEnableMob(18373)
 
 local L = mod:GetLocale()
 if L then
-	L.avatar = -5046 -- Avatar of the Martyred
-	L.avatar_desc = -5045 -- EJ entry of the summoning spell, has better description than that of the actual spell
+	L.avatar = -5045 -- Avatar of the Martyred
+	L.avatar_desc = -5045
 	L.avatar_icon = -5045
 end
 
@@ -23,16 +23,21 @@ end
 function mod:GetOptions()
 	return {
 		32346, -- Stolen Soul
-		"avatar",
+		"avatar", -- Summon Avatar
 	}
 end
 
 function mod:OnBossEnable()
-	self:RegisterUnitEvent("UNIT_HEALTH", nil, "target", "focus")
 	self:Log("SPELL_AURA_APPLIED", "StolenSoul", 32346)
 	self:Log("SPELL_CAST_SUCCESS", "AvatarOfTheMartyred", 32424)
 
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", "CheckForEngage")
 	self:Death("Win", 18373)
+end
+
+function mod:OnEngage()
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
+	self:RegisterEvent("UNIT_HEALTH")
 end
 
 -------------------------------------------------------------------------------
@@ -48,9 +53,9 @@ end
 
 function mod:UNIT_HEALTH(event, unit)
 	if self:MobId(self:UnitGUID(unit)) ~= 18373 then return end
-	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
+	local hp = mod:GetHealth(unit)
 	if hp < 30 then
-		self:UnregisterUnitEvent(event, "target", "focus")
+		self:UnregisterEvent(event)
 		self:MessageOld("avatar", "yellow", nil, CL.soon:format(CL.spawning:format(self:SpellName(L.avatar))), 32424)
 	end
 end

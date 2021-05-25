@@ -19,6 +19,7 @@ end
 function mod:OnBossEnable()
 	self:Log("SPELL_DAMAGE", "PoisonCloud", 30916)
 	self:Log("SPELL_MISSED", "PoisonCloud", 30916)
+
 	self:Death("Win", 17380)
 end
 
@@ -29,7 +30,7 @@ do
 	local prev = 0
 	function mod:PoisonCloud(args)
 		if self:Me(args.destGUID) then
-			local t = GetTime()
+			local t = args.time
 			if t - prev > 1.5 then
 				prev = t
 				self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))

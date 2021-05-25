@@ -23,6 +23,7 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_APPLIED", "MurmursTouch", 33711, 38794) -- normal, heroic
 	self:Log("SPELL_AURA_REMOVED", "MurmursTouchRemoved", 33711, 38794)
 	self:Log("SPELL_CAST_START", "SonicBoom", 33923, 38796) -- normal, heroic
+
 	self:Death("Win", 18708)
 end
 

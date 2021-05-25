@@ -6,7 +6,7 @@
 local mod, CL = BigWigs:NewBoss("Harbinger Skyriss", 552, 551)
 if not mod then return end
 mod:RegisterEnableMob(20912, 20904) -- Harbinger Skyriss, Warden Mellichar
-mod.engageId = 1914
+-- mod.engageId = 1914
 mod.respawnTime = 64
 
 --------------------------------------------------------------------------------
@@ -30,6 +30,10 @@ if L then
 	L.warmup_trigger = "the mighty Legion"
 
 	L.prison_cell = "Prison Cell"
+
+	L.illusion = -5335 -- Harbringer's Illusion
+	L.illusion_desc = -5335
+	L.illusion_icon = -5335
 end
 
 --------------------------------------------------------------------------------
@@ -42,22 +46,26 @@ function mod:GetOptions()
 		39415, -- Fear
 		37162, -- Domination
 		36924, -- Mind Rend
-		-5335, -- Harbringer's Illusion
+		"illusion", -- Harbringer's Illusion
 	}
 end
 
 function mod:OnBossEnable()
 	self:RegisterEvent("CHAT_MSG_MONSTER_YELL", "Warmup")
-	self:RegisterUnitEvent("UNIT_HEALTH", nil, "boss1")
-	self:RegisterUnitEvent("UNIT_SPELLCAST_SUCCEEDED", nil, "boss1")
+	self:RegisterEvent("UNIT_SPELLCAST_SUCCEEDED")
 
 	self:Log("SPELL_AURA_APPLIED", "Fear", 39415)
 	self:Log("SPELL_AURA_REMOVED", "FearRemoved", 39415)
 	self:Log("SPELL_AURA_APPLIED", "Domination", 37162, 39019) -- normal, heroic
 	self:Log("SPELL_AURA_APPLIED", "MindRend", 36924, 36929, 39017, 39021) -- normal (real one, illusion), heroic (real one, illusion)
+
+	self:RegisterEvent("PLAYER_REGEN_DISABLED", "CheckForEngage")
+	self:Death("Win", 20912)
 end
 
 function mod:OnEngage()
+	self:RegisterEvent("PLAYER_REGEN_ENABLED", "CheckForWipe")
+	self:RegisterEvent("UNIT_HEALTH")
 	nextSplitWarning = 71 -- 66% and 33%
 end
 
@@ -98,21 +106,23 @@ function mod:MindRend(args)
 end
 
 function mod:UNIT_HEALTH(event, unit)
-	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
+	if self:MobId(self:UnitGUID(unit)) ~= 20912 then return end
+
+	local hp = self:GetHealth(unit)
 	if hp < nextSplitWarning then
 		nextSplitWarning = nextSplitWarning - 33
-		self:MessageOld(-5335, "green", nil, CL.soon:format(self:SpellName(143024)), false) -- 143024 = Split
+		self:MessageOld("illusion", "green", nil, CL.soon:format(self:SpellName(19570)), false) -- 19570 = Split
 		if nextSplitWarning < 33 then
-			self:UnregisterUnitEvent(event, unit)
+			self:UnregisterEvent(event)
 		end
 	end
 end
 
-function mod:UNIT_SPELLCAST_SUCCEEDED(event, unit, _, spellId)
+function mod:UNIT_SPELLCAST_SUCCEEDED(event, _, _, spellId)
 	if spellId == 36931 or spellId == 36932 then -- 66% / 33% illusions
-		self:MessageOld(-5335, "cyan", nil, CL.spawned:format(self:SpellName(-5335)))
+		self:MessageOld("illusion", "cyan", nil, CL.spawned:format(L.illusion), L.illusion_icon)
 		if spellId == 36932 then
-			self:UnregisterUnitEvent(event, unit)
+			self:UnregisterEvent(event)
 		end
 	end
 end
