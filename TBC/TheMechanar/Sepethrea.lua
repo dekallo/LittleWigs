@@ -21,8 +21,8 @@ local mobsFound = 0
 local L = mod:GetLocale()
 if L then
 	L.inferno = "Inferno"
-	L.inferno_desc = "Kael'thas Sunstrider calls down a pillar of flame, burning all players within 6 yards of the targeted area for Fire damage every second for 8 sec."
-	L.inferno_icon = "Spell_Fire_SelfDestruct"
+	L.inferno_desc = "Raging Flames surround themselves with an inferno for 8 sec, inflicting Fire damage to all players within 10 yards every second. While aflame, Raging Flames are unable to move or use abilities. When the inferno ends, Raging Flames choose a new target to pursue."
+	L.inferno_icon = "spell_fire_incinerate"
 
 	L.fixate = CL.fixate
 	L.fixate_desc = CL.fixate
