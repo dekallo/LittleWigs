@@ -25,7 +25,7 @@ if L then
 	L.inferno_icon = "spell_fire_incinerate"
 
 	L.fixate = CL.fixate
-	L.fixate_desc = CL.fixate
+	L.fixate_desc = "Causes the caster to fixate on a random target."
 	L.fixate_icon = "spell_shadow_charm"
 end
 
