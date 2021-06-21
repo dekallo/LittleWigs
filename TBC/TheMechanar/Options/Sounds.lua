@@ -16,6 +16,9 @@ BigWigs:AddSounds("Nethermancer Sepethrea", {
 	[35250] = "alarm",
 	[35312] = "alert",
 	[35314] = "warning",
-	[41951] = "long",
+	["fixate"] = "long",
 	["inferno"] = {"alert","info"},
+})
+
+BigWigs:AddSounds("Pathaleon the Calculator", {
 })

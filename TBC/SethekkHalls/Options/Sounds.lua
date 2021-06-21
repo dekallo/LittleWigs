@@ -1,4 +1,7 @@
 
+BigWigs:AddSounds("Darkweaver Syth", {
+})
+
 BigWigs:AddSounds("Anzu", {
 	[40184] = "warning",
 	[40303] = "alarm",
