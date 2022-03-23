@@ -1,6 +1,6 @@
-## Interface: 20501
-## Interface-Classic: 11307
-## Interface-BCC: 20501
+## Interface: 20504
+## Interface-Classic: 11402
+## Interface-BCC: 20504
 
 ## Title: LittleWigs
 ## Notes: Boss warnings for 5-man dungeons & scenarios.
