@@ -39,7 +39,7 @@ function mod:OnBossEnable()
 	self:Log("SPELL_AURA_APPLIED_DOSE", "EnergyFeedback", 44335)
 	self:Log("SPELL_AURA_REMOVED", "EnergyFeedbackRemoved", 44335)
 
-	self:Win("Death", 24744)
+	self:Death("Win", 24744)
 end
 
 --------------------------------------------------------------------------------
