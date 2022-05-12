@@ -3,6 +3,8 @@ wowi-archive-previous: no
 
 # move-folders:
 #   LittleWigs/Classic: LittleWigs_Classic
+#   LittleWigs/TBC: LittleWigs_BurningCrusade
 
 ignore:
   - Classic
+  - TBC/LittleWigs_BurningCrusade.toc
