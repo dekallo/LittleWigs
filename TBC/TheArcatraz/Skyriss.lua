@@ -75,15 +75,15 @@ end
 
 function mod:Warmup(event, msg)
 	if msg:find(L.first_cell_trigger, nil, true) then
-		self:Bar("warmup", 37.7, CL.count:format(L.prison_cell, 1), "achievement_boss_harbinger_skyriss")
+		self:Bar("warmup", 37.7, CL.count:format(L.prison_cell, 1), "inv_shield_23")
 	elseif msg:find(L.second_and_third_cells_trigger, nil, true) then
-		self:Bar("warmup", 8.1, CL.count:format(L.prison_cell, 2), "achievement_boss_harbinger_skyriss") -- Millhouse Manastorm
-		self:Bar("warmup", 35.7, CL.count:format(L.prison_cell, 3), "achievement_boss_harbinger_skyriss")
+		self:Bar("warmup", 8.1, CL.count:format(L.prison_cell, 2), "spell_frost_frost") -- Millhouse Manastorm
+		self:Bar("warmup", 35.7, CL.count:format(L.prison_cell, 3), "inv_shield_23")
 	elseif msg:find(L.fourth_cell_trigger, nil, true) then
-		self:Bar("warmup", 14.5, CL.count:format(L.prison_cell, 4), "achievement_boss_harbinger_skyriss")
+		self:Bar("warmup", 14.5, CL.count:format(L.prison_cell, 4), "inv_shield_23")
 	elseif msg:find(L.warmup_trigger, nil, true) then
 		self:UnregisterEvent(event)
-		self:Bar("warmup", 30.2, CL.active, "achievement_boss_harbinger_skyriss")
+		self:Bar("warmup", 30.2, CL.active, "inv_shield_23")
 	end
 end
 
