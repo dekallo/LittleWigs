@@ -159,7 +159,7 @@ do
 	local function plagueBomb()
 		if virulaxAlive then
 			bombCount = bombCount + 1
-			mod:Bar(328501, 20, CL.count:format(self:SpellName(328501), bombCount)) -- Plague Bomb
+			mod:Bar(328501, 20, CL.count:format(mod:SpellName(328501), bombCount)) -- Plague Bomb
 			if bombCount < 4 then -- only 4 sets of bombs will spawn
 				mod:SimpleTimer(plagueBomb, 25)
 			end
