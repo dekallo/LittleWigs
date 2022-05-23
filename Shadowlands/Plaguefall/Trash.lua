@@ -154,12 +154,12 @@ end
 
 do
 	local virulaxAlive = true
-	local bombCount = 1
+	local bombCount = 0
 	
 	local function plagueBomb()
 		if virulaxAlive then
 			bombCount = bombCount + 1
-			mod:Bar(328501, 20) -- Plague Bomb
+			mod:Bar(328501, 20, CL.count:format(self:SpellName(328501), bombCount)) -- Plague Bomb
 			if bombCount < 4 then -- only 4 sets of bombs will spawn
 				mod:SimpleTimer(plagueBomb, 25)
 			end
@@ -168,9 +168,8 @@ do
 	function mod:CHAT_MSG_MONSTER_YELL(event, msg)
 		if msg == L.plague_bomb_trigger then
 			virulaxAlive = true
-			bombCount = 1
-			self:Bar(328501, 20) -- Plague Bomb 1
-			self:SimpleTimer(plagueBomb, 25) -- Plague Bomb 2, 3, 4
+			bombCount = 0
+			plagueBomb()
 			self:UnregisterEvent(event)
 		end
 	end
