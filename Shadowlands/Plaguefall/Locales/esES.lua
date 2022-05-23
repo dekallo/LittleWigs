@@ -1,6 +1,8 @@
 local L = BigWigs:NewBossLocale("Plaguefall Trash", "esES") or BigWigs:NewBossLocale("Plaguefall Trash", "esMX")
 if not L then return end
 if L then
+	L.plague_bomb_trigger = "¡Más sujetos de pruebas! ¡Soltad a los perforapestes!"
+
 	L.plagueborer = "Perforapeste"
 	L.fen_hornet = "Avispón de pantano"
 	L.decaying_flesh_giant = "Gigante de carne putrefacta"
@@ -10,6 +12,7 @@ if L then
 	L.blighted_spinebreaker = "Partemédulas contagiado"
 	L.plaguebinder = "Vinculapestes"
 	L.congealed_slime = "Baba coagulada"
+	L.rigged_plagueborer = "Perforapeste preparado"
 	L.defender_of_many_eyes = "Defensor de muchos ojos"
 	L.brood_ambusher = "Emboscador de linaje"
 	L.ickor_bileflesh = "Ickor Carnebilis"

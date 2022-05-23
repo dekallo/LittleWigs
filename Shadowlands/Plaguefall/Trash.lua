@@ -17,6 +17,7 @@ mod:RegisterEnableMob(
 	163894, -- Blighted Spinebreaker
 	168627, -- Plaguebinder
 	164707, -- Congealed Slime
+	168891, -- Rigged Plagueborer
 	163862, -- Defender of Many Eyes
 	164737, -- Brood Ambusher
 	169861, -- Ickor Bileflesh
@@ -31,6 +32,8 @@ mod:RegisterEnableMob(
 
 local L = mod:GetLocale()
 if L then
+	L.plague_bomb_trigger = "Wonderful, more test subjects! Unleash the plagueborers!"
+
 	L.plagueborer = "Plagueborer"
 	L.fen_hornet = "Fen Hornet"
 	L.decaying_flesh_giant = "Decaying Flesh Giant"
@@ -40,6 +43,7 @@ if L then
 	L.blighted_spinebreaker = "Blighted Spinebreaker"
 	L.plaguebinder = "Plaguebinder"
 	L.congealed_slime = "Congealed Slime"
+	L.rigged_plagueborer = "Rigged Plagueborer"
 	L.defender_of_many_eyes = "Defender of Many Eyes"
 	L.brood_ambusher = "Brood Ambusher"
 	L.ickor_bileflesh = "Ickor Bileflesh"
@@ -79,6 +83,8 @@ function mod:GetOptions()
 		{328180, "DISPEL"}, -- Gripping Infection
 		-- Congealed Slime
 		321935, -- Withering Filth
+		-- Rigged Plagueborer
+		328501, -- Plague Bomb
 		-- Defender of Many Eyes
 		336451, -- Bulwark of Maldraxxus
 		-- Brood Ambusher
@@ -103,6 +109,7 @@ function mod:GetOptions()
 		[318949] = L.blighted_spinebreaker,
 		[328180] = L.plaguebinder,
 		[321935] = L.congealed_slime,
+		[328501] = L.rigged_plagueborer,
 		[336451] = L.defender_of_many_eyes,
 		[328475] = L.brood_ambusher,
 		[330786] = L.ickor_bileflesh,
@@ -113,6 +120,9 @@ function mod:GetOptions()
 end
 
 function mod:OnBossEnable()
+	self:RegisterEvent("CHAT_MSG_MONSTER_YELL")
+	self:Death("VirulaxBlightweaverDeath", 168886)
+
 	self:Log("SPELL_CAST_START", "RollingPlague", 323572)
 	self:Log("SPELL_AURA_APPLIED", "FenStingerApplied", 327515)
 	self:Log("SPELL_CAST_START", "CreepyCrawlers", 329239)
@@ -141,6 +151,33 @@ end
 --------------------------------------------------------------------------------
 -- Event Handlers
 --
+
+do
+	local virulaxAlive = true
+	local bombCount = 1
+	
+	local function plagueBomb()
+		if virulaxAlive then
+			bombCount = bombCount + 1
+			mod:Bar(328501, 20) -- Plague Bomb
+			if bombCount < 4 then -- only 4 sets of bombs will spawn
+				mod:SimpleTimer(plagueBomb, 25)
+			end
+		end
+	end
+	function mod:CHAT_MSG_MONSTER_YELL(event, msg)
+		if msg == L.plague_bomb_trigger then
+			virulaxAlive = true
+			bombCount = 1
+			self:Bar(328501, 20) -- Plague Bomb 1
+			self:SimpleTimer(plagueBomb, 25) -- Plague Bomb 2, 3, 4
+			self:UnregisterEvent(event)
+		end
+	end
+	function mod:VirulaxBlightweaverDeath()
+		virulaxAlive = false
+	end
+end
 
 do
 	local prev = 0

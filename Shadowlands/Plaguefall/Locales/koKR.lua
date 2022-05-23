@@ -1,6 +1,8 @@
 local L = BigWigs:NewBossLocale("Plaguefall Trash", "koKR")
 if not L then return end
 if L then
+	--L.plague_bomb_trigger = "Wonderful, more test subjects! Unleash the plagueborers!"
+
 	L.plagueborer = "역병빈대"
 	L.fen_hornet = "수렁 땅벌"
 	L.decaying_flesh_giant = "부패하는 살점 거인"
@@ -10,6 +12,7 @@ if L then
 	L.blighted_spinebreaker = "역병 걸린 척추파괴자"
 	L.plaguebinder = "역병결속자"
 	L.congealed_slime = "응결된 점액"
+	L.rigged_plagueborer = "폭발 준비된 역병빈대"
 	L.defender_of_many_eyes = "수많은 눈의 수호병"
 	L.brood_ambusher = "혈족 매복꾼"
 	L.ickor_bileflesh = "이코르 바일플래시"
