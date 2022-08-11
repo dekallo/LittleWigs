@@ -78,7 +78,7 @@ function mod:Ravage(args)
 end
 
 function mod:Camouflage()
-	self:MessageOld(-2702, "red", "alert")
+	self:Message(-2702, "red", "alert")
 end
 
 function mod:UNIT_HEALTH(event, unit)

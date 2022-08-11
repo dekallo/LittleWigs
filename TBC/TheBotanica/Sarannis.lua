@@ -62,7 +62,7 @@ end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 34803 then -- Summon Reinforcements
-		self:MessageOld(-5411, "yellow", "info")
+		self:Message(-5411, "yellow", "info")
 		if not self:Normal() then
 			self:CDBar(-5411, 60)
 			self:DelayedMessage(-5411, 55, "yellow", CL.soon:format(self:SpellName(-5411)))
