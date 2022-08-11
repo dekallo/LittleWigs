@@ -60,7 +60,7 @@ end
 
 function mod:RitualOfBones(_, _, _, spellId)
 	if spellId == 154671 then -- Ritual of Bones
-		self:Message(-9680, "orange", "warning")
+		self:MessageOld(-9680, "orange", "warning")
 		self:CDBar(-9680, 50.5) -- 50.5-53.0
 	end
 end

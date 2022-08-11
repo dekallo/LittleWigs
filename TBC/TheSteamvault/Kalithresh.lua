@@ -48,7 +48,7 @@ function mod:HeadCrackRemoved(args)
 end
 
 function mod:SpellReflection()
-	self:Message(-6003, "red", "warning")
+	self:MessageOld(-6003, "red", "warning")
 	self:Bar(-6003, 8)
 end
 
