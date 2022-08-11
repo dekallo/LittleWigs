@@ -66,7 +66,7 @@ end
 function mod:UNIT_HEALTH(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 	if hp < nextChainsWarning then
-		self:MessageOld(75539, "yellow", nil, CL.soon:format(self:SpellName(75539))) -- Chains of Woe
+		self:Message(75539, "yellow", CL.soon:format(self:SpellName(75539))) -- Chains of Woe
 		nextChainsWarning = nextChainsWarning - 33
 
 		while nextChainsWarning >= 33 and hp < nextChainsWarning do

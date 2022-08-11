@@ -51,7 +51,7 @@ end
 --
 
 function mod:Smash(args)
-	self:MessageOld(42669, "yellow", nil, CL.casting:format(args.spellName))
+	self:Message(42669, "yellow", CL.casting:format(args.spellName))
 	self:CastBar(42669, 3, args.spellId)
 end
 

@@ -34,6 +34,6 @@ function mod:StaticCharge(args)
 end
 
 function mod:LightningRing(args)
-	self:MessageOld(50840, "orange", nil, CL.casting:format(args.spellName))
+	self:Message(50840, "orange", CL.casting:format(args.spellName))
 	self:CastBar(50840, 10)
 end

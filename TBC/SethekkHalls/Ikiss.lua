@@ -104,7 +104,7 @@ do
 		local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 		if hp < warnAt[explosionWarnings] then
 			explosionWarnings = explosionWarnings + 1
-			self:MessageOld(38197, "orange", nil, CL.soon:format(self:SpellName(38197))) -- Arcane Explosion
+			self:Message(38197, "orange", CL.soon:format(self:SpellName(38197))) -- Arcane Explosion
 
 			while explosionWarnings <= #warnAt and hp < warnAt[explosionWarnings] do
 				-- account for high-level characters hitting multiple thresholds

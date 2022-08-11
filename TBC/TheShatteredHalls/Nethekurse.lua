@@ -65,6 +65,6 @@ function mod:UNIT_HEALTH(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 	if hp < 30 then
 		self:UnregisterUnitEvent(event, unit)
-		self:MessageOld(30502, "green", nil, CL.soon:format(self:SpellName(30502)), false) -- Dark Spin
+		self:Message(30502, "green", CL.soon:format(self:SpellName(30502)), false) -- Dark Spin
 	end
 end

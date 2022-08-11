@@ -146,7 +146,7 @@ end
 
 function mod:Interrupts(args)
 	if args.extraSpellId == 235578 then -- Grasp from Beyond
-		self:MessageOld(235578, "blue", nil, CL.interrupted:format(args.extraSpellName))
+		self:Message(235578, "blue", CL.interrupted:format(args.extraSpellName))
 		self:StopBar(CL.cast:format(args.extraSpellName))
 	end
 end

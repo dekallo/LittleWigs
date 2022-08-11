@@ -36,7 +36,7 @@ function mod:EmbraceOfTheVampyr(args)
 end
 
 function mod:EmbraceOfTheVampyrRemoved(args)
-	self:MessageOld(59513, "green", nil, CL.over:format(args.spellName))
+	self:Message(59513, "green", CL.over:format(args.spellName))
 	self:StopBar(args.spellName)
 end
 

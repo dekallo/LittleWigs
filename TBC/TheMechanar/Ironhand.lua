@@ -58,7 +58,7 @@ function mod:CHAT_MSG_RAID_BOSS_EMOTE(_, _, source)
 end
 
 function mod:ShadowPower(args)
-	self:MessageOld(39193, "red", nil, CL.casting:format(args.spellName))
+	self:Message(39193, "red", CL.casting:format(args.spellName))
 end
 
 function mod:ShadowPowerApplied()

@@ -50,6 +50,6 @@ function mod:MurmursTouchRemoved(args)
 end
 
 function mod:SonicBoom(args)
-	self:MessageOld(33923, "red", nil, CL.casting:format(args.spellName))
+	self:Message(33923, "red", CL.casting:format(args.spellName))
 	self:CastBar(33923, 5)
 end

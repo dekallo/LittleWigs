@@ -30,7 +30,7 @@ function mod:UNIT_HEALTH(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 	if hp < 35 then
 		self:UnregisterUnitEvent(event, unit)
-		self:MessageOld(68872, "red", nil, CL.soon:format(self:SpellName(68872))) -- Soulstorm
+		self:Message(68872, "red", CL.soon:format(self:SpellName(68872))) -- Soulstorm
 	end
 end
 

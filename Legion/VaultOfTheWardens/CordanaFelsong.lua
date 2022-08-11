@@ -156,10 +156,10 @@ function mod:UNIT_HEALTH(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 	if hp < 80 and not warnedForStealLight then
 		warnedForStealLight = true
-		self:MessageOld(206567, "yellow", nil, CL.soon:format(self:SpellName(206387))) -- Steal Light soon
+		self:Message(206567, "yellow", CL.soon:format(self:SpellName(206387))) -- Steal Light soon
 	elseif hp < 45 and not warnedForCreepingDoom then
 		warnedForCreepingDoom = true
-		self:MessageOld(197422, "red", nil, CL.soon:format(self:SpellName(197422))) -- Creeping Doom soon
+		self:Message(197422, "red", CL.soon:format(self:SpellName(197422))) -- Creeping Doom soon
 		self:UnregisterUnitEvent(event, unit)
 	end
 end

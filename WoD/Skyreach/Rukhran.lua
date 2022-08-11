@@ -83,7 +83,7 @@ function mod:QuillsWarn(event, unitId)
 	local hp = UnitHealth(unitId) / UnitHealthMax(unitId) * 100
 	if (hp < 67 and quillsWarn == 100) or (hp < 27 and quillsWarn == 60) then
 		quillsWarn = quillsWarn - 40
-		self:MessageOld(159382, "green", nil, CL.soon:format(self:SpellName(159382)), false)
+		self:Message(159382, "green", CL.soon:format(self:SpellName(159382)), false)
 		if quillsWarn == 20 then
 			self:UnregisterUnitEvent(event, unitId)
 		end

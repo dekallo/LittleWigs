@@ -98,7 +98,7 @@ function mod:UNIT_HEALTH(event, unit)
 		if self:CheckOption("confess", "MESSAGE") then -- both happen at the same time, just display one message depending on the user's settings
 			self:MessageOld("confess", "yellow", nil, CL.soon:format(self:SpellName(66680)), 66680)
 		else
-			self:MessageOld(66515, "yellow", nil, CL.soon:format(self:SpellName(66515)))
+			self:Message(66515, "yellow", CL.soon:format(self:SpellName(66515)))
 		end
 	end
 end

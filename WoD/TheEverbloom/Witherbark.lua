@@ -80,7 +80,7 @@ function mod:Energize()
 	if self.isEngaged then -- This happens when killing the trash, we only want it during the encounter.
 		energy = energy + 25
 		if energy < 101 then
-			self:MessageOld(164275, "cyan", nil, L.energyStatus:format(energy), "spell_lightning_lightningbolt01")
+			self:Message(164275, "cyan", L.energyStatus:format(energy), "spell_lightning_lightningbolt01")
 		end
 	end
 end

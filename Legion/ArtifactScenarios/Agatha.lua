@@ -254,7 +254,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, unit, _, spellId)
 	if spellId == 242987 then -- Translocate
 		if phase == 1 then
 			phase = 2
-			self:MessageOld(242989, "cyan", nil, CL.percent:format(50, self:SpellName(spellId)), false)
+			self:Message(242989, "cyan", CL.percent:format(50, self:SpellName(spellId)), false)
 
 			-- Recalc Dark Fury time
 			local remaining = (100 - UnitPower(unit)) * 0.68
@@ -268,7 +268,7 @@ end
 function mod:UNIT_HEALTH(event, unit)
 	local hp = self:GetHealth(unit)
 	if hp < 55 then
-		self:MessageOld(242989, "cyan", nil, CL.soon:format(self:SpellName(242987)), false)
+		self:Message(242989, "cyan", CL.soon:format(self:SpellName(242987)), false)
 		-- Seems like it's based on damage done after the initial 50% cast, cba to track that
 		self:UnregisterUnitEvent(event, unit)
 	end

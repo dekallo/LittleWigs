@@ -37,7 +37,7 @@ end
 --
 
 function mod:Heal(args)
-	self:MessageOld(39013, "orange", nil, CL.casting:format(args.spellName))
+	self:Message(39013, "orange", CL.casting:format(args.spellName))
 end
 
 function mod:Whirlwind()
@@ -59,7 +59,7 @@ do
 end
 
 function mod:GiftOfTheDoomsayer(args)
-	self:MessageOld(39009, "yellow", nil, CL.casting:format(args.spellName))
+	self:Message(39009, "yellow", CL.casting:format(args.spellName))
 end
 
 function mod:GiftOfTheDoomsayerApplied(args)

@@ -63,7 +63,7 @@ do
 		local power = UnitPower(unit) / UnitPowerMax(unit) * 100
 		if power <= 30 and not warnedAboutBlessingIncoming then
 			warnedAboutBlessingIncoming = true
-			self:MessageOld(76355, "cyan", nil, CL.soon:format(self:SpellName(76355)))
+			self:Message(76355, "cyan", CL.soon:format(self:SpellName(76355)))
 		end
 	end
 end

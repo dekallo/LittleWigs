@@ -45,7 +45,7 @@ end
 function mod:UNIT_HEALTH(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 	if hp < nextWorgenSpiritWarning then
-		self:MessageOld(93857, "yellow", nil, CL.soon:format(self:SpellName(93857)), false)
+		self:Message(93857, "yellow", CL.soon:format(self:SpellName(93857)), false)
 		if self:Normal() then
 			nextWorgenSpiritWarning = nextWorgenSpiritWarning - 35
 		else

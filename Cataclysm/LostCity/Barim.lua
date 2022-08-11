@@ -61,7 +61,7 @@ function mod:UNIT_HEALTH(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 	if hp < 55 then
 		self:UnregisterUnitEvent(event, unit)
-		self:MessageOld(88814, "yellow", nil, CL.soon:format(CL.phase:format(2)))
+		self:Message(88814, "yellow", CL.soon:format(CL.phase:format(2)))
 	end
 end
 

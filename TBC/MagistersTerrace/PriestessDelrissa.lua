@@ -83,7 +83,7 @@ end
 
 -- Yazzai
 function mod:Blizzard(args)
-	self:MessageOld(44178, "red", nil, CL.casting:format(args.spellName))
+	self:Message(44178, "red", CL.casting:format(args.spellName))
 end
 
 function mod:Polymorph(args)

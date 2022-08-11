@@ -52,7 +52,7 @@ function mod:Tranquility()
 end
 
 function mod:TranquilityOver()
-	self:MessageOld(34550, "green", nil, CL.over:format(self:SpellName(34550)))
+	self:Message(34550, "green", CL.over:format(self:SpellName(34550)))
 	self:StopBar(CL.cast:format(self:SpellName(34550)))
 end
 

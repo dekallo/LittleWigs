@@ -59,7 +59,7 @@ function mod:UNIT_HEALTH(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 	if hp < nextPowerConduitWarning then
 		nextPowerConduitWarning = nextPowerConduitWarning - 25
-		self:MessageOld(166168, "green", nil, CL.soon:format(self:SpellName(166168)), false)
+		self:Message(166168, "green", CL.soon:format(self:SpellName(166168)), false)
 		if nextPowerConduitWarning < 25 then
 			self:UnregisterUnitEvent(event, unit)
 		end

@@ -72,7 +72,7 @@ function mod:UNIT_HEALTH(event, unit)
 	local hp = UnitHealth(unit) / UnitHealthMax(unit) * 100
 	if hp < 55 then
 		self:UnregisterUnitEvent(event, unit)
-		self:MessageOld(44224, "green", nil, CL.soon:format(self:SpellName(44224)), false) -- Gravity Lapse
+		self:Message(44224, "green", CL.soon:format(self:SpellName(44224)), false) -- Gravity Lapse
 	end
 end
 
