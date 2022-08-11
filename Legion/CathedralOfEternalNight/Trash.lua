@@ -139,37 +139,44 @@ end
 
 -- Felguard Destroyer
 function mod:ShadowWall(args)
-	self:MessageOld(args.spellId, "yellow", "long", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "long")
 end
 
 -- Helblaze Soulmender
 function mod:DemonicMending(args)
-	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "warning")
 end
 
 -- Felborne Botanist
 function mod:BlisteringRain(args)
-	self:MessageOld(args.spellId, "yellow", "long", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "long")
 end
 
 -- Hellblaze Temptress
 function mod:AlluringAroma(args)
-	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "warning")
 end
 
 -- Felstrider Orbcaster
 function mod:FelblazeOrb(args)
-	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "warning")
 end
 
 -- Wa'glur
 function mod:UnearthyHowl(args)
-	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "warning")
 end
 
 -- Gazerax
 function mod:BlindingGlare(args)
-	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "warning")
 	self:CastBar(args.spellId, 2.5)
 end
 
@@ -186,5 +193,6 @@ end
 
 -- Vilebark Walker
 function mod:LumberingCrash(args)
-	self:MessageOld(args.spellId, "red", "alarm", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alarm")
 end

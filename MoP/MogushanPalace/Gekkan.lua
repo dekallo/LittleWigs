@@ -87,7 +87,8 @@ function mod:Shank(args)
 
 	local unit = self:GetUnitIdByGUID(args.sourceGUID)
 	if unit and self:Tanking(unit) then
-		self:MessageOld(args.spellId, "purple", "warning", CL.casting:format(args.spellName))
+		self:Message(args.spellId, "purple", CL.casting:format(args.spellName))
+		self:PlaySound(args.spellId, "warning")
 	end
 end
 

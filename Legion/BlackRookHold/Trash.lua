@@ -99,22 +99,26 @@ end
 
 -- Soul-torn Champion, Soul-torn Vanguard
 function mod:BonebreakingStrike(args)
-	self:MessageOld(args.spellId, "orange", "alarm", CL.incoming:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.incoming:format(args.spellName))
+	self:PlaySound(args.spellId, "alarm")
 end
 
 -- Risen Swordsman
 function mod:CoupdeGrace(args)
-	self:MessageOld(args.spellId, "red", "alarm", CL.incoming:format(args.spellName))
+	self:Message(args.spellId, "red", CL.incoming:format(args.spellName))
+	self:PlaySound(args.spellId, "alarm")
 end
 
 -- Risen Archer
 function mod:ArrowBarrage(args)
-	self:MessageOld(args.spellId, "yellow", "warning", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "warning")
 end
 
 -- Risen Scout
 function mod:KnifeDance(args)
-	self:MessageOld(args.spellId, "red", "alert", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 end
 
 -- Ghostly Councilor

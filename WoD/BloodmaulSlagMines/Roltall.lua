@@ -38,7 +38,8 @@ function mod:FieryBoulder(args)
 end
 
 function mod:HeatWaveInc(args)
-	self:MessageOld(args.spellId, "red", "alert", CL.incoming:format(args.spellName))
+	self:Message(args.spellId, "red", CL.incoming:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 end
 
 function mod:HeatWaveBegin(args)

@@ -48,7 +48,8 @@ end
 --
 
 function mod:ParalyzingScreech(args)
-	self:MessageOld(args.spellId, "red", "warning", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "warning")
 	self:CastBar(args.spellId, 5)
 	self:Flash(args.spellId)
 end

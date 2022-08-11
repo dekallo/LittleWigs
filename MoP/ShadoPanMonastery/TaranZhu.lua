@@ -62,13 +62,15 @@ end
 
 function mod:HazeOfHate(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "blue", "long", CL.you:format(args.spellName))
+		self:Message(args.spellId, "blue", CL.you:format(args.spellName))
+		self:PlaySound(args.spellId, "long")
 		self:Flash(args.spellId)
 	end
 end
 
 function mod:RisingHateStart(args)
-	self:MessageOld(args.spellId, "red", "warning", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "warning")
 	self:CastBar(args.spellId, 5)
 	self:CDBar(args.spellId, 16.5) -- 16-19
 end

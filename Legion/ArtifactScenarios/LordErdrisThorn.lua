@@ -134,15 +134,18 @@ end
 
 function mod:IgniteSoul(args)
 	self:CDBar(args.spellId, 18)
-	self:MessageOld(args.spellId, "red", "warning", CL.incoming:format(args.spellName))
+	self:Message(args.spellId, "red", CL.incoming:format(args.spellName))
+	self:PlaySound(args.spellId, "warning")
 end
 
 function mod:KnifeDance(args)
 	self:CDBar(args.spellId, 23)
-	self:MessageOld(args.spellId, "orange", "alarm", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alarm")
 end
 
 function mod:FrenziedAssault(args)
 	self:CDBar(args.spellId, 19)
-	self:MessageOld(args.spellId, "red", "alarm", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alarm")
 end

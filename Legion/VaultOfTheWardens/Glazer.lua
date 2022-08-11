@@ -65,7 +65,8 @@ end
 
 function mod:LingeringGazeApplied(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
+		self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
+		self:PlaySound(args.spellId, "alert")
 	end
 end
 
@@ -87,7 +88,8 @@ do
 			local t = GetTime()
 			if t-prev > 1.5 then
 				prev = t
-				self:MessageOld(args.spellId, "blue", "alert", CL.you:format(args.spellName))
+				self:Message(args.spellId, "blue", CL.you:format(args.spellName))
+				self:PlaySound(args.spellId, "alert")
 			end
 		end
 	end

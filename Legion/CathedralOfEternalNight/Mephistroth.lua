@@ -100,7 +100,8 @@ function mod:CarrionSwarm(args)
 end
 
 function mod:DemonicUpheaval(args)
-	self:MessageOld(args.spellId, "yellow", "alert", CL.incoming:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.incoming:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 	if self:BarTimeLeft(233206) > 31.9 then -- Shadow Fade
 		self:Bar(args.spellId, 31.9)
 	end
@@ -148,7 +149,8 @@ end
 function mod:ShadowFadeRemoved(args)
 	phase = 1
 	self:OpenProximity(234817, 8) -- Dark Solitude
-	self:MessageOld(args.spellId, "green", "long", CL.removed:format(args.spellName))
+	self:Message(args.spellId, "green", CL.removed:format(args.spellName))
+	self:PlaySound(args.spellId, "long")
 	self:Bar(args.spellId, 79.3)
 	self:Bar(233196, 3.5) -- Demonic Upheaval
 	self:Bar(234817, 7.1) -- Dark Solitude

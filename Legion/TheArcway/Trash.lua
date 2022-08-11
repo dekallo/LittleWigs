@@ -91,7 +91,8 @@ end
 
 -- Arcane Anomaly
 function mod:ArcaneSlicer(args)
-	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "warning")
 end
 
 -- Arcane Anomaly and Warp Shade
@@ -112,7 +113,8 @@ do
 			local t = GetTime()
 			if t-prev > 1.5 then
 				prev = t
-				self:MessageOld(args.spellId, "blue", "warning", CL.underyou:format(args.spellName))
+				self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
+				self:PlaySound(args.spellId, "warning")
 			end
 		end
 	end
@@ -133,7 +135,8 @@ end
 
 function mod:DemonicAscension(args)
 	if not self:Friendly(args.sourceFlags) then -- these NPCs can be mind-controlled by warlocks
-		self:MessageOld(args.spellId, "orange", "alarm", CL.casting:format(args.spellName))
+		self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+		self:PlaySound(args.spellId, "alarm")
 	end
 end
 

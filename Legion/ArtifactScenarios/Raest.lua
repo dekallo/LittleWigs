@@ -127,7 +127,8 @@ function mod:Purgatory(args)
 end
 
 function mod:PurgatoryRemoved(args)
-	self:MessageOld(args.spellId, "green", "info", CL.over:format(args.spellName))
+	self:Message(args.spellId, "green", CL.over:format(args.spellName))
+	self:PlaySound(args.spellId, "info")
 	self:StopBar(CL.cast:format(args.spellName))
 end
 

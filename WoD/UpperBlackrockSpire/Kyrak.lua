@@ -38,12 +38,14 @@ end
 --
 
 function mod:DebilitatingFixation(args)
-	self:MessageOld(args.spellId, "yellow", "alert", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 	self:CDBar(args.spellId, 20) -- 20-23
 end
 
 function mod:RejuvenatingSerumIncoming(args)
-	self:MessageOld(args.spellId, "orange", "long", CL.incoming:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.incoming:format(args.spellName))
+	self:PlaySound(args.spellId, "long")
 end
 
 function mod:RejuvenatingSerum(args)
@@ -52,7 +54,8 @@ end
 
 function mod:VilebloodSerum(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "blue", "alarm", CL.underyou:format(args.spellName))
+		self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
+		self:PlaySound(args.spellId, "alarm")
 	end
 end
 

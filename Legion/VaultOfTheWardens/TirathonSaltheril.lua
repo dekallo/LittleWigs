@@ -101,10 +101,12 @@ end
 
 function mod:FuriousFlamesApplied(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
+		self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
+		self:PlaySound(args.spellId, "alert")
 	end
 end
 
 function mod:FuriousBlast(args)
-	self:MessageOld(args.spellId, "orange", "alarm", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alarm")
 end

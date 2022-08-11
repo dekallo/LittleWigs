@@ -61,6 +61,7 @@ function mod:ScornfulGaze(args)
 end
 
 function mod:HeaveCudgel(args)
-	self:MessageOld(args.spellId, "red", "alert", CL.incoming:format(args.spellName))
+	self:Message(args.spellId, "red", CL.incoming:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 	self:CDBar(args.spellId, 37)
 end

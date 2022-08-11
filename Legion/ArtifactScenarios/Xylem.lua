@@ -193,7 +193,8 @@ end
 -- Corrupting Shadows
 
 function mod:CreepingShadowsDamage(args)
-	self:MessageOld(args.spellId, "blue", "alarm", CL.underyou:format(args.spellName))
+	self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
+	self:PlaySound(args.spellId, "alarm")
 end
 
 function mod:SeedOfDarkness(args)

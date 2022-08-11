@@ -48,13 +48,15 @@ end
 --
 
 function mod:DancingBlade(args)
-	self:MessageOld(args.spellId, "orange", "alert", CL.incoming:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.incoming:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 	self:CDBar(args.spellId, bladeCount % 2 == 0 and 10 or 31) -- pull:5.2, 31.5, 10.9, 31.6, 10.9, 32.4, 10.1
 	bladeCount = bladeCount + 1
 end
 
 function mod:HornOfValor(args)
-	self:MessageOld(args.spellId, "red", "long", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "long")
 	self:CDBar(args.spellId, 42) -- pull:10.1, 42.4, 43.3
 end
 

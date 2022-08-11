@@ -55,7 +55,8 @@ end
 --
 
 function mod:GroundSlam(args)
-	self:MessageOld(args.spellId, "orange", "alert", CL.casting:format(args.spellName), args.spellId)
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName), args.spellId)
+	self:PlaySound(args.spellId, "alert")
 	self:CastBar(args.spellId, 3)
 end
 

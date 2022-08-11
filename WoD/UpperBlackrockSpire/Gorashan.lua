@@ -72,7 +72,8 @@ function mod:PowerConduit(args)
 end
 
 function mod:PowerConduitRemoved(args)
-	self:MessageOld(args.spellId, "green", "long", CL.removed:format(args.spellName))
+	self:Message(args.spellId, "green", CL.removed:format(args.spellName))
+	self:PlaySound(args.spellId, "long")
 end
 
 function mod:PowerConduitReduced(args)
@@ -80,7 +81,8 @@ function mod:PowerConduitReduced(args)
 end
 
 function mod:ShrapnelNova(args)
-	self:MessageOld(args.spellId, "orange", "alert", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 	self:Bar(args.spellId, 2.5, CL.cast:format(args.spellName))
 	self:CDBar(args.spellId, 30) -- 29-33
 end

@@ -79,6 +79,7 @@ do
 end
 
 function mod:OverchargeMana(args)
-	self:MessageOld(args.spellId, "red", "long", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "long")
 	self:CDBar(args.spellId, 40)
 end

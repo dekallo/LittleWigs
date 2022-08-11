@@ -103,14 +103,16 @@ end
 --
 
 function mod:FelBurst(args)
-	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "warning")
 	burstCount = burstCount + 1
 	if burstCount == 4 then burstCount = 1 end
 	self:CDBar(args.spellId, burstCount == 2 and 23 or 18)
 end
 
 function mod:SonicScream(args)
-	self:MessageOld(args.spellId, "red", "alert", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 	screamCount = screamCount + 1
 	--self:CDBar(args.spellId, screamTimers[screamCount]) -- innacurate
 end

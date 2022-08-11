@@ -140,7 +140,8 @@ do
 			if t-prev > 2 then
 				prev = t
 				self:Flash(args.spellId)
-				self:MessageOld(args.spellId, "blue", "alarm", CL.underyou:format(args.spellName))
+				self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
+				self:PlaySound(args.spellId, "alarm")
 			end
 		end
 	end
