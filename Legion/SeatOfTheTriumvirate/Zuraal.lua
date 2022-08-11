@@ -69,7 +69,8 @@ function mod:Decimate(args)
 end
 
 function mod:CoalescedVoid()
-	self:MessageOld(244602, "yellow", "alert")
+	self:Message(244602, "yellow")
+	self:PlaySound(244602, "alert")
 	self:CDBar(244602, 55)
 end
 

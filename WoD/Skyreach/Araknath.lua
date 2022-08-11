@@ -57,7 +57,8 @@ do
 end
 
 function mod:Smash()
-	self:MessageOld(154110, "orange", "warning")
+	self:Message(154110, "orange")
+	self:PlaySound(154110, "warning")
 	smashCount = smashCount + 1
 	self:CDBar(154110, smashCount % 2 == 0 and 14.6 or 8.5)
 end

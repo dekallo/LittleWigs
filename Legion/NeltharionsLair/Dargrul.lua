@@ -67,7 +67,8 @@ end
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	-- Faster that combat log event for Magma Wave (200404)
 	if spellId == 201661 or spellId == 201663 then -- Dargrul Ability Callout 02, Dargrul Ability Callout 03
-		self:MessageOld(200404, "green", "long")
+		self:Message(200404, "green")
+		self:PlaySound(200404, "long")
 		self:CDBar(200404, self:Normal() and 59.7 or 60.8)
 		self:Bar(200404, 7, CL.cast:format(self:SpellName(200404)))
 	end

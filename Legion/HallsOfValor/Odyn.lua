@@ -102,7 +102,8 @@ end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	if spellId == 198396 then -- Spear of Light
-		self:MessageOld(200988, "orange", "alert")
+		self:Message(200988, "orange")
+		self:PlaySound(200988, "alert")
 	end
 end
 

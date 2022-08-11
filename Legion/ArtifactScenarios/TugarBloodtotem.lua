@@ -122,7 +122,8 @@ function mod:ScaleRemoved(args)
 end
 
 function mod:FitSurgeStart(args)
-	self:MessageOld(243224, "red", "long")
+	self:Message(243224, "red")
+	self:PlaySound(243224, "long")
 	self:CDBar(243224, 25.5)
 end
 

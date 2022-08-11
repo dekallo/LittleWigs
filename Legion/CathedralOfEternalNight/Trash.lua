@@ -128,7 +128,8 @@ do
 			self:Say(236737)
 		elseif t-prev > 1.5 then
 			prev = t
-			self:MessageOld(236737, "yellow", "alert")
+			self:Message(236737, "yellow")
+			self:PlaySound(236737, "alert")
 		end
 	end
 	function mod:FelStrike(args)

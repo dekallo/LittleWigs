@@ -94,7 +94,8 @@ do
 				local t = GetTime()
 				if t-prev > 2 then
 					prev = t
-					self:MessageOld(213583, "yellow", "alarm")
+					self:Message(213583, "yellow")
+					self:PlaySound(213583, "alarm")
 				end
 			end
 		elseif spellId == 228210 and castGUID ~= prevGUID then -- Elune's Light picked up

@@ -63,7 +63,8 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 		self:StopBar(198496) -- Sunder
 		self:StopBar(198428) -- Strike of the Mountain
 		self:StopBar(198564) -- Stance of the Mountain
-		self:MessageOld(198564, "yellow", "long")
+		self:Message(198564, "yellow")
+		self:PlaySound(198564, "long")
 	end
 end
 

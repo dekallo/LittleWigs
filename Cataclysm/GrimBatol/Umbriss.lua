@@ -47,7 +47,8 @@ function mod:Blitz(_, msg, _, _, _, player)
 			self:PrimaryIcon(74670, player)
 			self:ScheduleTimer("PrimaryIcon", 3.5, 74670)
 		else
-			self:MessageOld(74670, "red", "alert")
+			self:Message(74670, "red")
+			self:PlaySound(74670, "alert")
 		end
 	end
 end

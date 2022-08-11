@@ -102,6 +102,7 @@ function mod:BlessingOfTheSnakeGod()
 end
 
 function mod:BlessingOfTheSnakeGodRemoved()
-	self:MessageOld(96653, "green", "info") -- Venom Withdrawal
+	self:Message(96653, "green") -- Venom Withdrawal
+	self:PlaySound(96653, "info") -- Venom Withdrawal
 	self:Bar(96653, 10)
 end

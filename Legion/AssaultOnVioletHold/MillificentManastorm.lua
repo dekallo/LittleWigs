@@ -49,12 +49,14 @@ function mod:DeltaFinger(args)
 end
 
 function mod:SquirrelBomb()
-	self:MessageOld(201240, "yellow", "info")
+	self:Message(201240, "yellow")
+	self:PlaySound(201240, "info")
 	self:CDBar(201240, 18)
 end
 
 function mod:RocketChicken(args)
-	self:MessageOld(201392, "red", "alarm")
+	self:Message(201392, "red")
+	self:PlaySound(201392, "alarm")
 	self:CDBar(201392, args.spellId == 201438 and 9.7 or 18)
 end
 

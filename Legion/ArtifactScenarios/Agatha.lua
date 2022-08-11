@@ -207,7 +207,8 @@ do
 	end
 
 	function mod:DarkFury(args)
-		self:MessageOld(243111, "red", "long")
+		self:Message(243111, "red")
+		self:PlaySound(243111, "long")
 		self:Bar(243111, phase == 1 and 51 or 68) -- Energy generation slows in phase 2 (2/s->3/2s)
 		hasFury = true
 
