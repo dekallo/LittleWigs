@@ -45,7 +45,7 @@ end
 --
 
 function mod:SpiritBolts(args)
-	self:MessageOld(args.spellId, "red")
+	self:Message(args.spellId, "red")
 	self:CDBar(args.spellId, 30)
 end
 

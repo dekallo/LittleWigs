@@ -65,7 +65,7 @@ function mod:CleansingForce(args)
 end
 
 function mod:DestabilizedOrb(args)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 end
 
 do

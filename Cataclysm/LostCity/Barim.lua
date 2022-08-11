@@ -47,7 +47,7 @@ function mod:PlagueRemoved(args)
 end
 
 function mod:FiftyLashings(args)
-	self:MessageOld(args.spellId, "red")
+	self:Message(args.spellId, "red")
 end
 
 function mod:HallowedGround(args)

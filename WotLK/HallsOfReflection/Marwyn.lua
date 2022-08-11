@@ -42,7 +42,7 @@ function mod:Warmup()
 end
 
 function mod:CorruptedFlesh(args)
-	self:MessageOld(args.spellId, "red")
+	self:Message(args.spellId, "red")
 end
 
 function mod:SharedSuffering(args)

@@ -145,7 +145,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 end
 
 function mod:ArcaneAnnihilation(args)
-	self:MessageOld(args.spellId, "cyan")
+	self:Message(args.spellId, "cyan")
 	self:Bar(args.spellId, 40, CL.cast:format(args.spellName))
 
 	annihilationCount = annihilationCount + 1

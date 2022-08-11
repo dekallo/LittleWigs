@@ -78,7 +78,7 @@ end
 
 -- Apoko
 function mod:WindfuryTotem(args)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 end
 
 -- Yazzai

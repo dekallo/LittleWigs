@@ -108,7 +108,7 @@ end
 
 -- Dulhu
 function mod:Slash(args)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 end
 
 -- General

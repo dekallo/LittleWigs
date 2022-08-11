@@ -88,28 +88,28 @@ function mod:Curse(args)
 end
 
 function mod:PitLord(args)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 	self:Bar(args.spellId, 10, "<"..args.spellName..">")
 	self:CDBar(138685, 66) -- Imps
 	self:CDBar(138559, 30) -- Chaos Bolt
 end
 
 function mod:Imps(args)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 	self:StopBar(args.spellId)
 	self:Bar(args.spellId, 10, "<"..args.spellName..">")
 	self:CDBar(138751, 57) -- Felhunters
 end
 
 function mod:Felhunters(args)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 	self:StopBar(args.spellId)
 	self:Bar(args.spellId, 9, "<"..args.spellName..">")
 	self:CDBar(138755, 59) -- Doom Lord
 end
 
 function mod:DoomLord(args)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 	self:StopBar(args.spellId)
 	self:Bar(args.spellId, 10, "<"..args.spellName..">")
 	self:CDBar(138685, 60) -- Imps

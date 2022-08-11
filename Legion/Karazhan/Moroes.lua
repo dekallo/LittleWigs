@@ -137,7 +137,7 @@ function mod:INSTANCE_ENCOUNTER_ENGAGE_UNIT()
 end
 
 function mod:Vanish(args)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 	self:Bar(args.spellId, 20.5)
 end
 
@@ -161,7 +161,7 @@ function mod:CoatCheckDispellable(args)
 end
 
 function mod:GhastlyPurge(args)
-	self:MessageOld(args.spellId, "cyan")
+	self:Message(args.spellId, "cyan")
 end
 
 function mod:ManaDrain(args)

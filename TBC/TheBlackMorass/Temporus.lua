@@ -43,6 +43,6 @@ function mod:HastenRemoved(args)
 end
 
 function mod:SpellReflection(args)
-	self:MessageOld(args.spellId, "orange")
+	self:Message(args.spellId, "orange")
 	self:Bar(args.spellId, 6)
 end

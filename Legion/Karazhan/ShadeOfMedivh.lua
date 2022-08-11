@@ -105,13 +105,13 @@ do
 		if frostbiteTarget then
 			self:GetBossTarget(printTarget, 1, args.sourceGUID)
 		else
-			self:MessageOld(args.spellId, "red")
+			self:Message(args.spellId, "red")
 		end
 	end
 end
 
 function mod:PiercingMissiles(args)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 end
 
 function mod:GuardiansImage(args)

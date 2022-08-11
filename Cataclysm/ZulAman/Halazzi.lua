@@ -68,7 +68,7 @@ function mod:FlameShockRemoved(args)
 end
 
 function mod:Enrage(args)
-	self:MessageOld(args.spellId, "red")
+	self:Message(args.spellId, "red")
 end
 
 function mod:Totems(args)

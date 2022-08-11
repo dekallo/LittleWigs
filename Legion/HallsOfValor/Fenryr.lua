@@ -77,7 +77,7 @@ do
 end
 
 function mod:ClawFrenzy(args)
-	self:MessageOld(args.spellId, "red")
+	self:Message(args.spellId, "red")
 end
 
 do

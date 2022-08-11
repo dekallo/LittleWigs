@@ -42,7 +42,7 @@ end
 
 function mod:PlanarShift(args)
 	self:CDBar(args.spellId, 77)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 end
 
 function mod:VoidVortex(args)
@@ -53,7 +53,7 @@ end
 
 function mod:SoulShred(args)
 	self:CDBar(args.spellId, 77)
-	self:MessageOld(args.spellId, "red")
+	self:Message(args.spellId, "red")
 end
 
 function mod:VoidDevastation(args)

@@ -58,7 +58,7 @@ do
 end
 
 function mod:StranglingRoots(args)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 	self:CDBar(args.spellId, 23) -- hc pull:12.5, 24.3, 26.7, 23.1 / m pull:14.6, 24.3, 32.8, 33.6
 end
 

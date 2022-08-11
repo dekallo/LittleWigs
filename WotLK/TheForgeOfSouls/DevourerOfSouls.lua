@@ -42,6 +42,6 @@ function mod:MirroredSoulRemoved(args)
 end
 
 function mod:WailingSouls(args)
-	self:MessageOld(args.spellId, "red")
+	self:Message(args.spellId, "red")
 	self:Bar(args.spellId, 15)
 end

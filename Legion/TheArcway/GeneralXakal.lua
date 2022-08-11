@@ -56,7 +56,7 @@ function mod:DreadFelbats()
 end
 
 function mod:FelFissure(args)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 	self:CDBar(args.spellId, 23)
 end
 

@@ -55,5 +55,5 @@ function mod:CurseOfFatigue(args)
 end
 
 function mod:Enrage(args)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 end

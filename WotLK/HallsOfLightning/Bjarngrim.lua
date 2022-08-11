@@ -37,7 +37,7 @@ end
 
 function mod:BerserkerAura(args)
 	if self:MobId(args.destGUID) == 28586 then -- Boss only
-		self:MessageOld(args.spellId, "orange")
+		self:Message(args.spellId, "orange")
 	end
 end
 

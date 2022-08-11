@@ -43,7 +43,7 @@ function mod:HeatWaveInc(args)
 end
 
 function mod:HeatWaveBegin(args)
-	self:MessageOld(args.spellId, "red")
+	self:Message(args.spellId, "red")
 	self:Bar(args.spellId, 8, CL.cast:format(args.spellName))
 end
 

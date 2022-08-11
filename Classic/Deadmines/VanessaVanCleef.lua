@@ -35,7 +35,7 @@ end
 --
 
 function mod:Deflection(args)
-	self:MessageOld(args.spellId, "orange")
+	self:Message(args.spellId, "orange")
 	self:Bar(args.spellId, 10)
 end
 

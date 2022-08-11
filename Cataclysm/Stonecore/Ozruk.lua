@@ -63,7 +63,7 @@ function mod:UNIT_HEALTH(event, unit)
 end
 
 function mod:Enrage(args)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 end
 
 function mod:Paralyze(args)

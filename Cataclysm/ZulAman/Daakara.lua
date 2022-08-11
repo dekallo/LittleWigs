@@ -64,7 +64,7 @@ do
 end
 
 function mod:Whirlwind(args)
-	self:MessageOld(args.spellId, "orange")
+	self:Message(args.spellId, "orange")
 end
 
 function mod:CreepingParalysis(args)

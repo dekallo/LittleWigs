@@ -46,7 +46,7 @@ function mod:PainAndSuffering(args)
 end
 
 function mod:Asphyxiate(args)
-	self:MessageOld(args.spellId, "red")
+	self:Message(args.spellId, "red")
 	self:CDBar(args.spellId, self:Heroic() and 40 or 35.7)
 	self:CastBar(args.spellId, 6)
 end

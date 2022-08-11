@@ -57,7 +57,7 @@ end
 --
 
 function mod:ReflectiveShield(args)
-	self:MessageOld(args.spellId, "orange")
+	self:Message(args.spellId, "orange")
 	self:Bar(args.spellId, 10)
 end
 

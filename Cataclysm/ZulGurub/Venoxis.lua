@@ -71,7 +71,7 @@ end
 
 function mod:BreathOfHethiss(args)
 	breathsLeft = breathsLeft - 1
-	self:MessageOld(args.spellId, "red")
+	self:Message(args.spellId, "red")
 	if (breathsLeft > 0) then
 		self:CDBar(args.spellId, 12)
 	end

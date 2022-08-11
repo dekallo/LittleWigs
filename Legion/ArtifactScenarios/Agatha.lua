@@ -247,7 +247,7 @@ do
 end
 
 function mod:Translocate(args)
-	self:MessageOld(args.spellId, "cyan")
+	self:Message(args.spellId, "cyan")
 end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, unit, _, spellId)

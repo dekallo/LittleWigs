@@ -71,7 +71,7 @@ end
 
 function mod:SanctifiedStrike(args)
 	strikeCount = strikeCount + 1
-	self:MessageOld(args.spellId, "red")
+	self:Message(args.spellId, "red")
 	if strikeCount < 3 then
 		self:CDBar(args.spellId, 8.5)
 	end

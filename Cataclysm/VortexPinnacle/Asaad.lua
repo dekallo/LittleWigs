@@ -38,6 +38,6 @@ end
 
 function mod:StaticCling(args)
 	self:CDBar(args.spellId, 1.25)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 end
 

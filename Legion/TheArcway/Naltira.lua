@@ -126,7 +126,7 @@ do
 		local t = GetTime()
 		if t-prev > 5 then
 			prev = t
-			self:MessageOld(args.spellId, "orange")
+			self:Message(args.spellId, "orange")
 			self:CDBar(args.spellId, 30)
 		end
 	end

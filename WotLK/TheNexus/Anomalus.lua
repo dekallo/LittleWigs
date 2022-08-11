@@ -28,6 +28,6 @@ end
 --
 
 function mod:CreateRift(args)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 end
 

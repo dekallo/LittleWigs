@@ -38,7 +38,7 @@ end
 --
 
 function mod:Enrage(args)
-	self:MessageOld(args.spellId, "orange")
+	self:Message(args.spellId, "orange")
 	self:Bar(args.spellId, 8)
 end
 

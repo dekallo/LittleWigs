@@ -68,7 +68,7 @@ function mod:LashOfAnguishRemoved(args)
 end
 
 function mod:WaveOfAgony(args)
-	self:MessageOld(args.spellId, "red")
+	self:Message(args.spellId, "red")
 	self:CDBar(args.spellId, 32)
 end
 

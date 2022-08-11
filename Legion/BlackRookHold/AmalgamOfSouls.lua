@@ -92,7 +92,7 @@ function mod:ReapSoul(args)
 end
 
 function mod:SwirlingScythe(args)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 	self:Bar(args.spellId, 21.2)
 end
 

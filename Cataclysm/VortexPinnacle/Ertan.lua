@@ -29,6 +29,6 @@ end
 
 function mod:SummonTempest(args)
 	self:Bar(args.spellId, 19)
-	self:MessageOld(args.spellId, "yellow")
+	self:Message(args.spellId, "yellow")
 end
 

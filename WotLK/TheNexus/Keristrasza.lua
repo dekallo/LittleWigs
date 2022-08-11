@@ -41,7 +41,7 @@ function mod:IntenseCold(args)
 end
 
 function mod:Crystallize(args)
-	self:MessageOld(args.spellId, "orange")
+	self:Message(args.spellId, "orange")
 end
 
 function mod:CrystalChains(args)

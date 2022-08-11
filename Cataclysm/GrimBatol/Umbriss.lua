@@ -54,7 +54,7 @@ function mod:Blitz(_, msg, _, _, _, player)
 end
 
 function mod:Siege(args)
-	self:MessageOld(args.spellId, "orange")
+	self:Message(args.spellId, "orange")
 end
 
 function mod:UNIT_HEALTH(event, unit)

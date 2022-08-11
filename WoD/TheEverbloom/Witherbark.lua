@@ -86,7 +86,7 @@ function mod:Energize()
 end
 
 function mod:ParchedGasp(args)
-	self:MessageOld(args.spellId, "red")
+	self:Message(args.spellId, "red")
 	self:CDBar(args.spellId, 11) -- 10-13s
 end
 

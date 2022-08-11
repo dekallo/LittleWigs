@@ -39,7 +39,7 @@ end
 --
 
 function mod:WorgenSpirit(args)
-	self:MessageOld(args.spellId, "red")
+	self:Message(args.spellId, "red")
 end
 
 function mod:UNIT_HEALTH(event, unit)

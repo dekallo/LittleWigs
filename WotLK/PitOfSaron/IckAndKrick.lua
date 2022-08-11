@@ -49,7 +49,7 @@ end
 function mod:Barrage(args)
 	if barrage then return end
 	barrage = true
-	self:MessageOld(args.spellId, "red")
+	self:Message(args.spellId, "red")
 	self:Bar(args.spellId, 18)
 end
 

@@ -42,7 +42,7 @@ function mod:FourWinds(args)
 end
 
 function mod:Windwall(args)
-	self:MessageOld(args.spellId, "red")
+	self:Message(args.spellId, "red")
 end
 
 function mod:PiercingRush(args)
