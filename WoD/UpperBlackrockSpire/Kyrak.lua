@@ -61,5 +61,6 @@ end
 
 function mod:Eruption(args)
 	local raidIcon = CombatLog_String_GetIcon(args.sourceRaidFlags)
-	self:MessageOld(args.spellId, "red", "info", raidIcon.. args.spellName)
+	self:Message(args.spellId, "red", raidIcon.. args.spellName)
+	self:PlaySound(args.spellId, "info")
 end

@@ -68,7 +68,8 @@ function mod:Warmup(event, msg)
 end
 
 function mod:BladeSurge(args)
-	self:MessageOld(args.spellId, "red", "info", CL.count:format(args.spellName, bladeSurgeCount))
+	self:Message(args.spellId, "red", CL.count:format(args.spellName, bladeSurgeCount))
+	self:PlaySound(args.spellId, "info")
 	bladeSurgeCount = bladeSurgeCount + 1
 	self:CDBar(args.spellId, 12, CL.count:format(args.spellName, bladeSurgeCount))
 end

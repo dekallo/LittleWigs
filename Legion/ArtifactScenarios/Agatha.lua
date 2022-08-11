@@ -158,7 +158,8 @@ do
 		if t-prev > 5 then
 			prev = t
 			count = 0
-			self:MessageOld(args.spellId, "orange", "alert", CL.count:format(args.spellName, partyCount))
+			self:Message(args.spellId, "orange", CL.count:format(args.spellName, partyCount))
+			self:PlaySound(args.spellId, "alert")
 			partyCount = partyCount + 1
 			self:CDBar(args.spellId, 61, CL.count:format(args.spellName, partyCount))
 		end

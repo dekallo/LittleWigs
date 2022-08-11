@@ -96,7 +96,8 @@ do
 end
 
 function mod:Enrage(args)
-	self:MessageOld(args.spellId, "orange", "alert", CL.percent:format(30, args.spellName))
+	self:Message(args.spellId, "orange", CL.percent:format(30, args.spellName))
+	self:PlaySound(args.spellId, "alert")
 end
 
 function mod:Restoration(args)

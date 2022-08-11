@@ -53,7 +53,8 @@ end
 
 function mod:BurningIntensity(args)
 	burningIntensityCount = burningIntensityCount + 1
-	self:MessageOld(args.spellId, "red", "info", CL.count:format(args.spellName, burningIntensityCount))
+	self:Message(args.spellId, "red", CL.count:format(args.spellName, burningIntensityCount))
+	self:PlaySound(args.spellId, "info")
 	self:CDBar(args.spellId, 22)
 end
 

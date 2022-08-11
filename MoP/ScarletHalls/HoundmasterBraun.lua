@@ -43,7 +43,8 @@ end
 --
 
 function mod:CallDog(args)
-	self:MessageOld(args.spellId, "orange", "alert", CL.percent:format(nextCallDogs, args.spellName))
+	self:Message(args.spellId, "orange", CL.percent:format(nextCallDogs, args.spellName))
+	self:PlaySound(args.spellId, "alert")
 	nextCallDogs = nextCallDogs - 10
 end
 

@@ -53,7 +53,8 @@ end
 
 function mod:FerociousYell(args)
 	yellCount = yellCount + 1
-	self:MessageOld(args.spellId, "orange", "warning", CL.count:format(args.spellName, yellCount))
+	self:Message(args.spellId, "orange", CL.count:format(args.spellName, yellCount))
+	self:PlaySound(args.spellId, "warning")
 	self:CDBar(args.spellId, 13.3) -- Something will randomly delay this up to 19s
 end
 

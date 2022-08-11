@@ -84,7 +84,8 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 end
 
 function mod:PoisonousSpores(args)
-	self:MessageOld(args.spellId, "yellow", "info", CL.count:format(args.spellName, sporeCounter))
+	self:Message(args.spellId, "yellow", CL.count:format(args.spellName, sporeCounter))
+	self:PlaySound(args.spellId, "info")
 	sporeCounter = sporeCounter + 1
 	self:Bar(args.spellId, 21.1, CL.count:format(args.spellName, sporeCounter))
 end

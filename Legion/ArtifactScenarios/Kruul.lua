@@ -180,7 +180,8 @@ function mod:KruulIncoming(args)
 end
 
 function mod:Annihilate(args)
-	self:MessageOld(args.spellId, "red", "alarm", CL.casting:format(CL.count:format(args.spellName, annihilateCounter)))
+	self:Message(args.spellId, "red", CL.casting:format(CL.count:format(args.spellName, annihilateCounter)))
+	self:PlaySound(args.spellId, "alarm")
 end
 
 function mod:AnnihilateSuccess(args)

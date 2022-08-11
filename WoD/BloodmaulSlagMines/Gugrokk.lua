@@ -59,7 +59,8 @@ end
 
 function mod:MoltenBlast(args)
 	blastCount = blastCount + 1
-	self:MessageOld(args.spellId, "yellow", "long", CL.count:format(args.spellName, blastCount))
+	self:Message(args.spellId, "yellow", CL.count:format(args.spellName, blastCount))
+	self:PlaySound(args.spellId, "long")
 end
 
 function mod:MoltenCore(args)

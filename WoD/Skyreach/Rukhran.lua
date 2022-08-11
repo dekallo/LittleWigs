@@ -74,7 +74,8 @@ function mod:SummonSolarFlare(args)
 end
 
 function mod:Quills(args)
-	self:MessageOld(args.spellId, "orange", "long", CL.percent:format(quillsWarn, args.spellName))
+	self:Message(args.spellId, "orange", CL.percent:format(quillsWarn, args.spellName))
+	self:PlaySound(args.spellId, "long")
 	self:Bar(args.spellId, 17)
 end
 

@@ -46,7 +46,8 @@ end
 --
 
 function mod:Frenzy(args)
-	self:MessageOld(args.spellId, "yellow", "long", CL.percent:format(20, args.spellName))
+	self:Message(args.spellId, "yellow", CL.percent:format(20, args.spellName))
+	self:PlaySound(args.spellId, "long")
 end
 
 function mod:SpikedTongue(args)

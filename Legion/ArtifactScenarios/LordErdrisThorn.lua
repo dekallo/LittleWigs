@@ -117,7 +117,8 @@ function mod:ArcaneBlitz(args)
 	if unit then
 		local _, amount = self:UnitBuff(unit, args.spellId)
 		if amount and amount > 3 then
-			self:MessageOld(args.spellId, "yellow", "alert", CL.count:format(args.spellName, amount))
+			self:Message(args.spellId, "yellow", CL.count:format(args.spellName, amount))
+			self:PlaySound(args.spellId, "alert")
 		end
 	end
 end

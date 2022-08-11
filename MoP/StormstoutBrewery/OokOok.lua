@@ -58,7 +58,8 @@ end
 
 function mod:GoingBananas(args)
 	bananasStacks = args.amount or 1
-	self:MessageOld(args.spellId, "cyan", "info", CL.stack:format(bananasStacks, args.spellName, args.destName)) -- StackMessage transforms "Ook-Ook" to "Ook*"
+	self:Message(args.spellId, "cyan", CL.stack:format(bananasStacks, args.spellName, args.destName)) -- StackMessage transforms "Ook-Ook" to "Ook*"
+	self:PlaySound(args.spellId, "info")
 end
 
 function mod:BrewExplosion(args)

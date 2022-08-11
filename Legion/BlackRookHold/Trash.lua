@@ -85,7 +85,8 @@ do
 		-- only show a message if stacks are getting high (6 = 300% which is around 1m damage a hit)
 		local amount = blitzTracker[args.sourceGUID]
 		if amount and amount > 5 and (self:Interrupter(args.sourceGUID) or self:Dispeller("magic", true)) then
-			self:MessageOld(args.spellId, "yellow", "alert", CL.count:format(args.spellName, amount))
+			self:Message(args.spellId, "yellow", CL.count:format(args.spellName, amount))
+			self:PlaySound(args.spellId, "alert")
 		end
 	end
 	function mod:ArcaneBlitzApplied(args)

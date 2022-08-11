@@ -57,7 +57,8 @@ do
 end
 
 function mod:DarkSpin(args)
-	self:MessageOld(args.spellId, "red", "info", CL.percent:format(25, args.spellName))
+	self:Message(args.spellId, "red", CL.percent:format(25, args.spellName))
+	self:PlaySound(args.spellId, "info")
 end
 
 function mod:UNIT_HEALTH(event, unit)

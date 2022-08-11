@@ -58,6 +58,7 @@ do
 end
 
 function mod:SafetyRestrictionsOffline(args) -- Enrage
-	self:MessageOld(args.spellId, "yellow", "long", self:SpellName(8599)) -- 8599 = "Enrage"
+	self:Message(args.spellId, "yellow", self:SpellName(8599)) -- 8599 = "Enrage"
+	self:PlaySound(args.spellId, "long")
 end
 

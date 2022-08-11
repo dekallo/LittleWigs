@@ -73,7 +73,8 @@ do
 end
 
 function mod:Enrage(args)
-	self:MessageOld(args.spellId, "orange", "long", CL.percent:format(20, args.spellName))
+	self:Message(args.spellId, "orange", CL.percent:format(20, args.spellName))
+	self:PlaySound(args.spellId, "long")
 end
 
 function mod:UNIT_HEALTH(event, unit)

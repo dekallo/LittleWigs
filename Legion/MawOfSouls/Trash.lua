@@ -128,7 +128,8 @@ do
 			local t = GetTime()
 			if t - (prevTable[args.spellId] or 0) > 1 then
 				prevTable[args.spellId] = t
-				self:MessageOld(args.spellId, "yellow", "alarm", CL.other:format(args.spellName, args.destName))
+				self:Message(args.spellId, "yellow", CL.other:format(args.spellName, args.destName))
+				self:PlaySound(args.spellId, "alarm")
 			end
 		end
 	end

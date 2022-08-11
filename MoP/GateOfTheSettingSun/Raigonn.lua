@@ -75,7 +75,8 @@ end
 
 function mod:Stomp(args)
 	stompCount = stompCount + 1
-	self:MessageOld(args.spellId, "yellow", "alert", CL.count:format(args.spellName, stompCount))
+	self:Message(args.spellId, "yellow", CL.count:format(args.spellName, stompCount))
+	self:PlaySound(args.spellId, "alert")
 end
 
 function mod:UNIT_HEALTH(event, unit)

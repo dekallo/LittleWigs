@@ -67,7 +67,8 @@ function mod:Enrage(args)
 end
 
 function mod:Paralyze(args)
-	self:MessageOld(args.spellId, "red", "alert", CL.other:format(args.spellName, CL.soon:format(self:SpellName(78807))))
+	self:Message(args.spellId, "red", CL.other:format(args.spellName, CL.soon:format(self:SpellName(78807))))
+	self:PlaySound(args.spellId, "alert")
 end
 
 function mod:Shatter(args)

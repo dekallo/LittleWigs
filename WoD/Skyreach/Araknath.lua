@@ -64,6 +64,7 @@ end
 
 function mod:Burst(args)
 	burstCount = burstCount + 1
-	self:MessageOld(args.spellId, "red", "info", CL.count:format(args.spellName, burstCount))
+	self:Message(args.spellId, "red", CL.count:format(args.spellName, burstCount))
+	self:PlaySound(args.spellId, "info")
 	self:CDBar(args.spellId, 23)
 end

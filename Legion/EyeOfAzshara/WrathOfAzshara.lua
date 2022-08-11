@@ -67,7 +67,8 @@ end
 
 function mod:CryOfWrath(args)
 	p2 = true
-	self:MessageOld(args.spellId, "green", "long", CL.percent:format(10, args.spellName))
+	self:Message(args.spellId, "green", CL.percent:format(10, args.spellName))
+	self:PlaySound(args.spellId, "long")
 end
 
 do
