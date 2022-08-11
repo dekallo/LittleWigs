@@ -66,7 +66,7 @@ function mod:ToxicWaste(args)
 end
 
 function mod:PoisonNova(args)
-	self:MessageOld(args.spellId, "orange", nil, CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
 	self:Bar(args.spellId, 5)
 end
 

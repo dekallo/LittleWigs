@@ -77,7 +77,7 @@ function mod:PowerConduitRemoved(args)
 end
 
 function mod:PowerConduitReduced(args)
-	self:MessageOld(args.spellId, "yellow", nil, L.counduitLeft:format(args.amount))
+	self:Message(args.spellId, "yellow", L.counduitLeft:format(args.amount))
 end
 
 function mod:ShrapnelNova(args)

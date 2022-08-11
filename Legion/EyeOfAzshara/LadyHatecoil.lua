@@ -91,7 +91,7 @@ end
 
 function mod:CurseOfTheWitchRemoved(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "blue", nil, CL.removed:format(args.spellName))
+		self:Message(args.spellId, "blue", CL.removed:format(args.spellName))
 		self:StopBar(args.spellName)
 	end
 end

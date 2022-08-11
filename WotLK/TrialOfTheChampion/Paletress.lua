@@ -68,7 +68,7 @@ end
 function mod:ReflectiveShield(args)
 	shielded = true
 	if not self:CheckOption("confess", "MESSAGE") then -- happens at the same time as Confess, display a message for it only if notifications for Confess are turned off
-		self:MessageOld(args.spellId, "red", nil, CL.onboss:format(args.spellName))
+		self:Message(args.spellId, "red", CL.onboss:format(args.spellName))
 	end
 end
 
@@ -80,7 +80,7 @@ end
 
 function mod:Renew(args)
 	if shielded then return end -- don't bother announcing while she is shielded
-	self:MessageOld(args.spellId, "orange", nil, CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
 end
 
 function mod:Confess(args)

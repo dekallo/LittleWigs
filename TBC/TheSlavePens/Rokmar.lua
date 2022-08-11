@@ -37,7 +37,7 @@ end
 --
 
 function mod:Frenzy(args)
-	self:MessageOld(args.spellId, "red", nil, CL.percent:format(20, args.spellName))
+	self:Message(args.spellId, "red", CL.percent:format(20, args.spellName))
 end
 
 function mod:EnsnaringMoss(args)

@@ -47,7 +47,7 @@ end
 
 function mod:AcceleratingBlast(args)
 	if self:Interrupter() then
-		self:MessageOld(args.spellId, "yellow", nil, CL.count:format(args.spellName, blastCount))
+		self:Message(args.spellId, "yellow", CL.count:format(args.spellName, blastCount))
 	end
 	blastCount = blastCount + 1
 	if blastCount > 3 then blastCount = 1 end

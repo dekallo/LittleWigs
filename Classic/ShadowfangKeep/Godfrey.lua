@@ -55,7 +55,7 @@ function mod:CursedBullets(args)
 	cursedBulletsCount = cursedBulletsCount + 1
 	self:CDBar(args.spellId, cursedBulletsCount % 2 == 0 and 18.2 or 12.1)
 	if self:Interrupter() then
-		self:MessageOld(args.spellId, "orange", nil, CL.casting:format(args.spellName))
+		self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
 	end
 end
 

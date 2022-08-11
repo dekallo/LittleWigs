@@ -151,7 +151,7 @@ function mod:InfernalPower(args)
 end
 
 function mod:InfernalPowerRemoved(args)
-	self:MessageOld(args.spellId, "green", nil, CL.over:format(args.spellName))
+	self:Message(args.spellId, "green", CL.over:format(args.spellName))
 	self:Bar(args.spellId, 30)
 end
 
@@ -182,12 +182,12 @@ function mod:ConcentratedPower(args)
 end
 
 function mod:ConcentratedPowerRemoved(args)
-	self:MessageOld(args.spellId, "green", nil, CL.over:format(args.spellName))
+	self:Message(args.spellId, "green", CL.over:format(args.spellName))
 	self:Bar(args.spellId, 30)
 end
 
 function mod:JaggedShards(args)
-	self:MessageOld(args.spellId, "red", nil, CL.count:format(args.spellName, shardCount))
+	self:Message(args.spellId, "red", CL.count:format(args.spellName, shardCount))
 	shardCount = shardCount + 1
 	self:CDBar(args.spellId, 8, CL.count:format(args.spellName, shardCount))
 end

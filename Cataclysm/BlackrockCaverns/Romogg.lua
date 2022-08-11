@@ -47,7 +47,7 @@ end
 --
 
 function mod:Quake(args)
-	self:MessageOld(args.spellId, "yellow", nil, CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
 end
 
 do
@@ -88,5 +88,5 @@ end
 function mod:TheSkullcracker(args)
 	local time = self:Normal() and 12 or 8 -- 12 sec on normal, 8 on heroic
 	self:CastBar(args.spellId, time)
-	self:MessageOld(args.spellId, "orange", nil, CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
 end

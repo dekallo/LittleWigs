@@ -114,7 +114,7 @@ do
 
 	function mod:TangledWebRemoved(args)
 		if self:Me(args.destName) then
-			self:MessageOld(args.spellId, "green", nil, CL.removed:format(args.spellName))
+			self:Message(args.spellId, "green", CL.removed:format(args.spellName))
 			self:CloseProximity(args.spellId)
 		end
 	end

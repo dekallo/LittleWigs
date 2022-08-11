@@ -53,7 +53,7 @@ do
 	end
 
 	function mod:Furlwind(args)
-		self:MessageOld(args.spellId, "yellow", nil, CL.incoming:format(args.spellName))
+		self:Message(args.spellId, "yellow", CL.incoming:format(args.spellName))
 		self:CastBar(args.spellId, 12.5) -- 2.5s cast + 10s channeling
 		self:CDBar(args.spellId, 43.8)
 	end

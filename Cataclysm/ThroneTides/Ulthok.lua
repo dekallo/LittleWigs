@@ -36,7 +36,7 @@ end
 --
 
 function mod:DarkFissure(args)
-	self:MessageOld(args.spellId, "red", nil, CL.casting:format(args.spellName))
+	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
 end
 
 function mod:Squeeze(args)

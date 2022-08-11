@@ -38,7 +38,7 @@ function mod:CurseOfFatigueRemoved(args)
 end
 
 function mod:Frenzy(args)
-	self:MessageOld(args.spellId, "red", nil, CL.percent:format(10, args.spellName))
+	self:Message(args.spellId, "red", CL.percent:format(10, args.spellName))
 end
 
 function mod:UNIT_HEALTH(event, unit)

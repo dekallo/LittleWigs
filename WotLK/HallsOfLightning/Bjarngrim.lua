@@ -43,7 +43,7 @@ end
 
 function mod:BerserkerAuraRemoved(args)
 	if self:MobId(args.destGUID) == 28586 then -- Boss only
-		self:MessageOld(args.spellId, "green", nil, CL.over:format(args.spellName))
+		self:Message(args.spellId, "green", CL.over:format(args.spellName))
 	end
 end
 

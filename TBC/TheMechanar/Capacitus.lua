@@ -62,11 +62,11 @@ function mod:ReflectiveShield(args)
 end
 
 function mod:ReflectiveShieldRemoved(args)
-	self:MessageOld(args.spellId, "green", nil, CL.removed:format(args.spellName))
+	self:Message(args.spellId, "green", CL.removed:format(args.spellName))
 end
 
 function mod:PolarityShift(args)
-	self:MessageOld(args.spellId, "orange", nil, CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 3)
 end
 

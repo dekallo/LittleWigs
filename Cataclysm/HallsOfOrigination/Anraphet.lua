@@ -45,7 +45,7 @@ end
 --
 
 function mod:AlphaBeamsCast(args)
-	self:MessageOld(args.spellId, "yellow", nil, CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
 end
 
 do

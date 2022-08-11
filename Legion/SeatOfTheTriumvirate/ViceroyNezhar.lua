@@ -140,7 +140,7 @@ end
 
 function mod:EntropicForceRemoved(args)
 	self:StopBar(CL.cast:format(args.spellId))
-	self:MessageOld(args.spellId, "green", nil, CL.over:format(args.spellName))
+	self:Message(args.spellId, "green", CL.over:format(args.spellName))
 end
 
 function mod:DarkBulwark()
@@ -160,7 +160,7 @@ function mod:DarkBulwarkRemoved(args)
 end
 
 function mod:EternalTwilight(args)
-	self:MessageOld(args.spellId, "cyan", nil, CL.casting:format(args.spellName))
+	self:Message(args.spellId, "cyan", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 10)
 	eternalTwilightExplo = GetTime() + 10
 	self:CDBar(248804, 57, L.guards) -- Guards

@@ -61,16 +61,16 @@ end
 --
 
 function mod:IceShards(args)
-	self:MessageOld(args.spellId, "yellow", nil, CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 5)
 end
 
 function mod:FrostMixture(args)
-	self:MessageOld(args.spellId, "red", nil, CL.casting:format(args.spellName))
+	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
 end
 
 function mod:PoisonousMixture(args)
-	self:MessageOld(args.spellId, "red", nil, CL.casting:format(args.spellName))
+	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
 end
 
 function mod:ToxicCoagulant(args)

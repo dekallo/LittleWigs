@@ -49,7 +49,7 @@ end
 function mod:EvolutionRemoved(args)
 	if self:Me(args.destGUID) and warnedAboutEvolution then
 		warnedAboutEvolution = nil
-		self:MessageOld(args.spellId, "green", nil, CL.removed:format(args.spellName))
+		self:Message(args.spellId, "green", CL.removed:format(args.spellName))
 	end
 end
 

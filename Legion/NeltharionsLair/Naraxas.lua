@@ -72,7 +72,7 @@ end
 
 function mod:SpikedTongueRemoved(args)
 	if self:MobId(args.destGUID) ~= 91005 then -- Naraxas
-		self:MessageOld(args.spellId, "green", nil, CL.over:format(args.spellName))
+		self:Message(args.spellId, "green", CL.over:format(args.spellName))
 		self:StopBar(args.spellName, args.destName)
 		self:PrimaryIcon(args.spellId)
 	end

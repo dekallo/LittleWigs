@@ -47,7 +47,7 @@ end
 --
 
 function mod:MandibleStrikesCast(args)
-	self:MessageOld(args.spellId, "yellow", nil, CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
 	self:CDBar(args.spellId, 22)
 end
 

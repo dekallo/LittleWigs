@@ -102,7 +102,7 @@ end
 
 function mod:BramblePatch(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "blue", nil, CL.underyou:format(args.spellName))
+		self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
 	end
 end
 
@@ -115,7 +115,7 @@ end
 function mod:ShapersFortitude(args)
 	local raidIcon = CombatLog_String_GetIcon(args.destRaidFlags)
 	local name = L[self:MobId(args.destGUID)] or args.destName
-	self:MessageOld(args.spellId, "yellow", nil, CL.other:format(args.spellName, raidIcon..name))
+	self:Message(args.spellId, "yellow", CL.other:format(args.spellName, raidIcon..name))
 	self:Bar(args.spellId, 8, CL.other:format(self:SpellName(111923), raidIcon..name)) -- 111923 = "Fortitude"
 end
 

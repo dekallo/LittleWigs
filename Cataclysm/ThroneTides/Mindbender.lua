@@ -53,7 +53,7 @@ function mod:EnslaveRemoved(args)
 end
 
 function mod:AbsorbMagic(args)
-	self:MessageOld(args.spellId, "orange", nil, CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
 end
 
 function mod:MindFog(args)
