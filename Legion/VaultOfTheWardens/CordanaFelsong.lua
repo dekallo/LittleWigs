@@ -129,7 +129,8 @@ function mod:StolenLightRemoved(args)
 end
 
 function mod:CreepingDoom(args)
-	self:MessageOld(197422, "red", "info", CL.incoming:format(args.spellName))
+	self:Message(197422, "red", CL.incoming:format(args.spellName))
+	self:PlaySound(197422, "info")
 	self:Flash(197422)
 	if args.spellId == 197422 then
 		self:StopBar(L.kick_combo)

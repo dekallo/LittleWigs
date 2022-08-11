@@ -29,7 +29,8 @@ end
 --
 
 function mod:PoisonNova(args)
-	self:MessageOld(59842, "yellow", "info", CL.casting:format(args.spellName))
+	self:Message(59842, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(59842, "info")
 	self:Bar(59842, 3.5)
 end
 

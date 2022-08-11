@@ -68,7 +68,8 @@ end
 
 function mod:Fixate(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(173080, "blue", "alarm", CL.you:format(args.spellName))
+		self:Message(173080, "blue", CL.you:format(args.spellName))
+		self:PlaySound(173080, "alarm")
 	end
 end
 

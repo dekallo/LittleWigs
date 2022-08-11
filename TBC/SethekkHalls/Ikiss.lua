@@ -48,7 +48,8 @@ end
 --
 
 function mod:ArcaneExplosion(args)
-	self:MessageOld(38197, "orange", "warning", CL.casting:format(args.spellName))
+	self:Message(38197, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(38197, "warning")
 	self:CastBar(38197, 5)
 end
 

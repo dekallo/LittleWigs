@@ -63,7 +63,8 @@ function mod:VeilOfSkyRemoved()
 end
 
 function mod:Supernova(args)
-	self:MessageOld(74137, "red", "alarm", CL.casting:format(args.spellName))
+	self:Message(74137, "red", CL.casting:format(args.spellName))
+	self:PlaySound(74137, "alarm")
 	self:CastBar(74137, 3)
 end
 
@@ -74,7 +75,8 @@ do
 			local t = GetTime()
 			if t - prev > 1.5 then
 				prev = t
-				self:MessageOld(74135, "blue", "alert", CL.you:format(args.spellName))
+				self:Message(74135, "blue", CL.you:format(args.spellName))
+				self:PlaySound(74135, "alert")
 			end
 		end
 	end

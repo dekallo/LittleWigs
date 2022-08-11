@@ -42,7 +42,8 @@ end
 
 function mod:Pound(args)
 	self:CastBar(53472, 3.2)
-	self:MessageOld(53472, "yellow", "warning", CL.casting:format(args.spellName))
+	self:Message(53472, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(53472, "warning")
 end
 
 function mod:UNIT_TARGETABLE_CHANGED(_, unit)

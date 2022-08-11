@@ -117,7 +117,8 @@ do
 		local t = GetTime()
 		if t - prev > 1 then
 			prev = t
-			self:MessageOld(39378, "orange", "alarm", CL.casting:format(args.spellName))
+			self:Message(39378, "orange", CL.casting:format(args.spellName))
+			self:PlaySound(39378, "alarm")
 		end
 	end
 end

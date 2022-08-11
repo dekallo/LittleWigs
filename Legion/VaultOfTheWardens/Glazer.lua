@@ -56,7 +56,8 @@ end
 --
 
 function mod:LingeringGazeCast(args)
-	self:MessageOld(194945, "red", "alarm", CL.casting:format(args.spellName))
+	self:Message(194945, "red", CL.casting:format(args.spellName))
+	self:PlaySound(194945, "alarm")
 	if nextFocusing - GetTime() > 18 then -- values lower than 18 sometimes failed
 		self:CDBar(194945, 15.7)
 	end

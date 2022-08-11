@@ -99,7 +99,8 @@ do
 			-- players with Gaseous Bubbles may (and should) be taking damage intentionally
 			if t-prev > (bubblesOnMe and 6 or 1.5) then
 				prev = t
-				self:MessageOld(193152, "blue", "alert", CL.underyou:format(args.spellName))
+				self:Message(193152, "blue", CL.underyou:format(args.spellName))
+				self:PlaySound(193152, "alert")
 			end
 		end
 	end

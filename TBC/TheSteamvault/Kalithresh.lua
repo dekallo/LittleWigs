@@ -57,7 +57,8 @@ function mod:WarlordsRage(args)
 end
 
 function mod:WarlordsRageCast(args)
-	self:MessageOld(36453, "orange", "long", CL.casting:format(args.spellName))
+	self:Message(36453, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(36453, "long")
 	self:CastBar(36453, 7)
 	self:CDBar(36453, 40)
 end

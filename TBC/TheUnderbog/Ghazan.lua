@@ -66,7 +66,8 @@ do
 			local t = GetTime()
 			if t - prev > 1.5 then
 				prev = t
-				self:MessageOld(38737, "blue", "alert", CL.you:format(args.spellName))
+				self:Message(38737, "blue", CL.you:format(args.spellName))
+				self:PlaySound(38737, "alert")
 			end
 		end
 	end

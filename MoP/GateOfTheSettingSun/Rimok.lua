@@ -56,7 +56,8 @@ do
 			local t = GetTime()
 			if (not self:Tank() and t-prev > 1.5) or t-prev > 6 then -- the tank might want to bring adds in front of Ri'mok
 				prev = t
-				self:MessageOld(107120, "blue", "alert", CL.you:format(args.spellName))
+				self:Message(107120, "blue", CL.you:format(args.spellName))
+				self:PlaySound(107120, "alert")
 			end
 		end
 	end

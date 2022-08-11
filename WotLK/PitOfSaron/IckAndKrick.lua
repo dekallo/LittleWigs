@@ -60,7 +60,8 @@ end
 
 function mod:ToxicWaste(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(70274, "blue", "alarm", CL.underyou:format(args.spellName))
+		self:Message(70274, "blue", CL.underyou:format(args.spellName))
+		self:PlaySound(70274, "alarm")
 		self:Flash(70274)
 	end
 end

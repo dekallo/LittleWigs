@@ -93,7 +93,8 @@ do
 end
 
 function mod:SapSoul(args)
-	self:MessageOld(200904, "yellow", "info", CL.casting:format(args.spellName))
+	self:Message(200904, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(200904, "info")
 	self:CDBar(200904, 15.8, args.spellName)
 end
 

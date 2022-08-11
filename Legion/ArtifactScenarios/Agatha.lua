@@ -229,7 +229,8 @@ do
 	end
 
 	function mod:DarkFuryShieldRemoved(args)
-		self:MessageOld(243111, "green", "long", CL.removed:format(args.spellName))
+		self:Message(243111, "green", CL.removed:format(args.spellName))
+		self:PlaySound(243111, "long")
 		if not self:UnitBuff("boss1", 243111) then -- Dark Fury damage buff
 			-- Translocate during Dark Fury does weird things
 			self:DarkFuryRemoved()

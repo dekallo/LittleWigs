@@ -66,7 +66,8 @@ do
 			local t = GetTime()
 			if (not self:Melee() and t-prev > 1.5) or t-prev > 6 then
 				prev = t
-				self:MessageOld(112992, "blue", "alert", CL.near:format(args.spellName))
+				self:Message(112992, "blue", CL.near:format(args.spellName))
+				self:PlaySound(112992, "alert")
 			end
 		end
 	end
