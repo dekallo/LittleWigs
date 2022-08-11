@@ -90,8 +90,7 @@ function mod:UmbralCadence(args)
 end
 
 function mod:FragmentofDespair(args)
-	self:Message(args.spellId, "red", CL.incoming:format(args.spellName))
-	self:PlaySound(args.spellId, "warning")
+	self:MessageOld(args.spellId, "red", "warning", CL.incoming:format(args.spellName))
 end
 
 function mod:Backlash(args)

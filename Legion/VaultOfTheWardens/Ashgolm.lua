@@ -79,7 +79,6 @@ end
 
 function mod:Lava(args)
 	if self:Me(args.destGUID) then
-		self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
-		self:PlaySound(args.spellId, "alert")
+		self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
 	end
 end

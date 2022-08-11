@@ -50,8 +50,7 @@ end
 function mod:DarkEclipse(args)
 	self:Bar(args.spellId, 5, CL.cast:format(args.spellName))
 	--self:CDBar(args.spellId, 0) 48.2, 73.9, 51.9,
-	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "warning")
+	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
 end
 
 do

@@ -37,15 +37,13 @@ end
 --
 
 function mod:SoulVessel(args)
-	self:Message(args.spellId, "orange", CL.incoming:format(args.spellName))
-	self:PlaySound(args.spellId, "warning")
+	self:MessageOld(args.spellId, "orange", "warning", CL.incoming:format(args.spellName))
 	self:CDBar(args.spellId, 51)
 	self:Bar(args.spellId, 11.5, CL.cast:format(args.spellName))
 end
 
 function mod:TornSpirits(args)
-	self:Message(args.spellId, "yellow", CL.incoming:format(CL.adds))
-	self:PlaySound(args.spellId, "alert")
+	self:MessageOld(args.spellId, "yellow", "alert", CL.incoming:format(CL.adds))
 	self:CDBar(args.spellId, 51)
 	self:Bar(args.spellId, 3, CL.adds)
 end

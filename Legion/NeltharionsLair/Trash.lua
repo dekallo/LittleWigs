@@ -72,18 +72,15 @@ end
 
 -- Vileshard Hulk
 function mod:PiercingShards(args)
-	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "warning")
+	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
 end
 
 -- Rockback Gnasher
 function mod:StoneGaze(args)
-	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "alarm")
+	self:MessageOld(args.spellId, "red", "alarm", CL.casting:format(args.spellName))
 end
 
 -- Rockbound Trapper
 function mod:Bound(args)
-	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "alarm")
+	self:MessageOld(args.spellId, "red", "alarm", CL.casting:format(args.spellName))
 end

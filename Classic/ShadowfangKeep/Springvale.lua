@@ -71,8 +71,7 @@ do
 		local t = GetTime()
 		if t - prev > 2 then -- adds cast this, he spawns 2 at a time
 			prev = t
-			self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
-			self:PlaySound(args.spellId, "alarm")
+			self:MessageOld(args.spellId, "orange", "alarm", CL.casting:format(args.spellName))
 		end
 	end
 end

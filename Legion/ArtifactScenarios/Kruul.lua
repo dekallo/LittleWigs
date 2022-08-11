@@ -143,21 +143,18 @@ do
 		local t = GetTime()
 		if t-prev > 1 then
 			prev = t
-			self:Message(args.spellId, "red", CL.casting:format(args.spellName))
-			self:PlaySound(args.spellId, "warning")
+			self:MessageOld(args.spellId, "red", "warning", CL.casting:format(args.spellName))
 		end
 	end
 end
 
 function mod:DrainLife(args)
-	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "alert")
+	self:MessageOld(args.spellId, "orange", "alert", CL.casting:format(args.spellName))
 	self:CDBar(args.spellId, 23)
 end
 
 function mod:HolyWard(args)
-	self:Message(args.spellId, "green", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "long")
+	self:MessageOld(args.spellId, "green", "long", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 8)
 	self:CDBar(args.spellId, 35)
 end
@@ -190,6 +187,5 @@ function mod:AnnihilateSuccess(args)
 end
 
 function mod:TwistedReflections(args)
-	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "warning")
+	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
 end

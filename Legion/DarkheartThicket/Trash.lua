@@ -107,8 +107,7 @@ do
 		local t = GetTime()
 		if t - (prevTable[args.spellId] or 0) > 1 then
 			prevTable[args.spellId] = t
-			self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
-			self:PlaySound(args.spellId, "warning")
+			self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
 		end
 	end
 end
@@ -137,8 +136,7 @@ do
 			local t = GetTime()
 			if t-prev > 1.5 then
 				prev = t
-				self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
-				self:PlaySound(args.spellId, "warning")
+				self:MessageOld(args.spellId, "blue", "warning", CL.underyou:format(args.spellName))
 			end
 		end
 	end

@@ -95,7 +95,6 @@ do
 end
 
 function mod:SlicingMaelstrom(args)
-	self:Message(args.spellId, "yellow", CL.incoming:format(args.spellName))
-	self:PlaySound(args.spellId, "warning")
+	self:MessageOld(args.spellId, "yellow", "warning", CL.incoming:format(args.spellName))
 	self:CDBar(args.spellId, 24)
 end

@@ -90,19 +90,16 @@ end
 
 -- Hatecoil Wrangler
 function mod:LightningProd(args)
-	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "warning")
+	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
 end
 
 -- Hatecoil Stormweaver
 function mod:Storm(args)
-	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "long")
+	self:MessageOld(args.spellId, "yellow", "long", CL.casting:format(args.spellName))
 end
 
 function mod:ArcLightning(args)
-	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "alarm")
+	self:MessageOld(args.spellId, "yellow", "alarm", CL.casting:format(args.spellName))
 end
 
 -- Hatecoil Crusher
@@ -117,21 +114,18 @@ end
 
 -- Mak'rana Siltwalker
 function mod:SpraySand(args)
-	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "long")
+	self:MessageOld(args.spellId, "yellow", "long", CL.casting:format(args.spellName))
 end
 
 -- Restless Tides
 function mod:Undertow(args)
-	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "long")
+	self:MessageOld(args.spellId, "yellow", "long", CL.casting:format(args.spellName))
 end
 
 -- Hatecoil Arcanist
 
 function mod:AquaSpout(args)
-	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "alarm")
+	self:MessageOld(args.spellId, "yellow", "alarm", CL.casting:format(args.spellName))
 end
 
 function mod:PolymorphFish(args)

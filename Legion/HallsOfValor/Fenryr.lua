@@ -49,8 +49,7 @@ function mod:Stealth()
 end
 
 function mod:UnnervingHowl(args)
-	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "alert")
+	self:MessageOld(args.spellId, "orange", "alert", CL.casting:format(args.spellName))
 	self:CDBar(args.spellId, 30)
 end
 

@@ -74,8 +74,7 @@ end
 
 function mod:ReflectiveShieldRemoved(args)
 	shielded = false
-	self:Message(args.spellId, "green", CL.removed:format(args.spellName))
-	self:PlaySound(args.spellId, "info")
+	self:MessageOld(args.spellId, "green", "info", CL.removed:format(args.spellName))
 end
 
 function mod:Renew(args)

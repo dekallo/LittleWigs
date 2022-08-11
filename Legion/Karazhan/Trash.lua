@@ -121,20 +121,17 @@ end
 
 -- Spectral Attendant
 function mod:ShadowRejuvenation(args)
-	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "warning")
+	self:MessageOld(args.spellId, "yellow", "warning", CL.casting:format(args.spellName))
 end
 
 -- Wholesome Hostess
 function mod:AlluringAura(args)
-	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "alert")
+	self:MessageOld(args.spellId, "red", "alert", CL.casting:format(args.spellName))
 end
 
 function mod:BansheeWail(args)
 	if not self:Friendly(args.sourceFlags) then -- these NPCs can be mind-controlled by DKs
-		self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
-		self:PlaySound(args.spellId, "warning")
+		self:MessageOld(args.spellId, "yellow", "warning", CL.casting:format(args.spellName))
 	end
 end
 
@@ -145,16 +142,14 @@ do
 		local t = GetTime()
 		if t-prev > 1.5 then
 			prev = t
-			self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
-			self:PlaySound(args.spellId, "alert")
+			self:MessageOld(args.spellId, "yellow", "alert", CL.casting:format(args.spellName))
 		end
 	end
 end
 
 -- Reformed Maiden
 function mod:Heartbreaker(args)
-	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "warning")
+	self:MessageOld(args.spellId, "yellow", "warning", CL.casting:format(args.spellName))
 end
 
 -- Phantom Guardsman
@@ -167,8 +162,7 @@ do
 		local t = GetTime()
 		if t-prev > 1.5 then
 			prev = t
-			self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
-			self:PlaySound(args.spellId, "warning")
+			self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
 		end
 	end
 end

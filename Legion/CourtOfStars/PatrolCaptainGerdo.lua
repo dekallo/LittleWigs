@@ -58,8 +58,7 @@ function mod:Streetsweeper(args)
 end
 
 function mod:ArcaneLockdown(args)
-	self:Message(args.spellId, "yellow", CL.incoming:format(args.spellName))
-	self:PlaySound(args.spellId, "long")
+	self:MessageOld(args.spellId, "yellow", "long", CL.incoming:format(args.spellName))
 	self:CDBar(args.spellId, 28)
 end
 

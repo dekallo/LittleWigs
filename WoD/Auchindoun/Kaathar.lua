@@ -79,7 +79,6 @@ end
 
 function mod:SanctifiedGround(args)
 	if self:Me(args.destGUID) then
-		self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
-		self:PlaySound(args.spellId, "alarm")
+		self:MessageOld(args.spellId, "blue", "alarm", CL.underyou:format(args.spellName))
 	end
 end

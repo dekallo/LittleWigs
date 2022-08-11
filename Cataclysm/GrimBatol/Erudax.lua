@@ -50,8 +50,7 @@ end
 
 function mod:ShadowGale(args)
 	self:Bar(args.spellId, 5)
-	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "alert")
+	self:MessageOld(args.spellId, "orange", "alert", CL.casting:format(args.spellName))
 end
 
 function mod:Summon(_, msg)

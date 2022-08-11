@@ -184,20 +184,17 @@ end
 
 function mod:BubbleShield(args)
 	nextBubbleShield = GetTime() + 43
-	self:Message(args.spellId, "orange", CL.onboss:format(args.spellName))
-	self:PlaySound(args.spellId, "alert")
+	self:MessageOld(args.spellId, "orange", "alert", CL.onboss:format(args.spellName))
 end
 
 function mod:BubbleShieldRemoved(args)
 	local remaining = nextBubbleShield - GetTime()
-	self:Message(args.spellId, "green", CL.removed:format(args.spellName))
-	self:PlaySound(args.spellId, "info")
+	self:MessageOld(args.spellId, "green", "info", CL.removed:format(args.spellName))
 	self:CDBar(args.spellId, remaining > 2.5 and remaining or 2.5)
 end
 
 function mod:Carbonation(args)
-	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "long")
+	self:MessageOld(args.spellId, "red", "long", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 3)
 	self:CDBar(args.spellId, 63.3)
 end

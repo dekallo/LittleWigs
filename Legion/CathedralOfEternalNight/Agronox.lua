@@ -103,14 +103,12 @@ function mod:ChokingVines(args)
 end
 
 function mod:FulminatingLashers(args)
-	self:Message(args.spellId, "yellow", CL.incoming:format(args.spellName))
-	self:PlaySound(args.spellId, "alert")
+	self:MessageOld(args.spellId, "yellow", "alert", CL.incoming:format(args.spellName))
 	self:Bar(args.spellId, 40.1)
 end
 
 function mod:SucculentLashers(args)
-	self:Message(args.spellId, "yellow", CL.incoming:format(args.spellName))
-	self:PlaySound(args.spellId, "alert")
+	self:MessageOld(args.spellId, "yellow", "alert", CL.incoming:format(args.spellName))
 	self:Bar(args.spellId, 40.1)
 end
 

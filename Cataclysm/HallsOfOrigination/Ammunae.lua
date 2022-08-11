@@ -60,6 +60,5 @@ function mod:ConsumeLifeEnergyOver(args)
 end
 
 function mod:RampantGrowth(args)
-	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "info")
+	self:MessageOld(args.spellId, "yellow", "info", CL.casting:format(args.spellName))
 end

@@ -64,8 +64,7 @@ end
 --
 
 function mod:Teleport(args)
-	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "info")
+	self:MessageOld(args.spellId, "yellow", "info", CL.casting:format(args.spellName))
 end
 
 function mod:VoidShieldApplied(args)
@@ -73,8 +72,7 @@ function mod:VoidShieldApplied(args)
 end
 
 function mod:VoidShieldRemoved(args)
-	self:Message(args.spellId, "green", CL.removed:format(args.spellName))
-	self:PlaySound(args.spellId, "info")
+	self:MessageOld(args.spellId, "green", "info", CL.removed:format(args.spellName))
 end
 
 do
@@ -129,13 +127,11 @@ function mod:UNIT_HEALTH(event, unit)
 end
 
 function mod:SeedofCorruption(args)
-	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "warning")
+	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
 end
 
 function mod:FrighteningShout(args)
-	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "warning")
+	self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
 end
 
 do
@@ -145,8 +141,7 @@ do
 			local t = GetTime()
 			if t-prev > 1.5 then
 				prev = t
-				self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
-				self:PlaySound(args.spellId, "alert")
+				self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
 			end
 		end
 	end

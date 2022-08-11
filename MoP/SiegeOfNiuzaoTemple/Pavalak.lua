@@ -44,14 +44,12 @@ end
 --
 
 function mod:BladeRush(args)
-	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "alarm")
+	self:MessageOld(args.spellId, "orange", "alarm", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 2)
 end
 
 function mod:Tempest(args)
-	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "alert")
+	self:MessageOld(args.spellId, "red", "alert", CL.casting:format(args.spellName))
 end
 
 function mod:ReinforcementsPhase()

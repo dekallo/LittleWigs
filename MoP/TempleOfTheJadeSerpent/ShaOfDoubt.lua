@@ -101,8 +101,7 @@ function mod:BoundsOfReality(args)
 end
 
 function mod:BoundsOfRealityOver(args)
-	self:Message(args.spellId, "green", CL.over:format(args.spellName))
-	self:PlaySound(args.spellId, "info")
+	self:MessageOld(args.spellId, "green", "info", CL.over:format(args.spellName))
 	self:StopBar(CL.cast:format(args.spellName))
 end
 

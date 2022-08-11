@@ -91,8 +91,7 @@ function mod:VoidDiffusionCast(args)
 end
 
 function mod:DarkMatterCast(args)
-	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "warning")
+	self:MessageOld(args.spellId, "red", "warning", CL.casting:format(args.spellName))
 	if self:GetOption(matterMarker) then
 		self:RegisterTargetEvents("MarkMatter")
 	end

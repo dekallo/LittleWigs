@@ -43,8 +43,7 @@ end
 --
 
 function mod:FrenziedAssault(args)
-	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "long")
+	self:MessageOld(args.spellId, "yellow", "long", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 7) -- 1s cast + 6s channel
 	self:CDBar(args.spellId, 17)
 end
@@ -92,8 +91,7 @@ do
 			local t = GetTime()
 			if t-prev > 1.5 then
 				prev = t
-				self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
-				self:PlaySound(args.spellId, "alert")
+				self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
 			end
 		end
 	end

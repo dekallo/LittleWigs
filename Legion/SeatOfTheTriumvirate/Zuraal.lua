@@ -98,8 +98,7 @@ function mod:VoidTear(args)
 end
 
 function mod:VoidTearRemoved(args)
-	self:Message(args.spellId, "cyan", CL.removed:format(args.spellName))
-	self:PlaySound(args.spellId, "info")
+	self:MessageOld(args.spellId, "cyan", "info", CL.removed:format(args.spellName))
 	self:CDBar(246134, 10.5) -- Null Palm _start
 	self:CDBar(244579, 18) -- Decimate _start
 	self:CDBar(244602, 20) -- Coalesced Void _success

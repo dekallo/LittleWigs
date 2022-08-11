@@ -49,8 +49,7 @@ do
 		local t = GetTime()
 		if t-prev > 5 then -- More than 1 in Challenge Mode
 			prev = t
-			self:Message(args.spellId, "yellow", CL.incoming:format(args.spellName))
-			self:PlaySound(args.spellId, "long")
+			self:MessageOld(args.spellId, "yellow", "long", CL.incoming:format(args.spellName))
 			self:Bar(args.spellId, 23)
 		end
 	end

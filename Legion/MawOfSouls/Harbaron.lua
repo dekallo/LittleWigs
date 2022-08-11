@@ -63,8 +63,7 @@ end
 
 function mod:SummonShackledServitor(args)
 	self:CDBar(args.spellId, 25) -- cd varies between 23-26
-	self:Message(args.spellId, "yellow", CL.incoming:format(args.spellName))
-	self:PlaySound(args.spellId, "info")
+	self:MessageOld(args.spellId, "yellow", "info", CL.incoming:format(args.spellName))
 end
 
 function mod:CosmicScythe(args)

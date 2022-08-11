@@ -77,8 +77,7 @@ function mod:Warmup(event, msg)
 end
 
 function mod:RunicBrand(args)
-	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "alarm")
+	self:MessageOld(args.spellId, "yellow", "alarm", CL.casting:format(args.spellName))
 	self:Bar(args.spellId, 56) -- m pull:44.0, 56.0
 end
 
@@ -95,8 +94,7 @@ function mod:RadiantTempest(args)
 end
 
 function mod:ShatterSpears(args)
-	self:Message(args.spellId, "red", CL.incoming:format(args.spellName))
-	self:PlaySound(args.spellId, "alert")
+	self:MessageOld(args.spellId, "red", "alert", CL.incoming:format(args.spellName))
 	self:Bar(args.spellId, 56) -- m pull:40.0, 56.0
 end
 

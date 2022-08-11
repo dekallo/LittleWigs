@@ -148,8 +148,7 @@ end
 
 function mod:CoatCheck(args)
 	if self:Tank() then
-		self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
-		self:PlaySound(args.spellId, "alarm")
+		self:MessageOld(args.spellId, "orange", "alarm", CL.casting:format(args.spellName))
 	end
 	self:Bar(args.spellId, 34)
 end

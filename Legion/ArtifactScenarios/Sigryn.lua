@@ -116,8 +116,7 @@ end
 -- Sigryn
 
 function mod:BloodOfTheFatherCast(args)
-	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "long")
+	self:MessageOld(args.spellId, "red", "long", CL.casting:format(args.spellName))
 	self:CastBar(args.spellId, 3)
 	bloodCount = bloodCount + 1
 	if bloodCount < 4 then
@@ -160,8 +159,7 @@ do
 		if t-prev > 2 then
 			prev = t
 			self:StopBar(args.spellName)
-			self:Message(args.spellId, "orange", CL.soon:format(args.spellName))
-			self:PlaySound(args.spellId, "alarm")
+			self:MessageOld(args.spellId, "orange", "alarm", CL.soon:format(args.spellName))
 			self:Bar(args.spellId, 5, 100, args.spellId) -- 100 = Charge
 			self:ScheduleTimer("CDBar", 5, args.spellId, 15) -- mostly ~20
 		end
@@ -179,8 +177,7 @@ do
 		local t = GetTime()
 		if t-prev > 2 then
 			prev = t
-			self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
-			self:PlaySound(args.spellId, "alarm")
+			self:MessageOld(args.spellId, "blue", "alarm", CL.underyou:format(args.spellName))
 		end
 	end
 end
@@ -225,8 +222,7 @@ do
 
 	function mod:AncestralKnowledgeRemoved(args)
 		self:CloseInfo(args.spellId)
-		self:Message(args.spellId, "green", CL.removed:format(args.spellName))
-		self:PlaySound(args.spellId, "info")
+		self:MessageOld(args.spellId, "green", "info", CL.removed:format(args.spellName))
 	end
 end
 
@@ -251,13 +247,11 @@ function mod:BerserkersRage(args)
 end
 
 function mod:BerserkersRageRemoved(args)
-	self:Message(args.spellId, "green", CL.over:format(args.spellName))
-	self:PlaySound(args.spellId, "info")
+	self:MessageOld(args.spellId, "green", "info", CL.over:format(args.spellName))
 end
 
 function mod:BladestormCast(args)
-	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "alarm")
+	self:MessageOld(args.spellId, "yellow", "alarm", CL.casting:format(args.spellName))
 	bladestormCount = bladestormCount + 1
 	if bladestormCount == 2 then
 		self:Bar(args.spellId, 105)

@@ -63,8 +63,7 @@ do
 end
 
 function mod:OmegaStance(args)
-	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "alarm")
+	self:MessageOld(args.spellId, "red", "alarm", CL.casting:format(args.spellName))
 	self:CDBar(args.spellId, 41)
 end
 

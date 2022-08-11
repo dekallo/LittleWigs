@@ -63,7 +63,6 @@ end
 
 function mod:FrozenRain(args)
 	if self:Me(args.destGUID) then
-		self:Message(args.spellId, "blue", CL.you:format(args.spellName))
-		self:PlaySound(args.spellId, "alarm")
+		self:MessageOld(args.spellId, "blue", "alarm", CL.you:format(args.spellName))
 	end
 end

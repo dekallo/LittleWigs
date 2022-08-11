@@ -74,8 +74,7 @@ do
 end
 
 function mod:CarrotBreath(args)
-	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
-	self:PlaySound(args.spellId, "alarm")
+	self:MessageOld(args.spellId, "red", "alarm", CL.casting:format(args.spellName))
 	self:CDBar(args.spellId, 43.8)
 end
 
@@ -85,8 +84,7 @@ do
 		local t = GetTime()
 		if t-prev > 1.5 then
 			prev = t
-			self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
-			self:PlaySound(args.spellId, "alert")
+			self:MessageOld(args.spellId, "orange", "alert", CL.casting:format(args.spellName))
 		end
 	end
 end
