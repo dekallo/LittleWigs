@@ -55,7 +55,8 @@ end
 
 function mod:VampiricTouch(args)
 	if self:MobId(args.destGUID) ~= 26533 then return end -- mages can spellsteal it
-	self:MessageOld(args.spellId, "red", "info", CL.onboss:format(args.spellName))
+	self:Message(args.spellId, "red", CL.onboss:format(args.spellName))
+	self:PlaySound(args.spellId, "info")
 	self:Bar(args.spellId, 30)
 end
 

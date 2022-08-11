@@ -78,5 +78,6 @@ function mod:ArcaneBlitz(args)
 end
 
 function mod:BonecrushingStrike(args)
-	self:MessageOld(args.spellId, "red", "alarm", CL.incoming:format(args.spellName))
+	self:Message(args.spellId, "red", CL.incoming:format(args.spellName))
+	self:PlaySound(args.spellId, "alarm")
 end

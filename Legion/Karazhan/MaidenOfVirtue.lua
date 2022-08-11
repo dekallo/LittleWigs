@@ -90,12 +90,14 @@ function mod:HolyShock(args)
 	end
 	shockCount = shockCount + 1
 	if self:Interrupter(args.sourceGUID) then
-		self:MessageOld(args.spellId, "yellow", "alarm", CL.incoming:format(args.spellName))
+		self:Message(args.spellId, "yellow", CL.incoming:format(args.spellName))
+		self:PlaySound(args.spellId, "alarm")
 	end
 end
 
 function mod:HolyWrath(args)
-	self:MessageOld(args.spellId, "red", "alarm", CL.incoming:format(args.spellName))
+	self:Message(args.spellId, "red", CL.incoming:format(args.spellName))
+	self:PlaySound(args.spellId, "alarm")
 end
 
 do
@@ -112,7 +114,8 @@ do
 	end
 
 	function mod:MassRepentance(args)
-		self:MessageOld(args.spellId, "yellow", "warning", CL.casting:format(args.spellName))
+		self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
+		self:PlaySound(args.spellId, "warning")
 		self:Bar(args.spellId, 5, CL.cast:format(args.spellName))
 		self:Bar(args.spellId, 51)
 		checkForSacredGround()

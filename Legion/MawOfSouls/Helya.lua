@@ -121,7 +121,8 @@ end
 
 function mod:RapidRupture(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "blue", "warning", CL.you:format(args.spellName))
+		self:Message(args.spellId, "blue", CL.you:format(args.spellName))
+		self:PlaySound(args.spellId, "warning")
 	end
 end
 
@@ -138,7 +139,8 @@ function mod:Submerged(args)
 end
 
 function mod:SubmergedRemoved(args)
-	self:MessageOld(args.spellId, "cyan", "info", CL.over:format(args.spellName))
+	self:Message(args.spellId, "cyan", CL.over:format(args.spellName))
+	self:PlaySound(args.spellId, "info")
 	self:CDBar(198495, 10) -- Torrent
 end
 
@@ -151,7 +153,8 @@ function mod:Torrent(args)
 
 	firstTorrent = nil
 	afterCorrupted = nil
-	self:MessageOld(args.spellId, "red", "warning", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "warning")
 end
 
 function mod:CorruptedBellow(args)

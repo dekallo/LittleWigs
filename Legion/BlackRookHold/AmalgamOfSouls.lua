@@ -61,9 +61,11 @@ end
 
 function mod:SoulBurstStart(args)
 	if gorgeCount == 2 then
-		self:MessageOld(args.spellId, "yellow", "alert", CL.incoming:format(args.spellName))
+		self:Message(args.spellId, "yellow", CL.incoming:format(args.spellName))
+		self:PlaySound(args.spellId, "alert")
 	elseif gorgeCount >= 3 then
-		self:MessageOld(args.spellId, "red", "warning", CL.incoming:format(args.spellName))
+		self:Message(args.spellId, "red", CL.incoming:format(args.spellName))
+		self:PlaySound(args.spellId, "warning")
 	end
 end
 
@@ -84,7 +86,8 @@ end
 function mod:ReapSoul(args)
 	self:Bar(args.spellId, 13.4)
 	if self:Tank() then
-		self:MessageOld(args.spellId, "yellow", "warning", CL.incoming:format(args.spellName))
+		self:Message(args.spellId, "yellow", CL.incoming:format(args.spellName))
+		self:PlaySound(args.spellId, "warning")
 	end
 end
 

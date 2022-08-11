@@ -29,7 +29,8 @@ end
 --
 
 function mod:ManaRage(args)
-	self:MessageOld(args.spellId, "red", "info", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "info")
 	self:CastBar(args.spellId, 10)
 end
 

@@ -79,7 +79,8 @@ function mod:BellowOfTheDeeps(args)
 end
 
 function mod:Sunder(args)
-	self:MessageOld(args.spellId, "yellow", "alert", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 	self:CDBar(args.spellId, 9.3)
 end
 

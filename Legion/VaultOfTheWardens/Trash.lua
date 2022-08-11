@@ -135,7 +135,8 @@ end
 
 --[[ Fel-Infused Fury ]]--
 function mod:UnleashFury(args)
-	self:MessageOld(args.spellId, "yellow", "alarm", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alarm")
 	if self:Interrupter(args.sourceGUID) then
 		self:Flash(args.spellId)
 	end
@@ -147,7 +148,8 @@ do
 		local t = GetTime()
 		if t-prev > 0.5 then
 			prev = t
-			self:MessageOld(args.spellId, "orange", "warning", CL.casting:format(args.spellName))
+			self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+			self:PlaySound(args.spellId, "warning")
 		end
 	end
 end
@@ -160,7 +162,8 @@ do
 			local t = GetTime()
 			if t-prev > 1.5 then
 				prev = t
-				self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
+				self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
+				self:PlaySound(args.spellId, "alert")
 			end
 		end
 	end
@@ -179,7 +182,8 @@ end
 
 --[[ Dreadlord Mendacius ]]--
 function mod:Meteor(args)
-	self:MessageOld(args.spellId, "orange", "alarm", CL.incoming:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.incoming:format(args.spellName))
+	self:PlaySound(args.spellId, "alarm")
 end
 
 --[[ Grimhorn the Enslaver ]]--
@@ -206,7 +210,8 @@ do
 			-- Increased throttle if the player can't move due to having Torment
 			if t-prev > (tormentOnMe and 6 or 1.5) then
 				prev = t
-				self:MessageOld(args.spellId, "blue", "alert", CL.underyou:format(args.spellName))
+				self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
+				self:PlaySound(args.spellId, "alert")
 			end
 		end
 	end

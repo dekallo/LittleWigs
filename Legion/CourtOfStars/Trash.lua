@@ -761,12 +761,14 @@ end
 
 function mod:AlertCasts(args)
 	if throttleMessages(args.spellId) then return end
-	self:MessageOld(args.spellId, "yellow", "alert", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 end
 
 function mod:AlarmCasts(args)
 	if throttleMessages(args.spellId) then return end
-	self:MessageOld(args.spellId, "red", "alarm", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alarm")
 end
 
 do
@@ -776,7 +778,8 @@ do
 			local t = GetTime()
 			if t-prev > 1.5 then
 				prev = t
-				self:MessageOld(args.spellId, "blue", "warning", CL.underyou:format(args.spellName))
+				self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
+				self:PlaySound(args.spellId, "warning")
 			end
 		end
 	end

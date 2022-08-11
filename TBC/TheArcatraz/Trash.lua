@@ -151,7 +151,8 @@ do
 		local t = GetTime()
 		if t - prev > 1 then
 			prev = t
-			self:MessageOld(args.spellId, "red", "warning", CL.incoming:format(args.spellName))
+			self:Message(args.spellId, "red", CL.incoming:format(args.spellName))
+			self:PlaySound(args.spellId, "warning")
 		end
 		self:Bar(args.spellId, 2)
 	end

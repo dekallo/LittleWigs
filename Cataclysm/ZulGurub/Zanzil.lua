@@ -45,7 +45,8 @@ end
 --
 
 function mod:ZanziliFire(args)
-	self:MessageOld(args.spellId, "yellow", "info", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "info")
 end
 
 function mod:BlueResurrectionElixir(args)
@@ -54,7 +55,8 @@ function mod:BlueResurrectionElixir(args)
 end
 
 function mod:GraveyardGasCast(args)
-	self:MessageOld(args.spellId, "yellow", "alert", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 	self:CastBar(args.spellId, 7)
 end
 

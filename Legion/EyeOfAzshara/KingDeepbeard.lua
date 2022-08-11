@@ -73,13 +73,15 @@ end
 function mod:GaseousBubblesRemoved(args)
 	if self:Me(args.destGUID) then
 		bubblesOnMe = false
-		self:MessageOld(args.spellId, "blue", "warning", CL.removed:format(args.spellName))
+		self:Message(args.spellId, "blue", CL.removed:format(args.spellName))
+		self:PlaySound(args.spellId, "warning")
 		self:StopBar(args.spellName, args.destName)
 	end
 end
 
 function mod:GroundSlam(args)
-	self:MessageOld(args.spellId, "orange", "info", CL.incoming:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.incoming:format(args.spellName))
+	self:PlaySound(args.spellId, "info")
 	self:CDBar(args.spellId, 18) -- pull:5.9, 18.2, 20.6, 19.4
 end
 

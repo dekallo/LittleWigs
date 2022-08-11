@@ -58,7 +58,8 @@ end
 
 function mod:UncheckedGrowth(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "blue", "alarm", CL.you:format(args.spellName))
+		self:Message(args.spellId, "blue", CL.you:format(args.spellName))
+		self:PlaySound(args.spellId, "alarm")
 	end
 end
 
@@ -69,7 +70,8 @@ function mod:BrittleBark(args)
 end
 
 function mod:BrittleBarkOver(args)
-	self:MessageOld(args.spellId, "yellow", "info", CL.over:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.over:format(args.spellName))
+	self:PlaySound(args.spellId, "info")
 	self:Bar(args.spellId, 30)
 	self:CDBar(164357, 4) -- Parched Gasp
 end

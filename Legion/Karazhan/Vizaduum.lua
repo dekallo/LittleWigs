@@ -89,7 +89,8 @@ end
 
 -- [[ General ]] --
 function mod:Disintegrate(args)
-	self:MessageOld(args.spellId, "yellow", "alarm", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alarm")
 	if (stage ~= 1.5) then
 		self:CDBar(args.spellId, 12.1)
 	end
@@ -184,7 +185,8 @@ do
 			local t = GetTime()
 			if t - prev > 1.5 then
 				prev = t
-				self:MessageOld(args.spellId, "blue", "alert", CL.near:format(args.sourceName)) -- args.sourceName = Soul Harvester
+				self:Message(args.spellId, "blue", CL.near:format(args.sourceName))
+				self:PlaySound(args.spellId, "alert") -- args.sourceName = Soul Harvester
 			end
 		end
 	end
@@ -192,7 +194,8 @@ end
 
 -- [[ Stage 3 ]] --
 function mod:StabilizeRift(args)
-	self:MessageOld(args.spellId, "orange", "alarm", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alarm")
 	self:CastBar(args.spellId, 30)
 end
 

@@ -72,7 +72,8 @@ function mod:Enrage(args)
 end
 
 function mod:Totems(args)
-	self:MessageOld(args.spellId, "orange", "alert", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 end
 
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)

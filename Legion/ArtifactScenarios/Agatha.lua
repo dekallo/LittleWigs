@@ -140,7 +140,8 @@ do
 		local t = GetTime()
 		if t-prev > 0.9 then -- Ticks every second, but don't spam for stacked zones
 			prev = t
-			self:MessageOld(args.spellId, "blue", "alarm", CL.underyou:format(args.spellName))
+			self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
+			self:PlaySound(args.spellId, "alarm")
 		end
 	end
 end

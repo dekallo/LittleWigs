@@ -104,7 +104,8 @@ function mod:Restoration(args)
 end
 
 function mod:CrashingWave(args)
-	self:MessageOld(args.spellId, "yellow", "alert", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 end
 
 do
@@ -114,7 +115,8 @@ do
 			local t = GetTime()
 			if t-prev > 2 then
 				prev = t
-				self:MessageOld(args.spellId, "blue", "alarm", CL.underyou:format(args.spellName))
+				self:Message(args.spellId, "blue", CL.underyou:format(args.spellName))
+				self:PlaySound(args.spellId, "alarm")
 			end
 		end
 	end

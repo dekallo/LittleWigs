@@ -78,12 +78,14 @@ function mod:SpikedTongueRemoved(args)
 end
 
 function mod:RancidMaw(args)
-	self:MessageOld(args.spellId, "red", "alert", CL.incoming:format(args.spellName))
+	self:Message(args.spellId, "red", CL.incoming:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 	self:CDBar(args.spellId, 18) -- pull:7.2, 18.2, 20.6, 24.3, 18.2
 end
 
 function mod:ToxicRetchStart(args)
-	self:MessageOld(args.spellId, "orange", "alert", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 end
 
 function mod:ToxicRetch(args)

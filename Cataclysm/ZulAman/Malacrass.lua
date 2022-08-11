@@ -55,7 +55,8 @@ function mod:SoulSiphon(args)
 end
 
 function mod:HealingCasts(args)
-	self:MessageOld(args.spellId, "orange", "alarm", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alarm")
 end
 
 function mod:Lifebloom(args)

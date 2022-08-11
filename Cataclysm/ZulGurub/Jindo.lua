@@ -62,7 +62,8 @@ end
 
 
 function mod:ShadowsOfHakkar(args)
-	self:MessageOld(args.spellId, "yellow", "info", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "info")
 	self:CDBar(args.spellId, 19)
 end
 

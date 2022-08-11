@@ -79,7 +79,8 @@ end
 
 function mod:WhispersOfHethiss(args)
 	if self:MobId(args.destGUID) == 52155 then return end -- applies this to himself as well
-	self:MessageOld(args.spellId, "orange", "alert", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "orange", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 	self:TargetBar(args.spellId, 8, args.destName)
 end
 
@@ -89,7 +90,8 @@ function mod:WhispersOfHethissRemoved(args)
 end
 
 function mod:Bloodvenom(args)
-	self:MessageOld(args.spellId, "red", "alert", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "alert")
 	self:ScheduleTimer("Bar", 3, args.spellId, 14)
 end
 

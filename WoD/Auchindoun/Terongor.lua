@@ -98,7 +98,8 @@ end
 
 function mod:RainOfFire(args)
 	if self:Me(args.destGUID) then
-		self:MessageOld(args.spellId, "blue", "alarm", CL.you:format(args.spellName))
+		self:Message(args.spellId, "blue", CL.you:format(args.spellName))
+		self:PlaySound(args.spellId, "alarm")
 	end
 end
 
@@ -130,11 +131,13 @@ do
 end
 
 function mod:DrainLife(args)
-	self:MessageOld(args.spellId, "yellow", "long", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "long")
 end
 
 function mod:ChaosBolt(args)
-	self:MessageOld(args.spellId, "yellow", "long", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "long")
 	self:Bar(args.spellId, 24)
 end
 

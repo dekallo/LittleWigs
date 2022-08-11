@@ -126,7 +126,8 @@ function mod:ImageDeath(args)
 end
 
 function mod:FlameWreathStart(args)
-	self:MessageOld(args.spellId, "yellow", "long", CL.incoming:format(args.spellName))
+	self:Message(args.spellId, "yellow", CL.incoming:format(args.spellName))
+	self:PlaySound(args.spellId, "long")
 end
 
 do

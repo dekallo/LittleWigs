@@ -50,7 +50,8 @@ function mod:AuraRemoved(args)
 end
 
 function mod:Hellfire(args)
-	self:MessageOld(args.spellId, "red", "long", CL.casting:format(args.spellName))
+	self:Message(args.spellId, "red", CL.casting:format(args.spellName))
+	self:PlaySound(args.spellId, "long")
 	self:CastBar(args.spellId, 6)
 end
 

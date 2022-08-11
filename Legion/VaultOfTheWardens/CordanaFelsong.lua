@@ -122,7 +122,8 @@ function mod:StolenLight(args)
 end
 
 function mod:StolenLightRemoved(args)
-	self:MessageOld(args.spellId, "cyan", "info", CL.removed:format(args.spellName))
+	self:Message(args.spellId, "cyan", CL.removed:format(args.spellName))
+	self:PlaySound(args.spellId, "info")
 	self:CDBar("kick_combo", 16, L.kick_combo, L.kick_combo_icon)
 end
 
@@ -136,7 +137,8 @@ function mod:CreepingDoom(args)
 end
 
 function mod:CreepingDoomRemoved(args)
-	self:MessageOld(args.spellId, "cyan", "info", CL.over:format(args.spellName))
+	self:Message(args.spellId, "cyan", CL.over:format(args.spellName))
+	self:PlaySound(args.spellId, "info")
 	self:CDBar("kick_combo", 16, L.kick_combo, L.kick_combo_icon)
 end
 
