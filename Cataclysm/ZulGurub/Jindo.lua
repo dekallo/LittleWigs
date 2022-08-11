@@ -67,7 +67,8 @@ function mod:ShadowsOfHakkar(args)
 end
 
 function mod:ShadowsOfHakkarApplied(args)
-	self:MessageOld(args.spellId, "red", "long")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "long")
 	self:TargetBar(args.spellId, 8, args.destName)
 end
 
@@ -76,7 +77,8 @@ function mod:ShadowsOfHakkarRemoved(args)
 end
 
 function mod:Deadzone(args)
-	self:MessageOld(args.spellId, "red", "long")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "long")
 	self:Bar(args.spellId, 21)
 end
 

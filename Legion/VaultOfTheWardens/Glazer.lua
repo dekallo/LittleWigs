@@ -69,7 +69,8 @@ function mod:LingeringGazeApplied(args)
 end
 
 function mod:Focusing(args)
-	self:MessageOld(args.spellId, "orange", "info")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "info")
 end
 
 function mod:RadiationLevel(args)
@@ -92,7 +93,8 @@ do
 end
 
 function mod:Beamed(args)
-	self:MessageOld(args.spellId, "green", "info")
+	self:Message(args.spellId, "green")
+	self:PlaySound(args.spellId, "info")
 	self:Bar(args.spellId, 15)
 	self:Bar(194323, 60) -- Focusing
 	nextFocusing = GetTime() + 60

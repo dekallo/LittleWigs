@@ -45,7 +45,8 @@ end
 --
 
 function mod:PulverizingCudgel(args)
-	self:MessageOld(args.spellId, "orange", "alert")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alert")
 	self:CDBar(args.spellId, 37)
 end
 

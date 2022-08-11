@@ -38,7 +38,8 @@ end
 --
 
 function mod:CongealingVomit(args)
-	self:MessageOld(args.spellId, "red", "alarm")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "alarm")
 	self:Bar(args.spellId, 51)
 end
 

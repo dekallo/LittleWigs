@@ -65,7 +65,8 @@ end
 --
 
 function mod:TornadoKick(args)
-	self:MessageOld(args.spellId, "orange", "alert")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alert")
 	self:CastBar(args.spellId, 6.5) -- 5s channel + 1.5s cast
 end
 

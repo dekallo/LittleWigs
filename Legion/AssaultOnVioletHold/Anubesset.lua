@@ -76,7 +76,8 @@ do
 end
 
 function mod:CallOfTheSwarm(args)
-	self:MessageOld(args.spellId, "orange", "info")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "info")
 end
 
 function mod:Fixated(args)

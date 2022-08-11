@@ -138,7 +138,8 @@ end
 do
 	local t = 0
 	function mod:Cataclysm(args)
-		self:MessageOld(args.spellId, "red", "warning")
+		self:Message(args.spellId, "red")
+		self:PlaySound(args.spellId, "warning")
 		self:Bar(args.spellId, 6, "<"..args.spellName..">")
 		self:CDBar(args.spellId, 60)
 		t = GetTime()
@@ -170,7 +171,8 @@ function mod:RainOfFire(args)
 end
 
 function mod:ChaosBolt(args)
-	self:MessageOld(args.spellId, "orange", "long")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "long")
 	self:Bar(args.spellId, 6, "<"..args.spellName..">")
 	self:Bar(args.spellId, 60)
 end

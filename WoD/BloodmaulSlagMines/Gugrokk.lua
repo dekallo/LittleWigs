@@ -46,12 +46,14 @@ end
 --
 
 function mod:MagmaEruption(args)
-	self:MessageOld(args.spellId, "orange", "info")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "info")
 	self:CDBar(args.spellId, 20) -- 20-21
 end
 
 function mod:UnstableSlag(args)
-	self:MessageOld(args.spellId, "red", "warning")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "warning")
 	self:CDBar(args.spellId, 21)
 end
 

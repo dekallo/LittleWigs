@@ -65,7 +65,8 @@ function mod:UNIT_HEALTH(event, unit)
 end
 
 function mod:Frenzy(args)
-	self:MessageOld(args.spellId, "yellow", "long")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "long")
 end
 
 function mod:Wound(args)

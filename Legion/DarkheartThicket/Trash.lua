@@ -144,5 +144,6 @@ end
 
 -- Bloodtainted Fury
 function mod:BloodBomb(args)
-	self:MessageOld(args.spellId, "orange", "alert")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alert")
 end

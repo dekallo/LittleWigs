@@ -44,7 +44,8 @@ end
 
 function mod:ElementiumBulwark(args)
 	if self:MobId(args.destGUID) == 42188 then -- we only warn if the boss gains it, not a mage spell stealing
-		self:MessageOld(args.spellId, "red", "alarm")
+		self:Message(args.spellId, "red")
+		self:PlaySound(args.spellId, "alarm")
 		self:Bar(args.spellId, 10)
 	end
 end

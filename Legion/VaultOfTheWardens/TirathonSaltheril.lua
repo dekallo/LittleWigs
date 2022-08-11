@@ -79,7 +79,8 @@ function mod:DarkstrikesApplied(args)
 end
 
 function mod:Havoc(args)
-	self:MessageOld(args.spellId, "cyan", "info")
+	self:Message(args.spellId, "cyan")
+	self:PlaySound(args.spellId, "info")
 	self:CDBar(191941, 24) -- Darkstrikes
 	self:CDBar(190830, 14.5) -- Hatred
 end
@@ -93,7 +94,8 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 end
 
 function mod:Vengeance(args)
-	self:MessageOld(args.spellId, "cyan", "info")
+	self:Message(args.spellId, "cyan")
+	self:PlaySound(args.spellId, "info")
 	self:StopBar(191941) -- Darkstrikes
 end
 

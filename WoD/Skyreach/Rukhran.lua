@@ -62,12 +62,14 @@ end
 --end
 
 function mod:PierceArmor(args)
-	self:MessageOld(args.spellId, "yellow", "warning")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "warning")
 	self:Bar(args.spellId, 10.9)
 end
 
 function mod:SummonSolarFlare(args)
-	self:MessageOld(args.spellId, "red", "info")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "info")
 end
 
 function mod:Quills(args)

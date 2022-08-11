@@ -61,7 +61,8 @@ end
 
 function mod:MagicDisruptionAura(args)
 	if self:Dispeller("magic", true, args.spellId) then
-		self:MessageOld(args.spellId, "orange", "alert")
+		self:Message(args.spellId, "orange")
+		self:PlaySound(args.spellId, "alert")
 		self:Bar(args.spellId, 15)
 	end
 end

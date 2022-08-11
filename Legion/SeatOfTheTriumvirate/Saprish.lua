@@ -94,7 +94,8 @@ do
 end
 
 function mod:RavagingDarkness(args)
-	self:MessageOld(args.spellId, "yellow", "long")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "long")
 	self:Bar(args.spellId, 9.7)
 end
 
@@ -112,6 +113,7 @@ do
 end
 
 function mod:DreadScreech(args)
-	self:MessageOld(args.spellId, "red", "warning")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "warning")
 	self:CDBar(args.spellId, 15)
 end

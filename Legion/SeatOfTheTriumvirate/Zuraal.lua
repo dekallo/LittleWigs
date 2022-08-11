@@ -57,12 +57,14 @@ end
 --
 
 function mod:NullPalm(args)
-	self:MessageOld(args.spellId, "red", "alarm")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "alarm")
 	self:CDBar(args.spellId, 55)
 end
 
 function mod:Decimate(args)
-	self:MessageOld(args.spellId, "orange", "warning")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "warning")
 	self:CDBar(args.spellId, 12.5)
 end
 

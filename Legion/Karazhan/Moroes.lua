@@ -173,7 +173,8 @@ function mod:HealingStream(args)
 end
 
 function mod:IronWhirlwind(args)
-	self:MessageOld(args.spellId, "yellow", "long")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "long")
 	self:Bar(args.spellId, 10.5)
 end
 
@@ -208,7 +209,8 @@ do
 end
 
 function mod:WillBreaker(args)
-	self:MessageOld(args.spellId, "red", "long")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "long")
 	self:Bar(args.spellId, 10.9)
 end
 

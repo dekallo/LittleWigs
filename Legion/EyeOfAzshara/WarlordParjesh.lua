@@ -89,7 +89,8 @@ do
 		addCount = addCount + 1
 	end
 	function mod:CallReinforcements(args) -- Heroic +
-		self:MessageOld(args.spellId, "yellow", "info")
+		self:Message(args.spellId, "yellow")
+		self:PlaySound(args.spellId, "info")
 		self:CDBar(args.spellId, 28) -- hc pull:5.4, 31.6, 31.6, 27.9, 29.2 / m pull:5.7, 31.5, 28.0, 27.9, 27.9
 	end
 end

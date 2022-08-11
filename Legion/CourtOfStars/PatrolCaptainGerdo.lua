@@ -45,13 +45,15 @@ end
 --
 
 function mod:ResonantSlash(args)
-	self:MessageOld(args.spellId, "orange", "alarm")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alarm")
 	self:Bar(args.spellId, slashCount % 2 == 0 and 16 or 12)
 	slashCount = slashCount + 1
 end
 
 function mod:Streetsweeper(args)
-	self:MessageOld(args.spellId, "red", "info")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "info")
 	self:CDBar(args.spellId, 7)
 end
 
@@ -61,9 +63,11 @@ function mod:ArcaneLockdown(args)
 end
 
 function mod:SignalBeacon(args)
-	self:MessageOld(args.spellId, "yellow", "alert")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "alert")
 end
 
 function mod:FlaskoftheSolemnNight(args)
-	self:MessageOld(args.spellId, "yellow", "info")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "info")
 end

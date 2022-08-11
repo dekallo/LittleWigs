@@ -124,14 +124,16 @@ function mod:TentacleDeath()
 end
 
 function mod:HowlingDark(args)
-	self:MessageOld(args.spellId, "orange", "alarm")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alarm")
 	if not self:Mythic() or nextDarkBulwark - GetTime() > 31.6 then
 		self:CDBar(args.spellId, 31.6)
 	end
 end
 
 function mod:EntropicForce(args)
-	self:MessageOld(args.spellId, "red", "long")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "long")
 	self:Bar(args.spellId, 62)
 	self:CastBar(args.spellId, 10)
 end

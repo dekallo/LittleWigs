@@ -32,7 +32,8 @@ end
 --  Event Handlers
 
 function mod:DevastatingSlam(args)
-	self:MessageOld(args.spellId, "red", "info")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "info")
 end
 
 function mod:Decapitate(args)
@@ -41,13 +42,15 @@ function mod:Decapitate(args)
 end
 
 function mod:Bloodletting(args)
-	self:MessageOld(args.spellId, "yellow", "alert")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "alert")
 	self:TargetBar(args.spellId, 10, args.destName)
 	self:CDBar(args.spellId, 25)
 end
 
 function mod:Frenzy(args)
-	self:MessageOld(args.spellId, "red", "long")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "long")
 end
 
 function mod:ReanimateOhgan(args)

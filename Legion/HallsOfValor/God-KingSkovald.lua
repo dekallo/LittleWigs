@@ -78,7 +78,8 @@ function mod:SavageBlade(args)
 end
 
 function mod:Ragnarok(args)
-	self:MessageOld(args.spellId, "orange", "long")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "long")
 	self:CDBar(args.spellId, 63) -- pull:11.4, 63.5
 end
 

@@ -109,7 +109,8 @@ function mod:ElunesLight(args)
 end
 
 function mod:FelGlaive(args)
-	self:MessageOld(args.spellId, "red", "alert")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "alert")
 end
 
 function mod:StolenLight(args)

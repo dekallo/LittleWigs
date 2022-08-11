@@ -67,7 +67,8 @@ function mod:RazorShards(args)
 end
 
 function mod:Shatter(args)
-	self:MessageOld(args.spellId, "yellow", "alert")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "alert")
 	self:CDBar(args.spellId, 24) -- pull:20.7, 24.3, 25.1
 end
 

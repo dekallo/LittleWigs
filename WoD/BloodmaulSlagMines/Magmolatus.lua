@@ -42,7 +42,8 @@ function mod:SpawnAdd(args)
 end
 
 function mod:MoltenImpact(args)
-	self:MessageOld(args.spellId, "orange", "warning")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "warning")
 end
 
 function mod:Stage2()

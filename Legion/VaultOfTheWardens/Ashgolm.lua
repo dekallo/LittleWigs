@@ -53,17 +53,20 @@ function mod:CHAT_MSG_MONSTER_EMOTE(_, _, sender)
 end
 
 function mod:Fissure(args)
-	self:MessageOld(args.spellId, "yellow", "alarm")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "alarm")
 	self:Bar(args.spellId, 42)
 end
 
 function mod:Volcano(args)
-	self:MessageOld(args.spellId, "red", "long")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "long")
 	self:Bar(args.spellId, 20)
 end
 
 function mod:Brittle(args)
-	self:MessageOld(args.spellId, "green", "info")
+	self:Message(args.spellId, "green")
+	self:PlaySound(args.spellId, "info")
 	self:Bar(args.spellId, 20)
 	local remainingVolcano = self:BarTimeLeft(192520)
 	if remainingVolcano > 0 then

@@ -36,7 +36,8 @@ end
 --
 
 function mod:FourWinds(args)
-	self:MessageOld(args.spellId, "orange", "warning")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "warning")
 	self:Bar(args.spellId, 36)
 end
 

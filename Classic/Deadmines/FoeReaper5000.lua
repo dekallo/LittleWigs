@@ -38,7 +38,8 @@ end
 --
 
 function mod:Overdrive(args)
-	self:MessageOld(args.spellId, "orange", "alarm")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alarm")
 	self:Bar(args.spellId, 53)
 end
 

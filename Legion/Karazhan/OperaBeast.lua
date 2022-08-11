@@ -67,7 +67,8 @@ end
 --
 
 function mod:HeatWave(args)
-	self:MessageOld(args.spellId, "red", "info")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "info")
 end
 
 function mod:Leftovers(args)
@@ -103,7 +104,8 @@ function mod:DinnerBell(args)
 end
 
 function mod:KaraKazham(args)
-	self:MessageOld(args.spellId, "orange", "info")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "info")
 	self:Bar(args.spellId, 17)
 end
 

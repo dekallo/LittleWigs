@@ -82,7 +82,8 @@ do
 			local t = GetTime()
 			if t-prev > 0.5 then
 				prev = t
-				self:MessageOld(args.spellId, "orange", "alarm")
+				self:Message(args.spellId, "orange")
+				self:PlaySound(args.spellId, "alarm")
 			end
 			self:CastBar(args.spellId, 3)
 		end

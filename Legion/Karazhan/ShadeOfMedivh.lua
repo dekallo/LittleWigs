@@ -115,7 +115,8 @@ function mod:PiercingMissiles(args)
 end
 
 function mod:GuardiansImage(args)
-	self:MessageOld(args.spellId, "yellow", "long")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "long")
 	addsKilled = 0
 end
 
@@ -143,7 +144,8 @@ do
 end
 
 function mod:CeaselessWinter(args)
-	self:MessageOld(args.spellId, "yellow", "long")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "long")
 	self:Bar(args.spellId, 20)
 end
 

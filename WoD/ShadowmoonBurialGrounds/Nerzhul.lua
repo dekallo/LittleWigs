@@ -51,7 +51,8 @@ end
 do
 	-- BETA: 36.8, 13.7, 35.8, 17.2, 37, 14.8, 35.8
 	function mod:OmenOfDeath(args)
-		self:MessageOld(args.spellId, "red", "alert")
+		self:Message(args.spellId, "red")
+		self:PlaySound(args.spellId, "alert")
 		self:CDBar(args.spellId, omenCounter % 2 == 0 and 14 or 35.8)
 		omenCounter = omenCounter + 1
 	end

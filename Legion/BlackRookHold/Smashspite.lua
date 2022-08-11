@@ -52,7 +52,8 @@ function mod:BrutalHaymaker(args)
 end
 
 function mod:EarthshakingStomp(args)
-	self:MessageOld(args.spellId, "orange", "info")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "info")
 	self:Bar(args.spellId, 24.3)
 end
 

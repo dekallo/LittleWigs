@@ -131,7 +131,8 @@ function mod:Submerged(args)
 	self:StopBar(227233) -- Corrupted Bellow
 	self:UnregisterEvent("INSTANCE_ENCOUNTER_ENGAGE_UNIT")
 
-	self:MessageOld(args.spellId, "cyan", "info")
+	self:Message(args.spellId, "cyan")
+	self:PlaySound(args.spellId, "info")
 	self:Bar(args.spellId, 15)
 	firstTorrent = true
 end
@@ -154,12 +155,14 @@ function mod:Torrent(args)
 end
 
 function mod:CorruptedBellow(args)
-	self:MessageOld(args.spellId, "orange", "alarm")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alarm")
 	self:Bar(args.spellId, 22)
 	afterCorrupted = true
 end
 
 function mod:BrackwaterBarrage(args)
-	self:MessageOld(args.spellId, "orange", "alarm")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alarm")
 	self:CDBar(args.spellId, 22.2)
 end

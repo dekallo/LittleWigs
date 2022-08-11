@@ -41,7 +41,8 @@ end
 --
 
 function mod:LightningBreath(args)
-	self:MessageOld(args.spellId, "orange", "alert")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alert")
 	self:CDBar(args.spellId, 9.5) -- 9.6 - 9.7
 end
 

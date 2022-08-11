@@ -89,7 +89,8 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 end
 
 function mod:FelsoulCleave(args)
-	self:MessageOld(args.spellId, "yellow", "alert")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "alert")
 	self:CDBar(args.spellId, 18.5)
 end
 
@@ -115,7 +116,8 @@ do
 			aegisCheck = nil
 		end
 		isCastingChaoticEnergy = true
-		self:MessageOld(args.spellId, "orange", "warning")
+		self:Message(args.spellId, "orange")
+		self:PlaySound(args.spellId, "warning")
 		self:CDBar(args.spellId, 37.6)
 		self:CastBar(args.spellId, 5)
 

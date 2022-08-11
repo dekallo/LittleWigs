@@ -92,7 +92,8 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 end
 
 function mod:CarrionSwarm(args)
-	self:MessageOld(args.spellId, "yellow", "alarm")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "alarm")
 	if self:BarTimeLeft(233206) > 18.2 then -- Shadow Fade
 		self:Bar(args.spellId, 19.8)
 	end
@@ -128,7 +129,8 @@ do
 end
 
 function mod:DarkSolitude(args)
-	self:MessageOld(args.spellId, "yellow", "alarm")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "alarm")
 	if self:BarTimeLeft(233206) > 8.5 then -- Shadow Fade
 		self:CDBar(args.spellId, 8.5)
 	end
@@ -138,7 +140,8 @@ function mod:ShadowFade(args)
 	phase = 2
 	timeLost = 0
 	self:CloseProximity(234817) -- Dark Solitude
-	self:MessageOld(args.spellId, "green", "long")
+	self:Message(args.spellId, "green")
+	self:PlaySound(args.spellId, "long")
 	self:Bar(args.spellId, 34)
 end
 

@@ -54,7 +54,8 @@ do
 		local t = GetTime()
 		if t-prev > 5 then
 			prev = t
-			self:MessageOld(args.spellId, "orange", "info")
+			self:Message(args.spellId, "orange")
+			self:PlaySound(args.spellId, "info")
 		end
 	end
 end

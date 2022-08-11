@@ -59,7 +59,8 @@ function mod:RocketChicken(args)
 end
 
 function mod:MillificentsRage(args)
-	self:MessageOld(args.spellId, "cyan", "warning")
+	self:Message(args.spellId, "cyan")
+	self:PlaySound(args.spellId, "warning")
 	self:CDBar(201240, 5) -- Overloaded Squirrel Bomb
 	self:CDBar(201392, 13.5) -- Reinforced Rocket Chicken
 end

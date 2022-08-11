@@ -76,12 +76,14 @@ function mod:INSTANCE_ENCOUNTER_ENGAGE_UNIT()
 end
 
 function mod:BurningLegSweep(args)
-	self:MessageOld(args.spellId, "yellow", "alarm")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "alarm")
 	self:CDBar(args.spellId, 19)
 end
 
 function mod:ThunderRitual(args)
-	self:MessageOld(args.spellId, "red", "warning")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "warning")
 	self:Bar(args.spellId, 17)
 end
 
@@ -99,7 +101,8 @@ function mod:ThunderRitualRemoved(args)
 end
 
 function mod:WashAway(args)
-	self:MessageOld(args.spellId, "orange", "info")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "info")
 	self:Bar(args.spellId, 23)
 end
 

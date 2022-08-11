@@ -117,7 +117,8 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 end
 
 function mod:Purgatory(args)
-	self:MessageOld(args.spellId, "green", "info")
+	self:Message(args.spellId, "green")
+	self:PlaySound(args.spellId, "info")
 	phase = phase + 1
 	self:CastBar(args.spellId, 38.3)
 	if phase == 3 then
@@ -131,7 +132,8 @@ function mod:PurgatoryRemoved(args)
 end
 
 function mod:GraspFromBeyond(args)
-	self:MessageOld(args.spellId, "orange", "alert")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alert")
 	self:CastBar(args.spellId, 10)
 	self:Bar(args.spellId, 15)
 	if handGUID ~= args.sourceGUID then

@@ -45,9 +45,11 @@ end
 
 function mod:Inhale(args)
 	self:CastBar(args.spellId, 9)
-	self:MessageOld(args.spellId, "orange", "alarm")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alarm")
 end
 
 function mod:BodySlam(args)
-	self:MessageOld(args.spellId, "yellow", "alert")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "alert")
 end

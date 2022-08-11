@@ -43,12 +43,14 @@ end
 --
 
 function mod:MoltenCrash(args)
-	self:MessageOld(args.spellId, "red", "warning")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "warning")
 	self:CDBar(args.spellId, 17) -- pull:19.1, 17.0, 17.0, 23.1, 19.4
 end
 
 function mod:Landslide(args)
-	self:MessageOld(args.spellId, "orange", "alert")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alert")
 	self:CDBar(args.spellId, 17) -- pull:15.9, 17.0, 17.0, 23.1, 19.4, 17.0
 end
 
@@ -57,7 +59,8 @@ function mod:BurningHatred(args)
 end
 
 function mod:CrystalSpikes(args)
-	self:MessageOld(args.spellId, "green", "alarm")
+	self:Message(args.spellId, "green")
+	self:PlaySound(args.spellId, "alarm")
 	self:CDBar(args.spellId, 21) -- pull:21.9, 21.8, 24.3, 21.8, 21.8
 end
 

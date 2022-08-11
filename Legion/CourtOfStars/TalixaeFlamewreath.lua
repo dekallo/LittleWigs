@@ -46,7 +46,8 @@ end
 --
 
 function mod:InfernalEruption(args)
-	self:MessageOld(args.spellId, "orange", "long")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "long")
 	self:CDBar(args.spellId, 18)
 end
 
@@ -57,6 +58,7 @@ function mod:BurningIntensity(args)
 end
 
 function mod:WitheringSoul(args)
-	self:MessageOld(args.spellId, "yellow", "alert")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "alert")
 	self:CDBar(args.spellId, 14)
 end

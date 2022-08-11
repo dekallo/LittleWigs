@@ -58,7 +58,8 @@ function mod:SuppressionProtocolRemoved(args)
 end
 
 function mod:CleansingForce(args)
-	self:MessageOld(args.spellId, "orange", "alert")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alert")
 	self:Bar(args.spellId, 10, CL.cast:format(args.spellName))
 	self:CDBar(args.spellId, 46)
 end

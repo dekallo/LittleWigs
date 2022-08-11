@@ -58,7 +58,8 @@ function mod:FerociousYell(args)
 end
 
 function mod:WildSlam(args)
-	self:MessageOld(args.spellId, "yellow", "long")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "long")
 end
 
 function mod:CrushingLeap(args)

@@ -53,7 +53,8 @@ function mod:UNIT_HEALTH(event, unit)
 end
 
 function mod:ShieldOfLight(args)
-	self:MessageOld(args.spellId, "red", "long")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "long")
 end
 
 function mod:DivineReckoning(args)

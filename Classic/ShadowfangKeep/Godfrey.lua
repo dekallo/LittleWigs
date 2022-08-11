@@ -77,12 +77,14 @@ function mod:MortalWound(args)
 end
 
 function mod:SummonBloodthirstyGhouls(args)
-	self:MessageOld(args.spellId, "cyan", "info")
+	self:Message(args.spellId, "cyan")
+	self:PlaySound(args.spellId, "info")
 	self:CDBar(args.spellId, 30.3)
 end
 
 function mod:PistolBarrage(args)
-	self:MessageOld(args.spellId, "red", "long")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "long")
 	self:CastBar(args.spellId, 6)
 	self:CDBar(args.spellId, 30.3)
 end

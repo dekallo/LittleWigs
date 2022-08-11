@@ -82,5 +82,6 @@ do
 end
 
 function mod:Shielding(args)
-	self:MessageOld(args.spellId, "orange", "long")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "long")
 end

@@ -49,7 +49,8 @@ function mod:ZanziliFire(args)
 end
 
 function mod:BlueResurrectionElixir(args)
-	self:MessageOld(args.spellId, "yellow", "alert")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "alert")
 end
 
 function mod:GraveyardGasCast(args)

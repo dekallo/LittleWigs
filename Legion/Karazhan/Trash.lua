@@ -89,7 +89,8 @@ do
 		local t = GetTime()
 		if t-prev > 3 then
 			prev = t
-			self:MessageOld(args.spellId, "yellow", "info")
+			self:Message(args.spellId, "yellow")
+			self:PlaySound(args.spellId, "info")
 		end
 		self:Bar(args.spellId, 3)
 	end

@@ -66,7 +66,8 @@ end
 
 -- Mightstone Breaker
 function mod:Avalanche(args)
-	self:MessageOld(args.spellId, "yellow", "long")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "long")
 end
 
 -- Vileshard Hulk

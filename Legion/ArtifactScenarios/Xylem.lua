@@ -175,12 +175,14 @@ end
 
 function mod:ShadowBarrage(args)
 	self:StopBar(args.spellName)
-	self:MessageOld(args.spellId, "orange", "alarm")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alarm")
 	self:Bar(args.spellId, 8, CL.cast:format(args.spellName))
 end
 
 function mod:DrawPower(args)
-	self:MessageOld(args.spellId, "red", "alert")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "alert")
 	drawPowerCount = drawPowerCount + 1
 	if drawPowerCount < 2 then
 		self:CDBar(args.spellId, 20)
@@ -195,7 +197,8 @@ function mod:CreepingShadowsDamage(args)
 end
 
 function mod:SeedOfDarkness(args)
-	self:MessageOld(args.spellId, "red", "long")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "long")
 	self:TargetBar(args.spellId, 8, args.destName)
 	self:Bar(args.spellId, 65.6)
 end

@@ -58,11 +58,13 @@ end
 --
 
 function mod:ShieldOfLight(args)
-	self:MessageOld(args.spellId, "red", "alert")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "alert")
 end
 
 function mod:EyeOfTheStormOrSanctify(args)
-	self:MessageOld(args.spellId, "orange", "long")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "long")
 	self:CDBar(192018, 15.8) -- 192018 = Shield of Light. Yes, I checked both EotS and Sanctify.
 
 	-- adjust Arcing Bolt's and Expel Light's CD bars

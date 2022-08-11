@@ -73,18 +73,21 @@ function mod:FrostBreath(args)
 end
 
 function mod:RelentlessStorm(args)
-	self:MessageOld(args.spellId, "red", "long")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "long")
 	stormCount = stormCount + 1
 	self:Bar(args.spellId, stormCount % 2 == 0 and 14 or 47)
 end
 
 function mod:TailSweep(args)
-	self:MessageOld(args.spellId, "orange", "alarm")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alarm")
 	self:Bar(args.spellId, 61)
 end
 
 function mod:FrigidWindsCast(args)
-	self:MessageOld(args.spellId, "red", "warning")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "warning")
 	self:Bar(args.spellId, 61)
 end
 
@@ -102,6 +105,7 @@ function mod:FrigidWindsRemoved(args)
 end
 
 function mod:IceBomb(args)
-	self:MessageOld(args.spellId, "cyan", "info")
+	self:Message(args.spellId, "cyan")
+	self:PlaySound(args.spellId, "info")
 	self:Bar(args.spellId, 59)
 end

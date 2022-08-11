@@ -61,11 +61,13 @@ function mod:FelFissure(args)
 end
 
 function mod:ShadowSlash(args)
-	self:MessageOld(args.spellId, "orange", "alarm")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alarm")
 	self:CDBar(args.spellId, 25)
 end
 
 function mod:WickedSlam(args)
-	self:MessageOld(args.spellId, "orange", "alert")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alert")
 	self:CDBar(args.spellId, 47)
 end

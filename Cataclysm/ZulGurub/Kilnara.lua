@@ -49,7 +49,8 @@ end
 --
 
 function mod:TearsOfBlood(args)
-	self:MessageOld(args.spellId, "red", "alert")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "alert")
 	self:CastBar(args.spellId, 6)
 end
 

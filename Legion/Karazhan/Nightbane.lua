@@ -145,7 +145,8 @@ function mod:BurningBones(args)
 end
 
 function mod:InfernalPower(args)
-	self:MessageOld(args.spellId, "red", "info")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "info")
 	self:Bar(args.spellId, 10, CL.onboss:format(args.spellName))
 end
 
@@ -175,7 +176,8 @@ function mod:IgniteSoulRemoved(args)
 end
 
 function mod:ConcentratedPower(args)
-	self:MessageOld(args.spellId, "red", "info")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "info")
 	self:Bar(args.spellId, 10, CL.onboss:format(args.spellName))
 end
 
@@ -201,7 +203,8 @@ function mod:AbsorbVitalityRemoved(args)
 end
 
 function mod:BellowingRoar(args)
-	self:MessageOld(args.spellId, "yellow", "warning")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "warning")
 	self:Bar(args.spellId, 3, CL.cast:format(args.spellName))
 	self:CDBar(args.spellId, 45)
 end

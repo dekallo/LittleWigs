@@ -33,7 +33,8 @@ end
 --
 
 function mod:FieryBoulder(args)
-	self:MessageOld(args.spellId, "orange", "warning")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "warning")
 end
 
 function mod:HeatWaveInc(args)

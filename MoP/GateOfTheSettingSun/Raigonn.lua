@@ -51,7 +51,8 @@ end
 --
 
 function mod:BatteringHeadbutt(args)
-	self:MessageOld(args.spellId, "orange", "alarm")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alarm")
 	self:CDBar(args.spellId, 32.5)
 end
 

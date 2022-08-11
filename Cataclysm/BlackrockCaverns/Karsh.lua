@@ -30,11 +30,13 @@ end
 --
 
 function mod:QuicksilverArmor(args)
-	self:MessageOld(args.spellId, "yellow", "alert")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "alert")
 end
 
 function mod:SuperheatedQuicksilverArmor(args)
-	self:MessageOld(args.spellId, "red", "info")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "info")
 	self:Bar(args.spellId, 17)
 end
 

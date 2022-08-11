@@ -85,7 +85,8 @@ do
 		local t = GetTime()
 		if t - (prevTable[args.spellId] or 0) > 1 then
 			prevTable[args.spellId] = t
-			self:MessageOld(args.spellId, "orange", "alarm")
+			self:Message(args.spellId, "orange")
+			self:PlaySound(args.spellId, "alarm")
 		end
 	end
 
@@ -114,7 +115,8 @@ do
 		local t = GetTime()
 		if t - (prevTable[args.spellId] or 0) > 1 then
 			prevTable[args.spellId] = t
-			self:MessageOld(args.spellId, "red", "warning")
+			self:Message(args.spellId, "red")
+			self:PlaySound(args.spellId, "warning")
 		end
 	end
 
@@ -133,12 +135,14 @@ do
 end
 
 function mod:LanternOfDarkness(args)
-	self:MessageOld(args.spellId, "yellow", "long")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "long")
 	self:CastBar(args.spellId, 7)
 end
 
 function mod:DebilitatingShout(args)
-	self:MessageOld(args.spellId, "orange", "long")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "long")
 end
 
 function mod:GiveNoQuarter(args)

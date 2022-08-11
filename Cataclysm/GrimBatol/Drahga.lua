@@ -42,6 +42,7 @@ function mod:InvocationOfFlame(_, msg)
 end
 
 function mod:DevouringFlames(args)
-	self:MessageOld(args.spellId, "red", "long")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "long")
 end
 

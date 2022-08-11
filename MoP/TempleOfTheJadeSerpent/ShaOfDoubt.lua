@@ -94,7 +94,8 @@ function mod:TouchOfNothingnessRemoved(args)
 end
 
 function mod:BoundsOfReality(args)
-	self:MessageOld(args.spellId, "orange", "long")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "long")
 	self:CastBar(args.spellId, 30)
 	self:CDBar(args.spellId, 60.3)
 end

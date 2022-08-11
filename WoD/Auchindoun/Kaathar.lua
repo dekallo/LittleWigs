@@ -58,7 +58,8 @@ do
 end
 
 function mod:ConsecratedLight(args)
-	self:MessageOld(args.spellId, "red", "warning")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "warning")
 	self:Bar(args.spellId, self:Normal() and 12 or 8, CL.cast:format(args.spellName))
 	self:Flash(args.spellId)
 end

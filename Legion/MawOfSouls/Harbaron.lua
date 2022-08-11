@@ -67,7 +67,8 @@ function mod:SummonShackledServitor(args)
 end
 
 function mod:CosmicScythe(args)
-	self:MessageOld(args.spellId, "orange", "alert")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alert")
 end
 
 do

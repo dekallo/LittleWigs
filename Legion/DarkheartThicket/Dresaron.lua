@@ -47,7 +47,8 @@ end
 --
 
 function mod:DownDraft(args)
-	self:MessageOld(args.spellId, "red", "warning")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "warning")
 	self:CDBar(args.spellId, 30) -- pull:20.8, 34.7 / hc pull:21.7, 30.3, 30.4 / m pull:21.8, 34.0, 35.2
 end
 

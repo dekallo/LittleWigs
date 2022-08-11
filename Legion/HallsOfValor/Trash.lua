@@ -104,7 +104,8 @@ end
 --
 
 function mod:Casts(args)
-	self:MessageOld(args.spellId, "red", "alarm")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "alarm")
 end
 
 do

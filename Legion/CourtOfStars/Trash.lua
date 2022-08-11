@@ -815,12 +815,14 @@ do
 end
 
 function mod:DisintegrationBeam(args)
-	self:MessageOld(args.spellId, "yellow", "long")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "long")
 	self:CastBar(args.spellId, 5)
 end
 
 function mod:EyeStorm(args)
-	self:MessageOld(args.spellId, "yellow", "long")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "long")
 	self:CastBar(args.spellId, 8)
 end
 

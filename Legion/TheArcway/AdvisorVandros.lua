@@ -61,7 +61,8 @@ function mod:AcceleratingBlastApplied(args)
 end
 
 function mod:ForceBomb(args)
-	self:MessageOld(args.spellId, "yellow", "info")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "info")
 	-- self:CDBar(args.spellId, 30) -- never in p1 long enough to get a second cast :\
 end
 
@@ -74,5 +75,6 @@ function mod:BanishInTime(args)
 	self:StopBar(202974) -- Force Bomb
 	blastCount = 1
 
-	self:MessageOld(args.spellId, "red", "long")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "long")
 end

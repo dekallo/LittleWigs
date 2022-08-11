@@ -48,6 +48,7 @@ function mod:StaticOverloadRemoved(args)
 end
 
 function mod:Disperse(args)
-	self:MessageOld(args.spellId, "orange", "info")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "info")
 end
 

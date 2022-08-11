@@ -52,7 +52,8 @@ end
 --
 
 function mod:CallTheSeas(args)
-	self:MessageOld(args.spellId, "yellow", "long")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "long")
 	self:Bar(args.spellId, 30) -- pull:20.5, 30.4, 30.3
 end
 
@@ -83,7 +84,8 @@ function mod:GroundSlam(args)
 end
 
 function mod:Quake(args)
-	self:MessageOld(args.spellId, "red", "alert")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "alert")
 	self:Bar(args.spellId, 21) -- pull:15.6, 21.9, 21.8, 21.8
 end
 

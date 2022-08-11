@@ -72,7 +72,8 @@ function mod:EssenceRemoved(args)
 end
 
 function mod:BloodCall(args)
-	self:MessageOld(args.spellId, "yellow", "long")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "long")
 	self:Bar(args.spellId, 30)
 end
 

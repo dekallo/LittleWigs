@@ -39,7 +39,8 @@ end
 --
 
 function mod:ParasiticGrowth(args)
-	self:MessageOld(args.spellId, "orange", "warning")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "warning")
 	self:Bar(args.spellId, 34)
 end
 
@@ -53,7 +54,8 @@ do
 		local t = GetTime()
 		if t-prev > 7 then
 			prev = t
-			self:MessageOld(args.spellId, "red", "alert")
+			self:Message(args.spellId, "red")
+			self:PlaySound(args.spellId, "alert")
 			self:Flash(args.spellId)
 		end
 	end

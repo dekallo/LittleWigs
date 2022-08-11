@@ -140,7 +140,8 @@ end
 
 function mod:BloodOfTheFatherApplied(args)
 	-- RIP
-	self:MessageOld(args.spellId, "red", "long")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "long")
 	self:TargetBar(args.spellId, 27, args.destName)
 end
 
@@ -166,7 +167,8 @@ do
 end
 
 function mod:ThrowSpear(args)
-	self:MessageOld(args.spellId, "yellow", "info")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "info")
 end
 
 do
@@ -199,7 +201,8 @@ do
 	end
 
 	function mod:AncestralKnowledge(args)
-		self:MessageOld(args.spellId, "orange", "alert")
+		self:Message(args.spellId, "orange")
+		self:PlaySound(args.spellId, "alert")
 		shieldCount = shieldCount + 1
 		if shieldCount > 3 then
 			self:CDBar(args.spellId, shieldTimers[shieldCount] or 25)
@@ -238,7 +241,8 @@ end
 -- Jarl Velbrand
 
 function mod:BerserkersRage(args)
-	self:MessageOld(args.spellId, "orange", "alarm")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "alarm")
 	self:TargetBar(args.spellId, 20, args.destName)
 end
 

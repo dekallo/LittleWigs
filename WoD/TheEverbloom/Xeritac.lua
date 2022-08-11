@@ -79,12 +79,14 @@ function mod:AddSpawn()
 end
 
 function mod:Consume(args)
-	self:MessageOld(args.spellId, "orange", "warning")
+	self:Message(args.spellId, "orange")
+	self:PlaySound(args.spellId, "warning")
 	self:Bar(args.spellId, 10)
 end
 
 function mod:Inhale(args)
-	self:MessageOld(args.spellId, "red", "info")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "info")
 end
 
 function mod:UNIT_TARGETABLE_CHANGED(_, unit)

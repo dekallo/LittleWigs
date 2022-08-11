@@ -68,7 +68,8 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 end
 
 function mod:StrikeOfTheMountain(args)
-	self:MessageOld(args.spellId, "red", "alarm")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "alarm")
 	self:Bar(args.spellId, 15.5)
 end
 

@@ -88,7 +88,8 @@ function mod:RunicBrandYou(args)
 end
 
 function mod:RadiantTempest(args)
-	self:MessageOld(args.spellId, "red", "long")
+	self:Message(args.spellId, "red")
+	self:PlaySound(args.spellId, "long")
 	self:CDBar(args.spellId, self:Mythic() and 80 or 56) -- hc pull:24.0 / m pull:8.0, 80.0
 end
 

@@ -47,7 +47,8 @@ end
 --
 
 function mod:Doom(args)
-	self:MessageOld(args.spellId, "yellow", "info")
+	self:Message(args.spellId, "yellow")
+	self:PlaySound(args.spellId, "info")
 	self:CDBar(args.spellId, 11)
 end
 
