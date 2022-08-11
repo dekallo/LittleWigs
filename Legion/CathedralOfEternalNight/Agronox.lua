@@ -90,7 +90,8 @@ function mod:PoisonousSpores(args)
 end
 
 function mod:TimberSmash(args)
-	self:MessageOld(args.spellId, "orange", "alarm", args.spellName)
+	self:Message(args.spellId, "orange", args.spellName)
+	self:PlaySound(args.spellId, "alarm")
 	self:Bar(args.spellId, 21.8)
 end
 

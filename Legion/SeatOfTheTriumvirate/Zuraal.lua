@@ -91,7 +91,8 @@ function mod:VoidTear(args)
 	self:StopBar(244602) -- Coalesced Void
 	self:StopBar(244433) -- Umbra Shift
 
-	self:MessageOld(args.spellId, "green", "long", args.spellName)
+	self:Message(args.spellId, "green", args.spellName)
+	self:PlaySound(args.spellId, "long")
 	self:Bar(args.spellId, 20)
 end
 
