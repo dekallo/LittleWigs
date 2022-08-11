@@ -87,11 +87,11 @@ function mod:Phoenix(args)
 end
 
 function mod:FlameStrike()
-	self:MessageOld(-5167, "red")
+	self:Message(-5167, "red")
 end
 
 function mod:ShockBarrier()
-	self:MessageOld(-5180, "yellow")
+	self:Message(-5180, "yellow")
 end
 
 function mod:Pyroblast(args)

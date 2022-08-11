@@ -44,11 +44,11 @@ end
 --
 
 function mod:SunStrike()
-	self:MessageOld(-2861, "yellow")
+	self:Message(-2861, "yellow")
 end
 
 function mod:SummonSunOrb()
-	self:MessageOld(-2862, "orange")
+	self:Message(-2862, "orange")
 end
 
 function mod:InfernoLeap(args)

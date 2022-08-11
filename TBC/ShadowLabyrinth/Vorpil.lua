@@ -41,7 +41,7 @@ end
 --
 
 function mod:DrawShadows()
-	self:MessageOld(-5267, "orange")
+	self:Message(-5267, "orange")
 	self:CDBar(-5267, 41)
 end
 

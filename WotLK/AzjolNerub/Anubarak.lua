@@ -50,7 +50,7 @@ function mod:UNIT_TARGETABLE_CHANGED(_, unit)
 	if UnitCanAttack("player", unit) then
 		self:MessageOld(-6359, "cyan", nil, CL.over:format(self:SpellName(-6359)))
 	else
-		self:MessageOld(-6359, "cyan")
+		self:Message(-6359, "cyan")
 		self:Bar(-6359, self:Normal() and 41 or 62)
 	end
 end
