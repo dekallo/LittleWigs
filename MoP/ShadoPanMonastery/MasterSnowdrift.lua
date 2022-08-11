@@ -94,7 +94,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 			self:MessageOld("stages", "green", "info", (CL.stage:format(2))..": "..mirror, 106747)
 			self:RegisterUnitEvent("UNIT_HEALTH", "StageWarn", "boss1")
 		else
-			self:MessageOld(106747, "green")
+			self:Message(106747, "green")
 		end
 	end
 end

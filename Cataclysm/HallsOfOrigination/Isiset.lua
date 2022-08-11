@@ -54,7 +54,7 @@ end
 --
 
 function mod:VeilOfSky()
-	self:MessageOld(74373, "yellow")
+	self:Message(74373, "yellow")
 	self:CDBar(74373, 60)
 end
 

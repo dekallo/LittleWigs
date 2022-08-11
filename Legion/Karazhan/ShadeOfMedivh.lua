@@ -97,7 +97,7 @@ do
 			local text = CL.you:format(self:SpellName(227615)) .. (frostbiteTarget and " - " .. CL.on:format(self:SpellName(227592), self:ColorName(frostbiteTarget)) or "")
 			self:MessageOld(227615, "orange", "alert", text)
 		else
-			self:MessageOld(227615, "red")
+			self:Message(227615, "red")
 		end
 	end
 

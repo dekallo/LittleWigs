@@ -40,6 +40,6 @@ function mod:SpellReflectionRemoved(args)
 end
 
 function mod:Frenzy()
-	self:MessageOld(48017, "red")
+	self:Message(48017, "red")
 end
 

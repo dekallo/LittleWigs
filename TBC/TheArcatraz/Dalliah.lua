@@ -41,7 +41,7 @@ function mod:Heal(args)
 end
 
 function mod:Whirlwind()
-	self:MessageOld(36175, "red")
+	self:Message(36175, "red")
 	self:CastBar(36175, 6)
 end
 

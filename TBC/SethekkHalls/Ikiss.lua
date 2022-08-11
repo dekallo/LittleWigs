@@ -72,7 +72,7 @@ do
 			if isOnMe then
 				self:TargetMessageOld(35032, isOnMe, "red", "alarm")
 			else
-				self:MessageOld(35032, "red")
+				self:Message(35032, "red")
 			end
 		end
 		isOnMe = nil

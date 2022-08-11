@@ -260,7 +260,7 @@ function mod:UNIT_SPELLCAST_SUCCEEDED(_, unit, _, spellId)
 			local remaining = (100 - UnitPower(unit)) * 0.68
 			self:CDBar(243111, remaining)
 		else
-			self:MessageOld(242989, "cyan")
+			self:Message(242989, "cyan")
 		end
 	end
 end

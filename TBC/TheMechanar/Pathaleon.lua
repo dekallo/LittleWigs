@@ -75,7 +75,7 @@ function mod:UNIT_HEALTH(event, unit)
 end
 
 function mod:NetherWraith()
-	self:MessageOld(35285, "red")
+	self:Message(35285, "red")
 end
 
 function mod:Domination(args)

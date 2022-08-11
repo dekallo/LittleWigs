@@ -34,5 +34,5 @@ end
 
 function mod:Shatter()
 	self:StopBar(50810)
-	self:MessageOld(50810, "orange")
+	self:Message(50810, "orange")
 end

@@ -34,7 +34,7 @@ end
 --
 
 function mod:ShadowNova()
-	self:MessageOld(39005, "red")
+	self:Message(39005, "red")
 end
 
 do

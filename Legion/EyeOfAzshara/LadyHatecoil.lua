@@ -104,7 +104,7 @@ end
 function mod:UNIT_SPELLCAST_SUCCEEDED(_, _, _, spellId)
 	-- Starts by using 196629 then randomly swaps to using 196634 (mythic)
 	if spellId == 196634 or spellId == 196629 then -- Monsoon
-		self:MessageOld(196610, "green")
+		self:Message(196610, "green")
 		self:CDBar(196610, 20)
 	end
 end
