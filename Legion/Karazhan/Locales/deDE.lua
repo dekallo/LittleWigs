@@ -34,6 +34,12 @@ if L then
 	--L.cc_desc = "Timers and alerts for crowd control on the dinner guests."
 end
 
+L = BigWigs:NewBossLocale("Moroes", "deDE")
+if L then
+	L.cc = "Kontrollverlust"
+	--L.cc_desc = "Timers and alerts for crowd control on the dinner guests."
+end
+
 L = BigWigs:NewBossLocale("Nightbane", "deDE")
 if L then
 	L.name = "Schrecken der Nacht"

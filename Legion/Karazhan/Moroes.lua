@@ -135,11 +135,11 @@ end
 
 do
 	local function scanCrowdControl(unitId)
-		for j = 1, #validCrowdControls do
-			local _, _, _, expires = mod:UnitDebuff(unitId, validCrowdControls[j])
+		for i = 1, #validCrowdControls do
+			local _, _, _, expires = mod:UnitDebuff(unitId, validCrowdControls[i])
 			if expires and expires > 0 then
 				local duration = expires - GetTime()
-				mod:TargetBar("cc", duration, mod:UnitName(unitId), validCrowdControls[j])
+				mod:TargetBar("cc", duration, mod:UnitName(unitId), validCrowdControls[i])
 			end
 		end
 	end
@@ -203,7 +203,7 @@ function mod:UNIT_HEALTH(event, unit)
 	if self:GetHealth(unit) < 65 or guestDeaths == 4 then
 		self:UnregisterUnitEvent(event, unit)
 		if guestDeaths < 4 then
-			self:Message(227872, "yellow", CL.soon:format(self:SpellName(227872)), 227872) -- Ghastly Purge Soon
+			self:Message(227872, "yellow", CL.soon:format(self:SpellName(227872))) -- Ghastly Purge Soon
 			self:PlaySound(227872, "info")
 		end
 	end
