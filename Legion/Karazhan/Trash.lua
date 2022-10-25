@@ -149,7 +149,7 @@ end
 do
 	local prev = 0
 	function mod:PenniesFromHeaven(args)
-		local t = GetTime()
+		local t = args.time
 		if t-prev > 1.5 then
 			prev = t
 			self:Message(args.spellId, "yellow", CL.casting:format(args.spellName))
@@ -163,7 +163,7 @@ end
 do
 	local prev = 0
 	function mod:Flashlight(args)
-		local t = GetTime()
+		local t = args.time
 		if t-prev > 1.5 then
 			prev = t
 			self:Message(args.spellId, "yellow")
@@ -207,7 +207,7 @@ end
 
 function mod:AlluredApplied(args)
 	if (args.amount >= 50 and args.amount % 5 == 0) and (self:Dispeller("magic", nil, args.spellId) or self:Me(args.destGUID)) then
-		self:NewStackMessage(args.spellId, "orange", args.destName, args.amount, 85) -- MC at 100 stacks
+		self:StackMessage(args.spellId, "orange", args.destName, args.amount, 85) -- MC at 100 stacks
 		self:PlaySound(args.spellId, "warning", nil, args.destName)
 	end
 end
@@ -242,8 +242,11 @@ end
 -- Chess Event
 
 function mod:RoyaltyApplied(args)
-	self:Message(args.spellId, "red", CL.buff_other:format(args.destName, args.spellName))
-	self:PlaySound(args.spellId, "info")
+	local unit = self:GetUnitIdByGUID(args.sourceGUID)
+	if unit and UnitAffectingCombat(unit) then
+		self:Message(args.spellId, "red", CL.buff_other:format(args.destName, args.spellName))
+		self:PlaySound(args.spellId, "info")
+	end
 end
 
 do
@@ -254,19 +257,19 @@ do
 			-- if the king just died, ignore all other piece deaths as the event is over
 			return
 		end
-		local remainingVulnerable = self:BarTimeLeft(self:SpellName(229495)) -- Vulnerable
+		local remainingVulnerable = self:BarTimeLeft(229495) -- Vulnerable
 		if remainingVulnerable > 0 then
 			-- we can't track Vulnerable refresh because it's a hidden aura, but if another add dies then 20s is added to the existing buff
-			self:Bar(229489, remainingVulnerable + 20, self:SpellName(229495)) -- Royality, Vulnerable
+			self:Bar(229489, remainingVulnerable + 20, 229495) -- Royality, Vulnerable
 		else
 			self:Message(229489, "green", CL.on:format(self:SpellName(229495), L.king)) -- Royality, Vulnerable
 			self:PlaySound(229489, "long") -- Royalty
-			self:Bar(229489, 20, self:SpellName(229495)) -- Royality, Vulnerable
+			self:Bar(229489, 20, 229495) -- Royality, Vulnerable
 		end
 	end
 
 	function mod:ChessEventOver(args)
 		timeKingDied = args.time
-		self:StopBar(self:SpellName(229495)) -- Vulnerable
+		self:StopBar(229495) -- Vulnerable
 	end
 end

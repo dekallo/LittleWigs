@@ -66,8 +66,8 @@ do
 	end
 
 	function mod:CHAT_MSG_RAID_BOSS_EMOTE(_, msg)
-		-- Emotes that don't have the unstable goods icon must be for delivery portals
-		if self:IsEngaged() and not msg:find("spell_Mage_Flameorb", nil, true) then
+		-- emotes that don't have the unstable goods spell ID must be for delivery portals
+		if self:IsEngaged() and not msg:find("346947", nil, true) then
 			-- portal spawns 5 seconds after the emote, then lasts for 30 seconds
 			self:Bar("delivery_portal", 5, CL.spawning:format(L.delivery_portal), L.delivery_portal_icon)
 			self:ScheduleTimer(deliveryPortalSpawned, 5)
@@ -108,11 +108,10 @@ do
 	local unstableGoodsContainer = {}
 	local barText
 
-	local function updateInstabilityBar(spellId)
+	local function updateInstabilityBar(spellId, currentTime)
 		if instabilityCount > 0 then
 			-- calculate duration based on the minimum time until a bomb explodes
 			local duration = 30
-			local currentTime = GetTime()
 			for _, expirationTime in pairs(unstableGoodsContainer) do
 				duration = min(expirationTime - currentTime, duration)
 			end
@@ -124,7 +123,7 @@ do
 
 			-- show new bar with updated duration
 			barText = CL.count:format(CL.explosion, instabilityCount)
-			mod:Bar(spellId, duration, barText, nil, 30)
+			mod:Bar(spellId, {duration, 30}, barText)
 		else
 			-- the last bomb has been delivered (or... it exploded)
 			mod:Message(spellId, "green", CL.over:format(mod:SpellName(346947))) -- Unstable Goods
@@ -147,14 +146,14 @@ do
 		if not unstableGoodsContainer[args.sourceGUID] then
 			instabilityCount = instabilityCount + 1
 			-- bombs explode after 30 seconds
-			unstableGoodsContainer[args.sourceGUID] = GetTime() + 30
-			updateInstabilityBar(args.spellId)
+			unstableGoodsContainer[args.sourceGUID] = args.time + 30
+			updateInstabilityBar(args.spellId, args.time)
 		end
 	end
 
 	function mod:InstabilityRemoved(args)
 		instabilityCount = instabilityCount - 1
 		unstableGoodsContainer[args.sourceGUID] = nil
-		updateInstabilityBar(args.spellId)
+		updateInstabilityBar(args.spellId, args.time)
 	end
 end
