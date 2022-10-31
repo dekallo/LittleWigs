@@ -35,6 +35,11 @@ jobs:
         if: always()
         uses: BigWigsMods/actions/gen-options@master
 
+      - name: Clean up common locale
+        if: always()
+        run: |
+          rm -r Core/Locales
+
       - name: Package
         uses: BigWigsMods/packager@master
         env:
