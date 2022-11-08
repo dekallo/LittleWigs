@@ -3,11 +3,7 @@ name: Package addon
 on:
   push:
     branches:
-      - master
-    tags:
-      - '*'
-    paths-ignore:
-      - '.github/**'
+      - prepatch2
 
 jobs:
   build:
