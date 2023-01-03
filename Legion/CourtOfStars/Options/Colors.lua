@@ -3,7 +3,8 @@ BigWigs:AddColors("Patrol Captain Gerdo", {
 	[207261] = "orange",
 	[207278] = "yellow",
 	[207806] = "yellow",
-	[207815] = "yellow",
+	[207815] = "cyan",
+	[215204] = {"blue","red"},
 	[219488] = "red",
 })
 
@@ -22,7 +23,7 @@ BigWigs:AddColors("Advisor Melandrus", {
 
 BigWigs:AddColors("Court of Stars Trash", {
 	[207979] = "orange",
-	[207980] = "yellow",
+	[207980] = {"blue","red"},
 	[209027] = "red",
 	[209033] = {"blue","orange","yellow"},
 	[209378] = "orange",
@@ -52,7 +53,7 @@ BigWigs:AddColors("Court of Stars Trash", {
 	[225100] = "yellow",
 	[397892] = "red",
 	[397897] = "red",
-	[397907] = {"blue","yellow"},
+	[397907] = {"blue","orange"},
 	["announce_buff_items"] = "cyan",
 	["spy_helper"] = {"cyan","green"},
 })
