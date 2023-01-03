@@ -472,8 +472,6 @@ do
 						local text = L.hints[clueId]
 						sendChatMessage(text, englishClueNames[clueId] ~= text and englishClueNames[clueId])
 					end
-					mod:Sync("clue", clueId)
-					break
 				end
 				mod:Sync("clue", clueId)
 				return
