@@ -1,11 +1,14 @@
 
 BigWigs:AddColors("Sadana Bloodfury", {
-	[153153] = "green",
-	[153240] = {"blue","yellow"},
-	[164974] = "orange",
+	[153094] = "orange",
+	[153153] = "cyan",
+	[153224] = "blue",
+	[153240] = "yellow",
+	[164974] = "red",
 })
 
 BigWigs:AddColors("Nhallish", {
+	[152792] = "purple",
 	[152801] = "yellow",
 	[152979] = "red",
 	[153067] = "orange",
@@ -25,11 +28,13 @@ BigWigs:AddColors("Ner'zhul", {
 
 BigWigs:AddColors("Shadowmoon Burial Grounds Trash", {
 	[152818] = "yellow",
+	[152819] = {"blue","yellow"},
 	[152964] = "red",
 	[153268] = "yellow",
 	[153395] = "red",
 	[156718] = "orange",
 	[394512] = "orange",
+	[398150] = {"blue","red"},
 	[398151] = "yellow",
 	[398206] = "red",
 })

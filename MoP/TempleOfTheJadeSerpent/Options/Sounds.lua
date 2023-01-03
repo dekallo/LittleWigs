@@ -14,11 +14,14 @@ BigWigs:AddSounds("Lorewalker Stonestep", {
 })
 
 BigWigs:AddSounds("Liu Flameheart", {
-	[106823] = "alarm",
-	[106841] = "alarm",
-	[107110] = "alert",
-	[118540] = "alert",
-	["stages"] = "info",
+	[106823] = "alert",
+	[106841] = "alert",
+	[106856] = "alarm",
+	[106864] = "alarm",
+	[107110] = {"alarm","underyou"},
+	[118540] = "underyou",
+	[396907] = "alarm",
+	["stages"] = {"info","long"},
 })
 
 BigWigs:AddSounds("Sha of Doubt", {
@@ -33,9 +36,12 @@ BigWigs:AddSounds("Temple of the Jade Serpent Trash", {
 	[396018] = {"alert","warning"},
 	[396020] = "alert",
 	[396073] = "warning",
+	[397878] = "long",
 	[397881] = "alarm",
 	[397889] = "alert",
 	[397899] = "alarm",
+	[397911] = {"alert","warning"},
 	[397914] = "alert",
+	[397931] = "alert",
 	[398300] = "alarm",
 })
