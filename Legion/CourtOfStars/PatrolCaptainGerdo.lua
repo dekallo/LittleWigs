@@ -72,7 +72,7 @@ function mod:Streetsweeper(args)
 end
 
 function mod:ArcaneLockdown(args)
-	self:Message(args.spellId, "yellow", args.spellName)
+	self:Message(args.spellId, "yellow")
 	self:PlaySound(args.spellId, "long")
 	self:Bar(args.spellId, 27.9)
 end
