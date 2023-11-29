@@ -43,17 +43,17 @@ end
 
 function mod:OnEngage()
 	local t = GetTime() -- TODO delete
+	debugLastCinder = t
+	debugLastGlacial = t
+	debugLastSpatial = t
+	debugLastBarCinder = 3.3
+	debugLastBarGlacial = 24.2
+	debugLastBarSpatial = 48.3
 	self:SetStage(1)
 	if self:Mythic() then
 		lastCinderboltStormCd = 3.3
 		lastGlacialFusionCd = 24.2
 		lastSpatialCompressionCd = 43.3
-		debugLastCinder = t
-		debugLastGlacial = t
-		debugLastSpatial = t
-		debugLastBarCinder = 3.3
-		debugLastBarGlacial = 24.2
-		debugLastBarSpatial = 48.3
 	end
 	self:CDBar(427899, 3.3) -- Cinderbolt Storm
 	self:CDBar(428082, 24.2) -- Glacial Fusion
