@@ -66,6 +66,11 @@ end
 
 -- Fungal Folly
 
+L = BigWigs:NewBossLocale("Lil Leacher", "zhTW")
+if L then
+	L.lil_leacher = "小溶解者"
+end
+
 L = BigWigs:NewBossLocale("Maulspike", "zhTW")
 if L then
 	L.maulspike = "厲刺"

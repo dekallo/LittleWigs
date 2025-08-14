@@ -66,6 +66,11 @@ end
 
 -- Fungal Folly
 
+L = BigWigs:NewBossLocale("Lil Leacher", "frFR")
+if L then
+	L.lil_leacher = "P'tite sangsue"
+end
+
 L = BigWigs:NewBossLocale("Maulspike", "frFR")
 if L then
 	L.maulspike = "Massepique"

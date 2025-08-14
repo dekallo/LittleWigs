@@ -157,6 +157,12 @@ BigWigs:AddSounds("Xel'anegh The Many", {
 	["stages"] = "info",
 })
 
+BigWigs:AddColors("Lil Leacher", {
+})
+
+BigWigs:AddSounds("Lil Leacher", {
+})
+
 BigWigs:AddColors("Maulspike", {
 	[1214614] = "purple",
 	[1214620] = "cyan",
